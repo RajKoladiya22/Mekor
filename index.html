@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+  <title>Mekor Pipe Pvt. Ltd. - Animated Navigation</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Header -->
+  <style>
+    /* Smooth width transition for the navbar */
+    #navbar {
+      transition: width 400ms cubic-bezier(0.23, 1, 0.32, 1),
+        box-shadow 300ms ease,
+        transform 300ms ease,
+        background-color 300ms ease;
+      width: 100%;
+    }
+
+    #navbar.scrolled {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      transform: translateY(-2px);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      background-color: rgba(255, 255, 255, 0.95);
+    }
+
+    /* Product dropdown hover effect for desktop */
+    @media (hover: hover) and (pointer: fine) {
+      .desktop-hover\:group-hover\:block {
+        display: none;
+      }
+
+      .group:hover .desktop-hover\:group-hover\:block {
+        display: block;
+      }
+    }
+
+    /* Hamburger animation */
+    .hamburger-line {
+      display: block;
+      height: 2px;
+      width: 24px;
+      background: currentColor;
+      margin: 4px 0;
+      transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      transform-origin: center;
+      color: rgba(0, 0, 0, 0.72);
+    }
+
+    .hamburger.active .hamburger-line:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active .hamburger-line:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active .hamburger-line:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    /* Mobile menu slide animation */
+    #mobileMenu {
+      transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      transform: translateY(-10px);
+      opacity: 0;
+    }
+
+    #mobileMenu.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Pulse animation for call button */
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    .pulse-animation {
+      animation: pulse 2s infinite;
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'mek-green': '#10b981',
+            'mek-red': '#ef4444',
+            'mek-blue': '#3b82f6',
+            'mek-gray': '#6b7280',
+            'brand-blue': '#0ea5e9',
+            'brand-dark': '#1e293b',
+            'brand-light': '#f1f5f9'
+          },
+          animation: {
+            'float': 'float 3s ease-in-out infinite',
+            'glow': 'glow 2s ease-in-out infinite alternate',
+            'slide-up': 'slideUp 0.6s ease-out forwards',
+            'fade-in': 'fadeIn 0.8s ease-out forwards',
+            'pulse-slow': 'pulse 3s ease-in-out infinite',
+            'slide-in-left': 'slideInLeft 0.8s ease-out forwards',
+            'slide-in-right': 'slideInRight 0.8s ease-out forwards',
+            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+            'scale-in': 'scaleIn 0.6s ease-out forwards',
+            'shimmer': 'shimmer 2s ease-in-out infinite',
+            'glow-pulse': 'glowPulse 2s ease-in-out infinite alternate'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- StickySection -->
+  <style>
+    .StickySection {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Backgrounds for each section */
+    .StickySection:nth-of-type(1) {
+      background-image: url('https://images.unsplash.com/photo-1485123263479-f5ea30a2f92d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1334&q=80');
+    }
+
+    .StickySection:nth-of-type(2) {
+      background-image: url('https://images.unsplash.com/photo-1571413666114-1e5d1f2bad15?ixlib=rb-1.2.1&auto=format&fit=crop&w=1652&q=80');
+    }
+
+    .StickySection:nth-of-type(3) {
+      background-image: url('https://images.unsplash.com/photo-1552224647-b3a8f931b3b8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80');
+    }
+
+    .StickySection:nth-of-type(4) {
+      background-image: url('https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80');
+    }
+
+    .title {
+      font-size: 5rem;
+      color: #fff;
+      -webkit-text-stroke: 1px #000;
+      text-stroke: 0.1px #000;
+      text-align: center;
+    }
+
+    @supports not (-webkit-text-stroke: 1px #000) {
+      .title {
+        /* Fallback for browsers without text-stroke support */
+        text-shadow:
+          3px 3px 0 #000,
+          -1px -1px 0 #000,
+          1px -1px 0 #000,
+          -1px 1px 0 #000,
+          1px 1px 0 #000;
+      }
+    }
+
+    .intro,
+    .outro {
+      padding: 2rem;
+      max-width: 60ch;
+      margin: 0 auto;
+      font-size: 1.2rem;
+    }
+  </style>
+
+
+
+
+
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header id="navbar" class="fixed top-4 left-0 right-0 z-50 px-4 sm:px-6">
+    <nav class="bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl shadow-lg px-4 sm:px-6 py-3">
+      <div class="flex items-center justify-between">
+        <!-- Logo Section -->
+        <div class="flex items-center gap-3">
+          <a href="#" class="flex items-center gap-3 group">
+            <div
+              class="w-12 h-12 bg-gradient-to-tr from-blue-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300">
+              <span class="text-white font-bold text-lg">L</span>
+            </div>
+            <div class="hidden sm:block">
+              <h1 class="text-xl font-bold text-gray-800">BrandName</h1>
+              <p class="text-xs text-gray-500">Your Tagline Here</p>
+            </div>
+          </a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden lg:flex items-center space-x-8">
+          <nav class="flex items-center space-x-6">
+            <a href="#" class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">
+              Home
+            </a>
+            <a href="#" class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">
+              About
+            </a>
+
+            <!-- Products Dropdown -->
+            <div class="relative group">
+              <button
+                class="flex items-center space-x-1 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">
+                <span class="text-gray-700">Products</span>
+                <svg class="text-gray-700 w-4 h-4 transition-transform duration-200 group-hover:rotate-180"
+                  stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              <!-- Dropdown Menu -->
+              <div
+                class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-72 desktop-hover:group-hover:block">
+                <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+                  <div class="p-6">
+                    <div class="grid grid-cols-1 gap-4">
+                      <div>
+                        <h4 class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">Our Products</h4>
+                        <div class="space-y-2">
+                          <a href="#"
+                            class="block px-3 py-2 rounded-lg text-sm text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200">Product
+                            A</a>
+                          <a href="#"
+                            class="block px-3 py-2 rounded-lg text-sm text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200">Product
+                            B</a>
+                          <a href="#"
+                            class="block px-3 py-2 rounded-lg text-sm text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200">Product
+                            C</a>
+                          <a href="#"
+                            class="block px-3 py-2 rounded-lg text-sm text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200">Product
+                            D</a>
+                        </div>
+                      </div>
+                      <div class="pt-4 border-t border-gray-100">
+                        <a href="#"
+                          class="flex items-center justify-center px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200">
+                          View All Products
+                          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                          </svg>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <a href="#"
+              class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">Services</a>
+            <a href="#"
+              class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">Contact</a>
+          </nav>
+        </div>
+
+        <!-- Desktop CTA Section -->
+        <div class="hidden lg:flex items-center space-x-4">
+          <!-- Phone Number -->
+          <a href="tel:+1234567890"
+            class="flex items-center space-x-2 text-sm font-semibold text-gray-800 hover:text-blue-600 transition-colors duration-200 pulse-animation">
+            <svg class="w-4 h-4 text-gray-700" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            <span class="text-gray-700">+1 (234) 567-890</span>
+          </a>
+
+          <!-- Contact Button -->
+          <a href="#"
+            class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-xl text-sm font-semibold shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5">
+            Contact Us
+          </a>
+        </div>
+
+        <!-- Mobile Hamburger -->
+        <button id="hamburgerBtn" class="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+          <div class="hamburger">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </div>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu"
+      class="lg:hidden mt-2 bg-white/95 backdrop-blur-sm border border-gray-200 rounded-2xl shadow-xl overflow-hidden hidden">
+      <div class="px-6 py-4 space-y-4">
+        <a href="#"
+          class="block py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">Home</a>
+        <a href="#"
+          class="block py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">About</a>
+
+        <!-- Mobile Products -->
+        <div>
+          <button id="mobileProductsBtn"
+            class="flex items-center justify-between w-full py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">
+            <span class="text-gray-700">Products</span>
+            <svg class="w-4 h-4 transition-transform duration-200" fill="" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div id="mobileProductsList" class="ml-4 mt-2 space-y-2 hidden">
+            <a href="#"
+              class="block py-1 text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200">Product A</a>
+            <a href="#"
+              class="block py-1 text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200">Product B</a>
+            <a href="#"
+              class="block py-1 text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200">Product C</a>
+            <a href="#"
+              class="block py-1 text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200">Product D</a>
+          </div>
+        </div>
+
+        <a href="#"
+          class="block py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">Services</a>
+        <a href="#"
+          class="block py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">Contact</a>
+
+        <!-- Mobile CTA -->
+        <div class="pt-4 border-t border-gray-200 space-y-3">
+          <a href="tel:+1234567890" class="flex items-center space-x-2 text-sm font-semibold text-blue-600">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            <span>Call Now: +1 (234) 567-890</span>
+          </a>
+          <a href="#"
+            class="block text-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl text-sm font-semibold transition-colors duration-200">
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div id="cursor"></div>
+  <!-- <div id="cursor-blur"></div> -->
+
+  <video autoplay muted loop class="fixed inset-0 w-full h-full object-cover z-[-1]">
+    <source src="assets/vid-2.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+
+  <main id="main">
+    <!-- Page 1 - Hero Section -->
+
+    <section id="HeroSection" class="relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative bg-white/75 backdrop-blur-sm rounded-2xl">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div data-aos="fade-right">
+            <h2 class="text-3xl sm:text-5xl font-extrabold">Precision in every pipe. Reliability in every connection.
+            </h2>
+            <p class="mt-4 text-slate-600 max-w-xl ">Leading manufacturer of high-performance industrial pipes.
+              Trusted
+              by wholesalers and distributors for certified quality and timely logistics.</p>
+
+            <div class="mt-6 flex gap-4">
+              <a href="#products"
+                class="cta-primary inline-flex items-center gap-3 bg-sky-600 text-white px-5 py-3 rounded-lg">View
+                Products</a>
+              <a href="#partner"
+                class="inline-flex items-center gap-3 border border-slate-200 px-5 py-3 rounded-lg">Become a
+                Distributor</a>
+            </div>
+
+            <!-- counters -->
+            <div class="mt-8 grid grid-cols-3 gap-4 max-w-md">
+              <div class="bg-white p-4 rounded-lg shadow-sm text-center" data-aos="fade-up">
+                <div class="counter" data-to="25">0</div>
+                <div class="text-xs text-muted uppercase">Years in Industry</div>
+              </div>
+              <div class="bg-white p-4 rounded-lg shadow-sm text-center" data-aos="fade-up" data-aos-delay="80">
+                <div class="counter" data-to="500">0</div>
+                <div class="text-xs text-muted uppercase">Distributors</div>
+              </div>
+              <div class="bg-white p-4 rounded-lg shadow-sm text-center" data-aos="fade-up" data-aos-delay="160">
+                <div class="counter" data-to="200000">0</div>
+                <div class="text-xs text-muted uppercase">Meters shipped / month</div>
+              </div>
+            </div>
+          </div>
+
+          <div data-aos="fade-left" class="flex justify-center lg:justify-end ">
+            <!-- product hero mockup -->
+            <div class="w-full max-w-md bg-white rounded-2xl p-6 shadow-lg card-hover">
+              <img src="assets/hero1.png" alt="Mekor pipe sample" class="w-full h-56 object-contain">
+              <div class="mt-4">
+                <h3 class="font-semibold">Mek Pneumos</h3>
+                <p class="mt-1 text-sm text-muted">Engineered for pneumatic systems. High pressure rating and low
+                  friction loss.</p>
+                <div class="mt-4 flex gap-2">
+                  <a href="#" class="text-sm underline">View specs</a>
+                  <a href="#" class="ml-auto inline-flex items-center gap-2 bg-slate-50 px-3 py-1 rounded">Download
+                    PDF</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <div id="phase_2"> // phase_2
+
+      <!-- Slider Section -->
+      <section id="scroller">
+        <div class="scroller-in">
+          <h6>Toptracer Range</h6>
+          <h6>Gold Lessons</h6>
+          <h6>Adventure Golf</h6>
+          <h6>Cafe</h6>
+          <h6>Events</h6>
+        </div>
+        <div class="scroller-in">
+          <h6>Toptracer Range</h6>
+          <h6>Gold Lessons</h6>
+          <h6>Adventure Golf</h6>
+          <h6>Cafe</h6>
+          <h6>Events</h6>
+        </div>
+      </section>
+
+
+
+      <!-- Product Categories -->
+      <section id="aboutus" class="py-20 parallax-bg relative overflow-hidden"> <!-- id="products" -->
+        <!-- Background decoration -->
+        <div class="absolute inset-0 opacity-5">
+          <div class="absolute top-10 left-10 w-32 h-32 bg-mek-blue rounded-full animate-float"></div>
+          <div class="absolute bottom-20 right-20 w-24 h-24 bg-mek-green rounded-full animate-float"
+            style="animation-delay: 1s;"></div>
+          <div class="absolute top-1/2 left-1/4 w-16 h-16 bg-mek-red rounded-full animate-float"
+            style="animation-delay: 2s;"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div class="text-center section-header">
+            <h3
+              class="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-gray-900 via-gray-800 to-gray-600 bg-clip-text text-transparent">
+              Explore Our Pipe Solutions
+            </h3>
+            <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Color-coded solutions for every industrial need. Designed for durability. Engineered for scale.
+            </p>
+            <div class="mt-8 w-24 h-1 bg-gradient-to-r from-mek-blue to-mek-green mx-auto rounded-full"></div>
+          </div>
+
+          <div class="mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-4">
+            <!-- Mek Green -->
+            <article
+              class="pipe-card bg-white rounded-3xl shadow-lg hover:shadow-2xl border border-gray-100 overflow-hidden grid-item group">
+              <div class="relative h-48 bg-gradient-to-br from-emerald-50 to-emerald-100 overflow-hidden">
+                <div class="pipe-image absolute inset-0 flex items-center justify-center">
+                  <svg class="w-32 h-32 text-mek-green opacity-80" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                  </svg>
+                </div>
+                <div
+                  class="absolute top-4 right-4 badge w-12 h-12 rounded-full bg-mek-green flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                  G
+                </div>
+              </div>
+              <div class="p-6">
+                <h4 class="text-xl font-bold text-gray-900 mb-2">Mek Green</h4>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                  Eco-friendly durable PVC pipes for general industrial and civil applications.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
+                  <a class="text-mek-green font-semibold hover:text-emerald-700 transition-colors text-sm underline decoration-2 underline-offset-2"
+                    href="#">
+                    View sizes
+                  </a>
+                  <button
+                    class="ml-auto bg-gray-50 hover:bg-gray-100 px-4 py-2 rounded-lg text-sm font-medium text-gray-700 transition-all duration-200 hover:shadow-md">
+                    📋 Datasheet
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Mek Blaze -->
+            <article
+              class="pipe-card bg-white rounded-3xl shadow-lg hover:shadow-2xl border border-gray-100 overflow-hidden grid-item group">
+              <div class="relative h-48 bg-gradient-to-br from-red-50 to-red-100 overflow-hidden">
+                <div class="pipe-image absolute inset-0 flex items-center justify-center">
+                  <svg class="w-32 h-32 text-mek-red opacity-80" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM12 20c-3.31 0-6-2.69-6-6 0-1.66.67-3.16 1.76-4.24l1.42 1.42C8.45 11.9 8 12.9 8 14c0 2.21 1.79 4 4 4s4-1.79 4-4c0-1.1-.45-2.1-1.18-2.82l1.42-1.42C17.33 10.84 18 12.34 18 14c0 3.31-2.69 6-6 6z" />
+                  </svg>
+                </div>
+                <div
+                  class="absolute top-4 right-4 badge w-12 h-12 rounded-full bg-mek-red flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                  B
+                </div>
+              </div>
+              <div class="p-6">
+                <h4 class="text-xl font-bold text-gray-900 mb-2">Mek Blaze</h4>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                  High-heat resistant pipes ideal for industrial and firefighting systems.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
+                  <a class="text-mek-red font-semibold hover:text-red-700 transition-colors text-sm underline decoration-2 underline-offset-2"
+                    href="#">
+                    View sizes
+                  </a>
+                  <button
+                    class="ml-auto bg-gray-50 hover:bg-gray-100 px-4 py-2 rounded-lg text-sm font-medium text-gray-700 transition-all duration-200 hover:shadow-md">
+                    📋 Datasheet
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Mek Pneumos -->
+            <article
+              class="pipe-card bg-white rounded-3xl shadow-lg hover:shadow-2xl border border-gray-100 overflow-hidden grid-item group">
+              <div class="relative h-48 bg-gradient-to-br from-blue-50 to-blue-100 overflow-hidden">
+                <div class="pipe-image absolute inset-0 flex items-center justify-center">
+                  <svg class="w-32 h-32 text-mek-blue opacity-80" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6M12,8A4,4 0 0,0 8,12A4,4 0 0,0 12,16A4,4 0 0,0 16,12A4,4 0 0,0 12,8Z" />
+                  </svg>
+                </div>
+                <div
+                  class="absolute top-4 right-4 badge w-12 h-12 rounded-full bg-mek-blue flex items-center justify-center text-white font-bold text-lg shadow-lg animate-glow">
+                  P
+                </div>
+              </div>
+              <div class="p-6">
+                <h4 class="text-xl font-bold text-gray-900 mb-2">Mek Pneumos</h4>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                  Optimized for compressed air and pneumatic systems. Low leakage and high pressure rating.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
+                  <a class="text-mek-blue font-semibold hover:text-blue-700 transition-colors text-sm underline decoration-2 underline-offset-2"
+                    href="#">
+                    View sizes
+                  </a>
+                  <button
+                    class="ml-auto bg-gray-50 hover:bg-gray-100 px-4 py-2 rounded-lg text-sm font-medium text-gray-700 transition-all duration-200 hover:shadow-md">
+                    📋 Datasheet
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- White Pipes -->
+            <article
+              class="pipe-card bg-white rounded-3xl shadow-lg hover:shadow-2xl border border-gray-100 overflow-hidden grid-item group">
+              <div class="relative h-48 bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
+                <div class="pipe-image absolute inset-0 flex items-center justify-center">
+                  <svg class="w-32 h-32 text-gray-400 opacity-80" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,7V9H13V7H11M11,11V17H13V11H11Z" />
+                  </svg>
+                </div>
+                <div
+                  class="absolute top-4 right-4 badge w-12 h-12 rounded-full bg-white border-2 border-gray-300 flex items-center justify-center text-gray-700 font-bold text-lg shadow-lg">
+                  W
+                </div>
+              </div>
+              <div class="p-6">
+                <h4 class="text-xl font-bold text-gray-900 mb-2">White Pipes</h4>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                  Standard multi-purpose pipes for everyday industrial use and utilities.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
+                  <a class="text-gray-700 font-semibold hover:text-gray-900 transition-colors text-sm underline decoration-2 underline-offset-2"
+                    href="#">
+                    View sizes
+                  </a>
+                  <button
+                    class="ml-auto bg-gray-50 hover:bg-gray-100 px-4 py-2 rounded-lg text-sm font-medium text-gray-700 transition-all duration-200 hover:shadow-md">
+                    📋 Datasheet
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Additional Info Bar -->
+          <div class="mt-16 text-center">
+            <div class="inline-flex items-center gap-6 bg-white/80 backdrop-blur-sm px-8 py-4 rounded-full shadow-lg">
+              <span class="text-sm font-medium text-gray-600">🏭 Industrial Grade</span>
+              <div class="w-1 h-6 bg-gray-300"></div>
+              <span class="text-sm font-medium text-gray-600">🔧 Easy Installation</span>
+              <div class="w-1 h-6 bg-gray-300"></div>
+              <span class="text-sm font-medium text-gray-600">✅ Quality Assured</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+      <section class="py-12 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="text-3xl font-bold text-center mb-8">Our Product Quality</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+
+            <!-- Feature card -->
+            <div
+              class="group flex flex-col items-center text-center p-6 bg-white rounded-lg shadow hover:shadow-lg transition duration-300">
+              <!-- Replace with actual fire-resistant icon -->
+              <svg xmlns="http://www.w3.org/2000/svg"
+                class="h-12 w-12 text-red-500 mb-4 group-hover:scale-110 transition-transform duration-300" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor">
+                <!-- svg path -->
+              </svg>
+              <h3 class="text-lg font-semibold">Fire Resistant</h3>
+            </div>
+
+            <div
+              class="group flex flex-col items-center text-center p-6 bg-white rounded-lg shadow hover:shadow-lg transition duration-300">
+              <!-- Replace with high-pressure icon -->
+              <svg class="h-12 w-12 text-blue-500 mb-4 group-hover:scale-110 transition-transform duration-300"
+                fill="currentColor"><!-- svg path --></svg>
+              <h3 class="text-lg font-semibold">High Pressure Ability</h3>
+            </div>
+
+            <div
+              class="group flex flex-col items-center text-center p-6 bg-white rounded-lg shadow hover:shadow-lg transition duration-300">
+              <!-- Replace with bacteria icon -->
+              <svg class="h-12 w-12 text-green-500 mb-4 group-hover:scale-110 transition-transform duration-300"
+                fill="currentColor"><!-- svg path --></svg>
+              <h3 class="text-lg font-semibold">No Bacterial Growth</h3>
+            </div>
+
+            <div
+              class="group flex flex-col items-center text-center p-6 bg-white rounded-lg shadow hover:shadow-lg transition duration-300">
+              <!-- Replace with heat-resistant icon -->
+              <svg class="h-12 w-12 text-orange-500 mb-4 group-hover:scale-110 transition-transform duration-300"
+                fill="currentColor"><!-- svg path --></svg>
+              <h3 class="text-lg font-semibold">Heat Resistant</h3>
+            </div>
+
+            <div
+              class="group flex flex-col items-center text-center p-6 bg-white rounded-lg shadow hover:shadow-lg transition duration-300">
+              <!-- Replace with corrosion icon -->
+              <svg class="h-12 w-12 text-gray-700 mb-4 group-hover:scale-110 transition-transform duration-300"
+                fill="currentColor"><!-- svg path --></svg>
+              <h3 class="text-lg font-semibold">No Corrosion</h3>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+
+      <!-- Compnay Presentetion -->
+      <section>
+        <div class="StickySection">
+
+          <svg preserveAspectRatio="xMidYMid meet" data-bbox="2.665 2.667 10.667 10.666"
+            xmlns="http://www.w3.org/2000/svg" viewBox="2.665 2.667 10.667 10.666" height="16" width="16"
+            data-type="color" role="presentation" aria-hidden="true" aria-label="">
+            <defs>
+              <style>
+                #comp-mdbpnpq6 svg [data-color="1"] {
+                  fill: #FFFFFF;
+                }
+              </style>
+            </defs>
+            <g>
+              <path fill="#343434" d="M7.999 2.667 13.332 8l-5.333 5.333H2.665V2.667z" data-color="1"></path>
+            </g>
+          </svg>
+          <span>Why Choose Mekor</span>
+
+          <h3>
+            Global projects choose Mekor for certified systems, full-spectrum supply, and export-ready coordination.
+          </h3>
+
+          <p>
+            Infrastructure teams worldwide choose Mekor for its certified, system-based supply approach that goes
+            beyond standalone products. We deliver complete, application-specific systems—pipes, fittings, valves, and
+            accessories—backed by international certifications like ISO, WRAS, BIS, and ASTM, with full traceability.
+            Our export-ready coordination ensures seamless documentation, customs clearance, and compliance with project
+            specs. With global delivery tailored to local regulations, Mekor is the trusted partner for infrastructure
+            projects from Europe to Africa and the Middle East.
+          </p>
+        </div>
+        <div class="StickySection">
+          <svg preserveAspectRatio="xMidYMid meet" data-bbox="2.665 2.667 10.667 10.666"
+            xmlns="http://www.w3.org/2000/svg" viewBox="2.665 2.667 10.667 10.666" height="16" width="16"
+            data-type="color" role="presentation" aria-hidden="true" aria-label="">
+            <defs>
+              <style>
+                #comp-mdbpnpq6 svg [data-color="1"] {
+                  fill: #FFFFFF;
+                }
+              </style>
+            </defs>
+            <g>
+              <path fill="#343434" d="M7.999 2.667 13.332 8l-5.333 5.333H2.665V2.667z" data-color="1"></path>
+            </g>
+          </svg>
+          <span>About the Mekor</span>
+
+          <h3>
+            Global Systems Supplier for Infrastructure Projects
+          </h3>
+
+          <p>
+            Mekor is a certified infrastructure material supplier serving global contractors, sourcing teams, and
+            institutional buyers. We don’t trade products—we deliver complete, project-ready systems built for
+            reliability, compliance, and scale. Our portfolio spans thermoplastic and metallic piping, valves, fittings,
+            HVAC and fire systems, geosynthetics, and more. Every batch is export-compliant and traceable.
+
+            ​
+
+            We operate across Western Europe, North America, MENA, Africa, Latin America, Southeast Asia, and island
+            nations—supplying what builds the world.
+          </p>
+        </div>
+
+      </section>
+
+
+
+      <!-- Category Cards Section -->
+      <section id="quality"
+        class="py-20 bg-gradient-to-br from-slate-50 via-blue-50/30 to-white relative overflow-hidden">
+        <!-- Floating background elements -->
+        <!-- <div class="floating-icon top-20 left-10 w-16 h-16 text-brand-blue">
+          <svg fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+          </svg>
+        </div>
+
+        <div class="floating-icon top-32 right-20 w-12 h-12 text-emerald-400">
+          <svg fill="currentColor" viewBox="0 0 24 24">
+            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+
+        <div class="floating-icon bottom-32 left-1/4 w-20 h-20 text-amber-400">
+          <svg fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+          </svg>
+        </div> -->
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid lg:grid-cols-2 gap-12 xl:gap-16 items-center">
+            <!-- Content Section -->
+            <div class="content-left space-y-8">
+              <div>
+                <h3 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+                  Built to <span
+                    class="bg-gradient-to-r from-brand-blue to-blue-600 bg-clip-text text-transparent">Last</span>.
+                  <br>
+                  Tested to <span
+                    class="bg-gradient-to-r from-emerald-500 to-teal-600 bg-clip-text text-transparent">Perform</span>.
+                </h3>
+                <p class="mt-6 text-lg text-gray-600 leading-relaxed">
+                  Every Mekor Pipe undergoes stringent quality control, durability testing, and thermal resistance
+                  verification to meet industry standards and exceed expectations.
+                </p>
+              </div>
+
+              <!-- Quality Features -->
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div class="feature-item quality-badge bg-white p-4 rounded-2xl shadow-lg border border-gray-100">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                      <svg class="w-5 h-5 text-brand-blue" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 class="font-semibold text-gray-900">ISO 9001:2015</h4>
+                      <p class="text-sm text-gray-600">Certified Quality</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="feature-item quality-badge bg-white p-4 rounded-2xl shadow-lg border border-gray-100">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center">
+                      <svg class="w-5 h-5 text-emerald-600" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                          d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016zM12 9v2.5a2.5 2.5 0 11-5 0V9a5 5 0 1110 0z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 class="font-semibold text-gray-900">Leak-proof</h4>
+                      <p class="text-sm text-gray-600">100% Tested</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="feature-item quality-badge bg-white p-4 rounded-2xl shadow-lg border border-gray-100">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
+                      <svg class="w-5 h-5 text-orange-600" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                          d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 class="font-semibold text-gray-900">Heat Resistance</h4>
+                      <p class="text-sm text-gray-600">Thermal Tested</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="feature-item quality-badge bg-white p-4 rounded-2xl shadow-lg border border-gray-100">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
+                      <svg class="w-5 h-5 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                          d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 class="font-semibold text-gray-900">Long-life</h4>
+                      <p class="text-sm text-gray-600">Guarantee</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CTA Button -->
+              <div class="pt-4">
+                <button
+                  class="cta-button inline-flex items-center gap-3 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-lg relative z-10">
+                  <span>Learn about our process</span>
+                  <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Quality Stats -->
+              <div class="flex flex-wrap gap-6 pt-6 border-t border-gray-200">
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-brand-blue">99.9%</div>
+                  <div class="text-sm text-gray-600">Quality Rate</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-emerald-600">25+</div>
+                  <div class="text-sm text-gray-600">Years Experience</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-purple-600">1M+</div>
+                  <div class="text-sm text-gray-600">Pipes Tested</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Video Section -->
+            <div class="content-right">
+              <div class="video-container relative">
+                <!-- Fallback with factory visualization -->
+                <div
+                  class="w-full h-80 lg:h-96 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 flex items-center justify-center relative overflow-hidden">
+                  <!-- Animated factory illustration -->
+                  <div class="absolute inset-0 opacity-20">
+                    <div class="absolute top-1/4 left-1/4 w-16 h-16 bg-brand-blue rounded-full animate-pulse-slow">
+                    </div>
+                    <div class="absolute top-1/3 right-1/3 w-12 h-12 bg-emerald-400 rounded-full animate-pulse-slow"
+                      style="animation-delay: 1s;"></div>
+                    <div class="absolute bottom-1/3 left-1/2 w-20 h-20 bg-amber-400 rounded-full animate-pulse-slow"
+                      style="animation-delay: 2s;"></div>
+                  </div>
+
+                  <!-- Factory icon -->
+                  <div class="relative z-10 text-center">
+                    <svg class="w-24 h-24 text-white/80 mx-auto mb-4 animate-float" fill="currentColor"
+                      viewBox="0 0 24 24">
+                      <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm5 15h-2v-4H9v4H7v-6H5.83L12 6.17 18.17 12H17v6z" />
+                    </svg>
+                    <h4 class="text-xl font-semibold text-white mb-2">Quality Manufacturing Process</h4>
+                    <p class="text-gray-300 text-sm">Advanced testing and quality control in action</p>
+                  </div>
+
+                  <!-- Play button overlay -->
+                  <div
+                    class="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 hover:opacity-100 transition-opacity duration-300 cursor-pointer">
+                    <div
+                      class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm animate-glow-pulse">
+                      <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Quality badges overlay -->
+                <div
+                  class="absolute -bottom-4 -right-4 bg-white p-3 rounded-full shadow-xl border-4 border-emerald-100 animate-glow-pulse">
+                  <svg class="w-8 h-8 text-emerald-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Contact Section -->
+      <section class="py-12 bg-gray-100">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col lg:flex-row gap-8">
+
+          <!-- Left: Contact Form -->
+          <div class="flex-1 bg-white p-6 rounded-lg shadow">
+            <h2 class="text-2xl font-bold mb-4">Contact Us</h2>
+            <form id="contactForm" class="space-y-4">
+              <input type="text" name="name" id="name" placeholder="Your Name" required
+                class="w-full px-4 py-2 border rounded" />
+              <input type="email" name="email" id="email" placeholder="Your Email" required
+                class="w-full px-4 py-2 border rounded" />
+              <textarea name="message" id="message" placeholder="Your Message" rows="4" required
+                class="w-full px-4 py-2 border rounded"></textarea>
+              <button type="submit"
+                class="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition">Send</button>
+              <p id="formStatus" class="text-sm mt-2"></p>
+            </form>
+          </div>
+
+          <!-- Right: Contact Info -->
+          <div class="flex-1 space-y-4">
+            <!-- Phone -->
+            <div class="bg-white p-4 rounded-lg shadow hover:bg-green-50 transition">
+              <h3 class="font-semibold">Contact Number</h3>
+              <p>+91 12345-67890</p>
+            </div>
+            <!-- Email -->
+            <div class="bg-white p-4 rounded-lg shadow hover:bg-green-50 transition">
+              <h3 class="font-semibold">Email</h3>
+              <p>info@example.com</p>
+            </div>
+            <!-- Social -->
+            <div class="bg-white p-4 rounded-lg shadow hover:bg-green-50 transition">
+              <h3 class="font-semibold mb-2">Follow Us</h3>
+              <div class="flex space-x-4">
+                <!-- Replace with real social icon markup -->
+                <a href="#" class="text-blue-600 hover:text-blue-800">Facebook</a>
+                <a href="#" class="text-blue-400 hover:text-blue-600">Twitter</a>
+                <a href="#" class="text-pink-600 hover:text-pink-800">Instagram</a>
+              </div>
+            </div>
+            <!-- Map + Address -->
+            <div class="bg-white p-4 rounded-lg shadow hover:bg-green-50 transition">
+              <h3 class="font-semibold mb-2">Our Location</h3>
+              <div class="w-full h-40 mb-2">
+                <!-- Embed your Google map iframe -->
+                <iframe src="https://maps.google.com/maps?q=Surat%20Gujarat&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  class="w-full h-full rounded" loading="lazy"></iframe>
+              </div>
+              <p>123 Business Street, Surat, Gujarat, India</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <script>
+        // JS: submit form to Google Apps Script endpoint
+        const form = document.getElementById('contactForm');
+        const status = document.getElementById('formStatus');
+        form.addEventListener('submit', e => {
+          e.preventDefault();
+          status.textContent = 'Sending...';
+          fetch('YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL', {
+            method: 'POST',
+            body: new FormData(form)
+          })
+            .then(r => r.text())
+            .then(text => {
+              status.textContent = text || 'Submitted';
+              form.reset();
+            })
+            .catch(err => {
+              console.error(err);
+              status.textContent = 'Error submitting';
+            });
+        });
+      </script>
+
+
+      <!-- Footer -->
+      <footer class="bg-gray-800 text-gray-200 py-10">
+        <div class="max-w-7xl mx-auto px-4 space-y-10 md:space-y-0 md:flex md:justify-between">
+
+          <!-- Logo & Intro -->
+          <div class="md:flex-1">
+            <img src="YOUR_LOGO_URL" alt="Logo" class="h-12 mb-4">
+            <p class="text-sm">Brief introduction. Keep it concise and informative.</p>
+          </div>
+
+          <!-- Navigation -->
+          <nav class="md:flex-1">
+            <h3 class="font-semibold mb-2">Navigation</h3>
+            <ul class="space-y-1 text-sm">
+              <li><a href="#" class="hover:underline">Home</a></li>
+              <li><a href="#" class="hover:underline">Products</a></li>
+              <li><a href="#" class="hover:underline">About Us</a></li>
+              <li><a href="#" class="hover:underline">Contact Us</a></li>
+            </ul>
+          </nav>
+
+          <!-- Quick Links -->
+          <div class="md:flex-1">
+            <h3 class="font-semibold mb-2">Quick Links</h3>
+            <ul class="space-y-1 text-sm">
+              <li><a href="#" class="hover:underline">Blog</a></li>
+              <li><a href="#" class="hover:underline">FAQs</a></li>
+              <li><a href="#" class="hover:underline">Support</a></li>
+              <li><a href="#" class="hover:underline">Careers</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact List -->
+          <div class="md:flex-1">
+            <h3 class="font-semibold mb-2">Contact</h3>
+            <ul class="space-y-1 text-sm">
+              <li>Email: <a href="mailto:info@example.com" class="hover:underline">info@example.com</a></li>
+              <li>Phone: <a href="tel:+911234567890" class="hover:underline">+91 12345 67890</a></li>
+              <li>WhatsApp: <a href="https://wa.me/YOUR_NUMBER" target="_blank" class="hover:underline">Message us</a>
+              </li>
+              <li>Address: 123 Street, City, Gujarat, India</li>
+            </ul>
+          </div>
+
+          <!-- Legal + Subscribe + Brochure -->
+          <div class="md:flex-1 space-y-4">
+            <div class="text-sm space-x-4">
+              <a href="#" class="hover:underline">Terms & Conditions</a>
+              <a href="#" class="hover:underline">Privacy Policy</a>
+            </div>
+            <div>
+              <label for="waSubscribe" class="block text-sm font-semibold mb-1">Subscribe to WhatsApp Channel</label>
+              <div class="flex">
+                <input id="waSubscribe" type="text" placeholder="Your Number"
+                  class="flex-1 px-3 py-2 rounded-l bg-gray-700 border-gray-600 text-gray-100 text-sm focus:outline-none">
+                <button id="waSubBtn"
+                  class="px-4 py-2 bg-green-600 hover:bg-green-700 rounded-r text-sm">Subscribe</button>
+              </div>
+            </div>
+            <div>
+              <a href="BROCHURE_URL" download
+                class="inline-block px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded text-sm">
+                Download Brochure
+              </a>
+            </div>
+          </div>
+
+        </div>
+        <div class="mt-8 border-t border-gray-700 pt-4 text-center text-xs text-gray-500">
+          © 2025 Your Company. All rights reserved.
+        </div>
+      </footer>
+
+
+
+    </div>
+
+  </main>
+
+  <!-- HEADER -->
+  <script>
+    // Elements
+    const navbar = document.getElementById('navbar');
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileProductsBtn = document.getElementById('mobileProductsBtn');
+    const mobileProductsList = document.getElementById('mobileProductsList');
+
+    // Scroll effect for navbar width
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile menu toggle
+    hamburgerBtn.addEventListener('click', () => {
+      const hamburger = hamburgerBtn.querySelector('.hamburger');
+      hamburger.classList.toggle('active');
+
+      if (mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.remove('hidden');
+        setTimeout(() => mobileMenu.classList.add('show'), 10);
+      } else {
+        mobileMenu.classList.remove('show');
+        setTimeout(() => mobileMenu.classList.add('hidden'), 300);
+      }
+    });
+
+    // Mobile products dropdown
+    mobileProductsBtn.addEventListener('click', () => {
+      const icon = mobileProductsBtn.querySelector('svg');
+      icon.style.transform = mobileProductsList.classList.contains('hidden') ? 'rotate(180deg)' : 'rotate(0deg)';
+      mobileProductsList.classList.toggle('hidden');
+    });
+
+    // Close mobile menu on resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 1024) {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('show');
+        hamburgerBtn.querySelector('.hamburger').classList.remove('active');
+        mobileProductsList.classList.add('hidden');
+      }
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!navbar.contains(e.target) && !mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.remove('show');
+        setTimeout(() => mobileMenu.classList.add('hidden'), 300);
+        hamburgerBtn.querySelector('.hamburger').classList.remove('active');
+      }
+    });
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"
+    integrity="sha512-f6bQMg6nkSRw/xfHw5BCbISe/dJjXrVGfz9BSDwhZtiErHwk7ifbmBEtF9vFW8UNIQPhV2uEFVyI/UHob9r7Cw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js"
+    integrity="sha512-AcqPGqrrAEtEwe+ADO5R8RbdFi7tuU7b/A2cJJH0Im0D18NRk5p5s4B3E5PMuO81KFw0ClN7J5SHVUJz7KOb0A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="script.js"></script>
+
+  <!-- PRODUCT -->
+  <script>
+    // Enhanced parallax effect
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const section = document.getElementById('products');
+      const rate = scrolled * -0.5;
+
+      if (section) {
+        section.style.transform = `translateY(${rate}px)`;
+      }
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe all grid items
+    document.querySelectorAll('.grid-item').forEach(item => {
+      observer.observe(item);
+    });
+
+    // Add mouse move effect for cards
+    document.querySelectorAll('.pipe-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = (y - centerY) / 10;
+        const rotateY = (centerX - x) / 10;
+
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-12px) scale(1.02)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px) scale(1)';
+      });
+    });
+  </script>
+
+
+  <!-- QUALITY -->
+  <!-- <script>
+        // Intersection Observer for animations (quality section)
+        const qualityObserverOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const qualityObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Animate feature items
+                    const featureItems = entry.target.querySelectorAll('.feature-item');
+                    featureItems.forEach((item, index) => {
+                        setTimeout(() => {
+                            item.classList.add('animate');
+                        }, index * 100);
+                    });
+                }
+            });
+        }, qualityObserverOptions);
+
+        // Observe the quality section
+        qualityObserver.observe(document.getElementById('quality'));
+
+        // Add parallax effect to floating icons
+        window.addEventListener('scroll', () => {
+            const scrollY = window.pageYOffset;
+            const floatingIcons = document.querySelectorAll('.floating-icon');
+            
+            floatingIcons.forEach((icon, index) => {
+                const speed = 0.5 + (index * 0.2);
+                const yPos = -(scrollY * speed);
+                icon.style.transform = `translateY(${yPos}px)`;
+            });
+        });
+
+        // Add mouse move effect for video container
+        const videoContainer = document.querySelector('.video-container');
+        if (videoContainer) {
+            videoContainer.addEventListener('mousemove', (e) => {
+                const rect = videoContainer.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+                
+                videoContainer.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+            });
+            
+            videoContainer.addEventListener('mouseleave', () => {
+                videoContainer.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+            });
+        }
+
+        // Add click effect to quality badges
+        document.querySelectorAll('.quality-badge').forEach(badge => {
+            badge.addEventListener('click', () => {
+                badge.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    badge.style.transform = '';
+                }, 150);
+            });
+        });
+    </script> -->
+</body>
+
+</html>

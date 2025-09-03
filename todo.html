@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seasonal Sticky Sections</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Permanent Marker', cursive;
+      line-height: 1.5;
+    }
+
+    .section {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Backgrounds for each section */
+    .section:nth-of-type(1) {
+      background-image: url('https://images.unsplash.com/photo-1485123263479-f5ea30a2f92d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1334&q=80');
+    }
+    .section:nth-of-type(2) {
+      background-image: url('https://images.unsplash.com/photo-1571413666114-1e5d1f2bad15?ixlib=rb-1.2.1&auto=format&fit=crop&w=1652&q=80');
+    }
+    .section:nth-of-type(3) {
+      background-image: url('https://images.unsplash.com/photo-1552224647-b3a8f931b3b8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80');
+    }
+    .section:nth-of-type(4) {
+      background-image: url('https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80');
+    }
+
+    .title {
+      font-size: 5rem;
+      color: #fff;
+      -webkit-text-stroke: 1px #000;
+      text-stroke: 0.1px #000;
+      text-align: center;
+    }
+
+    @supports not (-webkit-text-stroke: 1px #000) {
+      .title {
+        /* Fallback for browsers without text-stroke support */
+        text-shadow:
+          3px 3px 0 #000,
+          -1px -1px 0 #000,
+          1px -1px 0 #000,
+          -1px 1px 0 #000,
+          1px 1px 0 #000;
+      }
+    }
+
+    .intro, .outro {
+      padding: 2rem;
+      max-width: 60ch;
+      margin: 0 auto;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="intro">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit... (your intro content here)</p>
+  </div>
+
+  <section class="section">
+    <h2 class="title">Winter</h2>
+  </section>
+  <section class="section">
+    <h2 class="title">Spring</h2>
+  </section>
+  <section class="section">
+    <h2 class="title">Summer</h2>
+  </section>
+  <section class="section">
+    <h2 class="title">Autumn</h2>
+  </section>
+
+  <div class="outro">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit... (your outro content here)</p>
+  </div>
+
+</body>
+</html>
