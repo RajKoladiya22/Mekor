@@ -7,9 +7,6 @@ document.addEventListener("mousemove", function (dets) {
   cursorBlur.style.top = dets.y - 200 + "px";
 });
 
-
-
-
 // Cursor Hover Effects on Navigation
 var navh4 = document.querySelectorAll("#nav h6");
 navh4.forEach(function (elem) {
@@ -23,37 +20,17 @@ navh4.forEach(function (elem) {
   });
 });
 
-
-// Nav shrinking on scroll
-gsap.to("#nav", {
-  backgroundColor: "black",
-  height: "5px",
-  // padding: "40px 0px 40px 110px",
-  duration: 0.5,
-  scrollTrigger: {
-    trigger: "#nav",
-    scroller: "body",
-    start: "top -10%",
-    end: "top -11%",
-    scrub: 1,
-  },
-});
-
-
-
 // Background change on scroll
 gsap.to("#main", {
   backgroundColor: "white",
   scrollTrigger: {
     trigger: "#main",
     scroller: "body",
-    start: "top -30%",
+    start: "top -40%",
     end: "top -80%",
     scrub: 5,
   },
 });
-
-
 
 // Sections animating into view on scroll
 gsap.from("#about, #aboutus img", {
@@ -68,4 +45,3 @@ gsap.from("#about, #aboutus img", {
     scrub: 2,
   },
 });
-
