@@ -6,41 +6,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
   <title>Mekor Pipe Pvt. Ltd.</title>
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'mek-green': '#10b981',
-            'mek-red': '#ef4444',
-            'mek-blue': '#3b82f6',
-            'mek-gray': '#6b7280',
-            'brand-blue': '#0ea5e9',
-            'brand-dark': '#1e293b',
-            'brand-light': '#f1f5f9'
-          },
-          animation: {
-            'float': 'float 3s ease-in-out infinite',
-            'glow': 'glow 2s ease-in-out infinite alternate',
-            'slide-up': 'slideUp 0.6s ease-out forwards',
-            'fade-in': 'fadeIn 0.8s ease-out forwards',
-            'pulse-slow': 'pulse 3s ease-in-out infinite',
-            'slide-in-left': 'slideInLeft 0.8s ease-out forwards',
-            'slide-in-right': 'slideInRight 0.8s ease-out forwards',
-            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-            'scale-in': 'scaleIn 0.6s ease-out forwards',
-            'shimmer': 'shimmer 2s ease-in-out infinite',
-            'glow-pulse': 'glowPulse 2s ease-in-out infinite alternate'
-          }
-        }
-      }
-    }
-  </script>
+
+  <!-- Preconnect for faster font & CDN loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+  <!-- Optimized Fonts (all in one request) -->
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&family=Baloo+2:wght@400;700;800&display=swap"
+    as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+  <!-- Remixicon optimized -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" media="print"
+    onload="this.media='all'">
+
+  <!-- Compiled Tailwind & Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- JS (deferred) -->
+  <script src="twl.js" defer></script>
 </head>
+
 
 <body>
   <!-- Navbar -->
@@ -214,10 +201,18 @@
   <!-- <div id="cursor"></div> -->
   <!-- <div id="cursor-blur"></div> -->
 
-  <video autoplay muted loop id="bg-video" class="fixed inset-0 w-full h-full object-cover z-[-1]">
-    <source src="assets/vid-2.mp4" type="video/mp4" />
+  <video autoplay muted loop playsinline  poster="assets/video-poster.png"
+       preload="none" id="bg-video" class="fixed inset-0 w-full h-full object-cover z-[-1]" lazy="loaded">
+    <!-- <source src="assets/vid-2.webm" type="video/webm"> -->
+    <source src="assets/vid-2.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
+
+  <script>
+    window.addEventListener("load", () => {
+      document.getElementById("bg-video").load();
+    });
+  </script>
 
 
   <main id="main">
@@ -265,7 +260,6 @@
               </div>
             </div>
 
-            <!-- Statistics -->
             <!-- Brochure/Catalog Preview -->
             <div class="lg:col-span-5">
               <div class="brochure-section">
@@ -311,12 +305,12 @@
                   </div>
 
                   <!-- Brochure Info -->
-                  <div class="brochure-info mb-6">
-                    <h3 class="text-xl font-bold text-white mb-2">Product Catalog 2025</h3>
-                    <p class="text-sky-200 text-sm mb-4">
+                  <!-- <div class="brochure-info mb-6"> -->
+                  <!-- <h3 class="text-xl font-bold text-white mb-2">Product Catalog 2025</h3> -->
+                  <!-- <p class="text-sky-200 text-sm mb-4">
                       Complete guide featuring our full range of industrial pipes, specifications, and technical data.
-                    </p>
-                    <div class="flex items-center justify-center gap-4 text-xs text-sky-300 mb-4">
+                    </p> -->
+                  <!-- <div class="flex items-center justify-center gap-4 text-xs text-sky-300 mb-4">
                       <span class="flex items-center gap-1">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -339,8 +333,8 @@
                         </svg>
                         8.5 MB
                       </span>
-                    </div>
-                  </div>
+                    </div> -->
+                  <!-- </div> -->
 
                   <!-- Download Buttons -->
                   <div class="download-buttons space-y-3">
@@ -353,7 +347,7 @@
                       </svg>
                       Download Catalog
                     </button>
-                    <button
+                    <!-- <button
                       class="download-secondary w-full inline-flex items-center justify-center gap-3 px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105">
                       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -363,7 +357,7 @@
                         </path>
                       </svg>
                       Preview Online
-                    </button>
+                    </button> -->
                   </div>
                 </div>
               </div>
@@ -1357,7 +1351,7 @@
             </div>
 
             <!-- Newsletter & Actions -->
-            <div class="animate-fade-in-up stagger-5">
+            <div class="animate-fade-in-up stagger-5 ">
               <h3 class="text-lg font-semibold text-white mb-4 flex items-center">
                 <svg class="w-5 h-5 mr-2 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -1368,7 +1362,7 @@
               </h3>
 
               <!-- Newsletter Signup -->
-              <div class="mb-6">
+              <!-- <div class="mb-6">
                 <p class="text-gray-300 text-sm mb-4">Subscribe to our newsletter for updates</p>
                 <form id="newsletterForm" class="space-y-3">
                   <div class="flex flex-col sm:flex-row gap-2">
@@ -1381,7 +1375,7 @@
                   </div>
                   <p id="newsletterStatus" class="text-sm"></p>
                 </form>
-              </div>
+              </div> -->
 
               <!-- WhatsApp Channel -->
               <div class="mb-6">
@@ -1458,7 +1452,7 @@
             </div>
 
             <!-- Back to Top Button -->
-            <div class="flex justify-center mt-8">
+            <div class="absolute fixed bottom-5 right-3 flex justify-center mt-8">
               <button id="backToTop"
                 class="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-xl group">
                 <svg class="w-6 h-6 text-white group-hover:scale-110 transition-transform" fill="none"
@@ -1472,9 +1466,9 @@
         </div>
 
         <!-- Scroll Progress Indicator -->
-        <div id="scrollProgress"
-          class="fixed bottom-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500 z-50 transition-all duration-300">
-        </div>
+        <!-- <div id="scrollProgress"
+          class="absolute fixed bottom-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500 z-50 transition-all duration-300">
+        </div> -->
       </footer>
 
 
