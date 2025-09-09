@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Awaiken">
+    <!-- Page Title -->
+    <title>Inspaire - Architecture and Interior Design HTML Template</title>
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+    <!-- Google Fonts Css-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <!-- Bootstrap Css -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <!-- SlickNav Css -->
+    <link href="css/slicknav.min.css" rel="stylesheet">
+    <!-- Swiper Css -->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <!-- Font Awesome Icon Css-->
+    <link href="css/all.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Animated Css -->
+    <link href="css/animate.css" rel="stylesheet">
+    <!-- Magnific Popup Core Css File -->
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <!-- Mouse Cursor Css File -->
+    <link rel="stylesheet" href="css/mousecursor.css">
+
+    <style>
+        /* Job Listings Grid */
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 20px 0;
+        }
+
+        /* Job Card */
+        .job-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .job-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            /* background: linear-gradient(90deg, #E03A2E, #00A9E0); */
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .job-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .job-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .job-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .job-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .job-card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .job-card:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .job-card:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        .job-header {
+            margin-bottom: 20px;
+        }
+
+        .job-type {
+            display: inline-block;
+            /* background: #00A9E0; */
+            color: #00A9E0;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        .job-title {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .job-location {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .job-location i {
+            margin-right: 5px;
+            color: #667eea;
+        }
+
+        .job-description {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .job-requirements {
+            margin-bottom: 20px;
+        }
+
+        .job-requirements h4 {
+            color: #2c3e50;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .job-requirements ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .job-requirements li {
+            color: #666;
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+            font-size: 0.9rem;
+        }
+
+        .job-requirements li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .apply-btn {
+            padding: 12px 30px;
+            border-radius: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-top: auto;
+        }
+
+
+
+        /* Modal Popup */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.4s ease;
+            /* hide scrollbar for Webkit (Chrome, Safari, Edge) */
+            scrollbar-width: none;
+            /* Firefox */
+            -ms-overflow-style: none;
+            /* IE/Edge */
+        }
+
+        .modal-content::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari */
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 35px;
+            height: 35px;
+            background: #f0f0f0;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            color: #666;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-btn:hover {
+            background: #e0e0e0;
+            transform: rotate(90deg);
+        }
+
+        .modal-header {
+            margin-bottom: 30px;
+        }
+
+        .modal-header h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .modal-header p {
+            color: #7f8c8d;
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .file-upload {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .file-upload input[type="file"] {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .file-upload-label {
+            display: block;
+            padding: 12px 15px;
+            border: 2px dashed #667eea;
+            border-radius: 10px;
+            text-align: center;
+            color: #667eea;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .file-upload-label:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .submit-btn {
+            border: none;
+            padding: 15px 40px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .jobs-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .modal-content {
+                padding: 30px 20px;
+            }
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: #4caf50;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+    </style>
+    <!-- Main Custom Css -->
+    <link href="css/custom.css" rel="stylesheet" media="screen">
+</head>
+
+<body>
+
+    <!-- Preloader Start -->
+    <div class="preloader">
+        <div class="loading-container">
+            <div class="loading"></div>
+            <div id="loading-icon"><img src="images/loader.svg" alt=""></div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- Header Start -->
+    <header class="main-header">
+        <div class="header-sticky">
+            <nav class="container">
+                <div class="navbar navbar-expand-lg">
+                    <!-- Logo Start -->
+                    <a class="navbar-brand d-flex align-items-center" href="./">
+                        <img src="images/logo.svg" alt="Mekor Pipes Logo" class="img-fluid" style="height:50px;">
+                        <div class="logo-text d-none d-lg-block px-2">
+                            <h2 class="m-0">Mekor <span>PIPES</span></h2>
+                            <h5 class="m-0">Efficiency Simplified</h5>
+                        </div>
+                    </a>
+                    <!-- Logo End -->
+
+
+
+                    <!-- Main Menu Start -->
+                    <div class="collapse navbar-collapse main-menu">
+                        <div class="nav-menu-wrapper">
+                            <ul class="navbar-nav mr-auto" id="menu">
+                                <li class="nav-item"><a class="nav-link" href="./">Home</a></li>
+                                <li class="d-block d-lg-none nav-item submenu"><a class="nav-link" href="#">Our
+                                        Product</a>
+                                    <ul>
+                                        <li class="nav-item"><a class="nav-link" href="mek-green.html">Mek
+                                                Green</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="mek-blaze.html">Mek
+                                                Blaze</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="mek-pneumos.html">Mek
+                                                Pneumos</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="d-none d-lg-block nav-item submenu mega-menu-item">
+                                    <a class="nav-link" href="#">Our Product</a>
+                                    <div class="mega-menu">
+                                        <div class="product-list">
+
+                                            <a href="mek-green.html" class="product-item mek-green active"
+                                                data-product="green">
+                                                <i class="fas fa-leaf"></i>
+                                                Mek Green
+                                            </a>
+                                            <a href="mek-blaze.html" class="product-item mek-red"
+                                                data-product="red">
+                                                <i class="fas fa-fire"></i>
+                                                Mek Blaze
+                                            </a>
+                                            <a href="mek-pneumos.html" class="product-item mek-blue"
+                                                data-product="blue">
+                                                <i class="fas fa-wind"></i>
+                                                Mek Pneumos
+                                            </a>
+                                        </div>
+                                        <div class="product-details mek-green" id="product-details">
+                                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center"
+                                                alt="Mek Green" class="product-image" id="product-image">
+                                            <div class="">
+                                                <h3 class="product-title" id="product-title">Mek Green</h3>
+                                                <p class="product-description" id="product-description">
+                                                    Advanced eco-friendly solution designed for maximum efficiency and
+                                                    environmental sustainability.
+                                                </p>
+                                                <ul class="product-features" id="product-features">
+                                                    <li>Environmentally sustainable technology</li>
+                                                    <li>High-performance efficiency rating</li>
+                                                    <li>Energy-saving operation</li>
+                                                    <li>Durable construction materials</li>
+                                                </ul>
+                                                <a href="product.html" style="padding: 8px 24px !important;"
+                                                    class="product-cta" id="product-cta">
+                                                    Learn More
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                                <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                                <li class="nav-item"><a class="nav-link" href="career.html">Career</a></li>
+                                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <a href="tel:+919979458787" class="call-now-cta" id="callBtn1">
+                            <span class="call-text">Call Now</span>
+                            <i class="fa-solid fa-arrow-right call-arrow"></i>
+                            <p class="phone-number">+91 9979458787</p>
+                        </a>
+                        <!-- Header Btn Start -->
+                        <!-- <div class="header-btn d-inline-flex">
+                            <a href="contact.html" class="btn-default">get in touch</a>
+                        </div> -->
+                        <!-- Header Btn End -->
+                    </div>
+                    <!-- Main Menu End -->
+                    <div class="navbar-toggle"></div>
+                </div>
+            </nav>
+            <div class="responsive-menu"></div>
+        </div>
+    </header>
+
+    <script>
+        // Smooth Sticky Header Implementation
+        (function () {
+            'use strict';
+
+            // Configuration
+            const config = {
+                scrollThreshold: 100,     // Pixels to scroll before header becomes sticky
+                hideThreshold: 80,        // Pixels to scroll before hiding header on scroll down
+                debounceDelay: 10         // Debounce delay for scroll events (ms)
+            };
+
+            // State variables
+            let lastScrollTop = 0;
+            let isScrolling = false;
+            let ticking = false;
+
+            // Get DOM elements
+            const header = document.querySelector('.main-header');
+            const headerSticky = document.querySelector('.header-sticky');
+
+            // Early return if elements don't exist
+            if (!header || !headerSticky) {
+                console.warn('Header elements not found');
+                return;
+            }
+
+            // Debounce function for performance optimization
+            function debounce(func, wait) {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func(...args);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
+            }
+
+            // Main scroll handler function
+            function handleScroll() {
+                const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const scrollDifference = Math.abs(currentScrollTop - lastScrollTop);
+
+                // Determine scroll direction
+                const isScrollingDown = currentScrollTop > lastScrollTop;
+                const isScrollingUp = currentScrollTop < lastScrollTop;
+
+                // Apply sticky class when scrolled past threshold
+                if (currentScrollTop >= config.scrollThreshold) {
+                    headerSticky.classList.add('active');
+
+                    // Hide header on scroll down, show on scroll up
+                    if (isScrollingDown && scrollDifference > config.hideThreshold) {
+                        headerSticky.classList.add('hide');
+                        headerSticky.classList.remove('show');
+                    } else if (isScrollingUp && scrollDifference > 5) {
+                        headerSticky.classList.remove('hide');
+                        headerSticky.classList.add('show');
+                    }
+                } else {
+                    // Remove all classes when at top
+                    headerSticky.classList.remove('active', 'hide', 'show');
+                }
+
+                // Update last scroll position
+                lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+                isScrolling = false;
+            }
+
+            // Optimized scroll event handler using requestAnimationFrame
+            function onScroll() {
+                if (!ticking) {
+                    requestAnimationFrame(() => {
+                        handleScroll();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }
+
+            // Throttled scroll handler for additional performance
+            const throttledScrollHandler = debounce(onScroll, config.debounceDelay);
+
+            // Initialize the sticky header functionality
+            function init() {
+                // Set initial state
+                lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                // Add scroll event listener
+                window.addEventListener('scroll', throttledScrollHandler, { passive: true });
+
+                // Handle resize events to recalculate positions
+                window.addEventListener('resize', debounce(() => {
+                    // Reset scroll position tracking on resize
+                    lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                }, 250), { passive: true });
+
+                // Initial call to set correct state
+                handleScroll();
+            }
+
+            // Enhanced version with intersection observer for better performance (optional)
+            function initWithIntersectionObserver() {
+                // Create a sentinel element at the top
+                const sentinel = document.createElement('div');
+                sentinel.style.position = 'absolute';
+                sentinel.style.top = `${config.scrollThreshold}px`;
+                sentinel.style.height = '1px';
+                sentinel.style.width = '1px';
+                sentinel.style.pointerEvents = 'none';
+                document.body.appendChild(sentinel);
+
+                // Intersection Observer for sticky activation
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (!entry.isIntersecting) {
+                            headerSticky.classList.add('active');
+                        } else {
+                            headerSticky.classList.remove('active', 'hide', 'show');
+                        }
+                    });
+                }, { threshold: 0 });
+
+                observer.observe(sentinel);
+
+                // Still need scroll listener for hide/show functionality
+                window.addEventListener('scroll', throttledScrollHandler, { passive: true });
+            }
+
+            // Public methods for external control
+            window.StickyHeader = {
+                show: () => {
+                    headerSticky.classList.remove('hide');
+                    headerSticky.classList.add('show');
+                },
+                hide: () => {
+                    headerSticky.classList.add('hide');
+                    headerSticky.classList.remove('show');
+                },
+                reset: () => {
+                    headerSticky.classList.remove('active', 'hide', 'show');
+                    lastScrollTop = 0;
+                },
+                destroy: () => {
+                    window.removeEventListener('scroll', throttledScrollHandler);
+                    headerSticky.classList.remove('active', 'hide', 'show');
+                }
+            };
+
+            // Initialize when DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', init);
+            } else {
+                init();
+            }
+
+        })();
+
+        // Alternative simpler version (uncomment if you prefer simplicity over features)
+        /*
+        document.addEventListener('DOMContentLoaded', function() {
+            let lastScrollTop = 0;
+            const header = document.querySelector('.header-sticky');
+            
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop > 100) {
+                    header.classList.add('active');
+                    
+                    if (scrollTop > lastScrollTop && scrollTop > 200) {
+                        // Scrolling down
+                        header.classList.add('hide');
+                    } else {
+                        // Scrolling up
+                        header.classList.remove('hide');
+                    }
+                } else {
+                    header.classList.remove('active', 'hide');
+                }
+                
+                lastScrollTop = scrollTop;
+            }, { passive: true });
+        });
+        */
+    </script>
+    <!-- Header End -->
+
+    <!-- Page Header Start -->
+    <div class="page-header parallaxie">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Page Header Box Start -->
+                    <div class="page-header-box">
+                        <h1 class="text-anime-style-2" data-cursor="-opaque">Career with us</h1>
+                        <nav class="wow fadeInUp">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="./">home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">career</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <!-- Page Header Box End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+
+    <!-- Page Contact Us Start -->
+    <div class="page-contact-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Career List Start -->
+                    <div class="contact-us-form">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h3 class="wow fadeInUp">career</h3>
+                            <h2 class="text-anime-style-2" data-cursor="-opaque">
+                                Build your future with <span>Mekor Pipe</span>
+                            </h2>
+                            <p class="wow fadeInUp" data-wow-delay="0.2s">
+                                We are always looking for talented and passionate individuals to join our team.
+                                Explore career opportunities and grow with us in a dynamic, innovation-driven
+                                environment.
+                            </p>
+                        </div>
+                        <!-- Section Title End -->
+                        <!-- Contact Form Start -->
+                        <div class="contact-form">
+                            <!-- Contact Form Start -->
+                            <!-- Job Listings -->
+                            <div class="jobs-grid">
+                                <!-- Job Card 1 -->
+                                <div class="job-card" onclick="openModal('Senior Software Engineer')">
+                                    <div class="job-header">
+                                        <span class="job-type">Full-time</span>
+                                        <h3 class="job-title">Senior Software Engineer</h3>
+                                        <p class="job-location">📍 San Francisco, CA / Remote</p>
+                                    </div>
+                                    <p class="job-description">
+                                        Lead the development of cutting-edge web applications and mentor junior
+                                        developers in a fast-paced,
+                                        innovative environment.
+                                    </p>
+                                    <div class="job-requirements">
+                                        <h4>Requirements:</h4>
+                                        <ul>
+                                            <li>5+ years of experience in full-stack development</li>
+                                            <li>Proficiency in React, Node.js, and cloud technologies</li>
+                                            <li>Strong problem-solving and leadership skills</li>
+                                        </ul>
+                                    </div>
+                                    <button class="btn-default apply-btn">Apply Now</button>
+                                </div>
+
+                                <!-- Job Card 2 -->
+                                <div class="job-card" onclick="openModal('Product Designer')">
+                                    <div class="job-header">
+                                        <span class="job-type">Full-time</span>
+                                        <h3 class="job-title">Product Designer</h3>
+                                        <p class="job-location">📍 New York, NY</p>
+                                    </div>
+                                    <p class="job-description">
+                                        Create intuitive and beautiful user experiences for our products, working
+                                        closely with engineering
+                                        and product teams.
+                                    </p>
+                                    <div class="job-requirements">
+                                        <h4>Requirements:</h4>
+                                        <ul>
+                                            <li>3+ years of UX/UI design experience</li>
+                                            <li>Expertise in Figma, Sketch, or Adobe XD</li>
+                                            <li>Strong portfolio demonstrating user-centered design</li>
+                                        </ul>
+                                    </div>
+                                    <button class="btn-default apply-btn">Apply Now</button>
+                                </div>
+
+                                <!-- Job Card 3 -->
+                                <div class="job-card" onclick="openModal('Marketing Manager')">
+                                    <div class="job-header">
+                                        <span class="job-type">Full-time</span>
+                                        <h3 class="job-title">Marketing Manager</h3>
+                                        <p class="job-location">📍 Los Angeles, CA</p>
+                                    </div>
+                                    <p class="job-description">
+                                        Drive our marketing strategy and lead campaigns that increase brand awareness
+                                        and customer
+                                        engagement across multiple channels.
+                                    </p>
+                                    <div class="job-requirements">
+                                        <h4>Requirements:</h4>
+                                        <ul>
+                                            <li>5+ years in digital marketing</li>
+                                            <li>Experience with SEO, SEM, and social media marketing</li>
+                                            <li>Proven track record of successful campaigns</li>
+                                        </ul>
+                                    </div>
+                                    <button class="btn-default apply-btn">Apply Now</button>
+                                </div>
+
+                                <!-- Job Card 4 -->
+                                <div class="job-card" onclick="openModal('Data Scientist')">
+                                    <div class="job-header">
+                                        <span class="job-type">Full-time</span>
+                                        <h3 class="job-title">Data Scientist</h3>
+                                        <p class="job-location">📍 Seattle, WA / Remote</p>
+                                    </div>
+                                    <p class="job-description">
+                                        Analyze complex data sets to drive business insights and build predictive models
+                                        that shape our
+                                        product strategy.
+                                    </p>
+                                    <div class="job-requirements">
+                                        <h4>Requirements:</h4>
+                                        <ul>
+                                            <li>MS/PhD in Computer Science, Statistics, or related field</li>
+                                            <li>Proficiency in Python, R, and SQL</li>
+                                            <li>Experience with machine learning frameworks</li>
+                                        </ul>
+                                    </div>
+                                    <button class="btn-default apply-btn">Apply Now</button>
+                                </div>
+
+                                <!-- Job Card 5 -->
+                                <div class="job-card" onclick="openModal('Customer Success Manager')">
+                                    <div class="job-header">
+                                        <span class="job-type">Full-time</span>
+                                        <h3 class="job-title">Customer Success Manager</h3>
+                                        <p class="job-location">📍 Chicago, IL</p>
+                                    </div>
+                                    <p class="job-description">
+                                        Build strong relationships with clients and ensure they achieve maximum value
+                                        from our products and
+                                        services.
+                                    </p>
+                                    <div class="job-requirements">
+                                        <h4>Requirements:</h4>
+                                        <ul>
+                                            <li>3+ years in customer success or account management</li>
+                                            <li>Excellent communication and problem-solving skills</li>
+                                            <li>Experience with CRM systems and data analysis</li>
+                                        </ul>
+                                    </div>
+                                    <button class="btn-default apply-btn">Apply Now</button>
+                                </div>
+
+                                <!-- Job Card 6 -->
+                                <div class="job-card" onclick="openModal('DevOps Engineer')">
+                                    <div class="job-header">
+                                        <span class="job-type">Contract</span>
+                                        <h3 class="job-title">DevOps Engineer</h3>
+                                        <p class="job-location">📍 Austin, TX / Remote</p>
+                                    </div>
+                                    <p class="job-description">
+                                        Optimize our infrastructure and deployment processes to ensure reliable and
+                                        scalable system
+                                        operations.
+                                    </p>
+                                    <div class="job-requirements">
+                                        <h4>Requirements:</h4>
+                                        <ul>
+                                            <li>4+ years of DevOps experience</li>
+                                            <li>Expertise in AWS, Docker, and Kubernetes</li>
+                                            <li>Strong scripting skills (Python, Bash)</li>
+                                        </ul>
+                                    </div>
+                                    <button class="btn-default apply-btn">Apply Now</button>
+                                </div>
+                            </div>
+                            <!-- Contact Form End -->
+
+                        </div>
+                        <!-- Contact Form End -->
+                    </div>
+                    <!-- Career List End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Contact Us End -->
+
+
+
+    <!-- Application Modal -->
+    <div id="applicationModal" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">×</button>
+
+            <div class="modal-header">
+                <h2>Apply for <span id="jobPosition">Position</span></h2>
+                <!-- <p>Fill out the form below to submit your application</p> -->
+            </div>
+
+            <form id="applicationForm" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="fullName">Full Name *</label>
+                    <input type="text" id="fullName" name="fullName" required placeholder="John Doe">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required placeholder="john@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+1 (555) 123-4567">
+                </div>
+
+                <div class="form-group">
+                    <label for="education">Education *</label>
+                    <select id="education" name="education" required>
+                        <option value="">Select your highest education</option>
+                        <option value="highschool">High School</option>
+                        <option value="bachelor">Bachelor's Degree</option>
+                        <option value="master">Master's Degree</option>
+                        <option value="phd">PhD</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="experience">Years of Experience *</label>
+                    <select id="experience" name="experience" required>
+                        <option value="">Select experience level</option>
+                        <option value="0-1">0-1 years</option>
+                        <option value="2-3">2-3 years</option>
+                        <option value="4-5">4-5 years</option>
+                        <option value="6-10">6-10 years</option>
+                        <option value="10+">10+ years</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="field">Field of Expertise *</label>
+                    <input type="text" id="field" name="field" required
+                        placeholder="e.g., Software Development, Marketing, Design">
+                </div>
+
+                <div class="form-group">
+                    <label for="location">Current Location *</label>
+                    <input type="text" id="location" name="location" required placeholder="City, State/Country">
+                </div>
+
+                <div class="form-group">
+                    <label for="resume">Upload Resume *</label>
+                    <div class="file-upload">
+                        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required
+                            onchange="updateFileName(this)">
+                        <label for="resume" class="file-upload-label" id="fileLabel">
+                            Choose file (PDF, DOC, DOCX)
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Tell us about yourself</label>
+                    <textarea id="description" name="description"
+                        placeholder="Share your background, skills, and why you're interested in this position..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-default submit-btn">Submit Application</button>
+            </form>
+
+            <div id="successMessage" class="success-message">
+                Application submitted successfully! We'll be in touch soon.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentJob = '';
+
+        function openModal(jobTitle) {
+            currentJob = jobTitle;
+            document.getElementById('jobPosition').textContent = jobTitle;
+            document.getElementById('applicationModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('applicationModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+            document.getElementById('applicationForm').reset();
+            document.getElementById('successMessage').classList.remove('show');
+            document.getElementById('fileLabel').textContent = 'Choose file (PDF, DOC, DOCX)';
+        }
+
+        function updateFileName(input) {
+            const fileName = input.files[0]?.name || 'Choose file (PDF, DOC, DOCX)';
+            document.getElementById('fileLabel').textContent = fileName;
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            // Collect form data
+            const formData = new FormData(event.target);
+            const applicationData = {
+                position: currentJob,
+                fullName: formData.get('fullName'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                education: formData.get('education'),
+                experience: formData.get('experience'),
+                field: formData.get('field'),
+                location: formData.get('location'),
+                description: formData.get('description'),
+                timestamp: new Date().toISOString()
+            };
+
+            // Log the application data (in a real application, this would be sent to a server)
+            console.log('Application submitted:', applicationData);
+
+            // Show success message
+            document.getElementById('successMessage').classList.add('show');
+
+            // Reset form after 2 seconds and close modal
+            setTimeout(() => {
+                closeModal();
+            }, 2000);
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function (event) {
+            const modal = document.getElementById('applicationModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Prevent form submission on Enter key in text fields (except textarea)
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+
+
+    <!-- Footer Start -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Footer Header Start -->
+                    <div class="footer-header">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <!-- Footer Logo Start -->
+                                <div class="footer-logo">
+                                    <img src="images/footer-logo.svg" alt="">
+                                </div>
+                                <!-- Footer Logo End -->
+                            </div>
+
+                            <div class="col-md-6">
+                                <!-- Footer Social Link Start -->
+                                <div class="footer-social-links">
+                                    <div class="footer-social-link-title">
+                                        <h3>follow our socials</h3>
+                                    </div>
+                                    <ul>
+                                        <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                        <li><a href="#"><i class="fa-brands fa-dribbble"></i></a></li>
+                                        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                                    </ul>
+                                </div>
+                                <!-- Footer Social Link End -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Footer Header End -->
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <!-- Footer Links Start -->
+                    <div class="footer-links">
+                        <h3>information</h3>
+                        <ul>
+                            <li><a href="about.html">about our company</a></li>
+                            <li><a href="services.html">view our service</a></li>
+                            <li><a href="#">careers at company</a></li>
+                            <li><a href="blog.html">read our blog</a></li>
+                            <li><a href="projects.html">our latest projects</a></li>
+                        </ul>
+                    </div>
+                    <!-- Footer Links End -->
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <!-- Footer Links Start -->
+                    <div class="footer-links">
+                        <h3>portfolio</h3>
+                        <ul>
+                            <li><a href="project-single.html">luxury home design</a></li>
+                            <li><a href="project-single.html">residential interior design</a></li>
+                            <li><a href="project-single.html">commercial space design</a></li>
+                            <li><a href="project-single.html">residential interior design</a></li>
+                            <li><a href="project-single.html">renovation and restoration design</a></li>
+                        </ul>
+                    </div>
+                    <!-- Footer Links End -->
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <!-- Footer Contact Box Start -->
+                    <div class="footer-contact-box footer-links">
+                        <h3>contact us</h3>
+                        <!-- Footer Contact Item Start -->
+                        <div class="footer-contact-item">
+                            <div class="icon-box">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div class="footer-contact-content">
+                                <p>+1 (213) 465 789</p>
+                            </div>
+                        </div>
+                        <!-- Footer Contact Item End -->
+
+                        <!-- Footer Contact Item Start -->
+                        <div class="footer-contact-item">
+                            <div class="icon-box">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div class="footer-contact-content">
+                                <p>info@domain.com</p>
+                            </div>
+                        </div>
+                        <!-- Footer Contact Item End -->
+
+                        <!-- Footer Contact Item Start -->
+                        <div class="footer-contact-item">
+                            <div class="icon-box">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div class="footer-contact-content">
+                                <p>Generała Ziętka Jerzego 54, Mysłowice 41-412</p>
+                            </div>
+                        </div>
+                        <!-- Footer Contact Item End -->
+                    </div>
+                    <!-- Footer Contact Box End -->
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <!-- Footer Newsletter Form Start -->
+                    <div class="footer-latest-news footer-links">
+                        <h3>get the latest trending news</h3>
+
+                        <div class="footer-newsletter-form">
+                            <p>Your Dream Space Starts Here Get Exclusive Design Straight Your Inbox!</p>
+
+                            <form id="newslettersForm" action="#" method="POST">
+                                <div class="form-group">
+                                    <input type="email" name="email" class="form-control" id="mail"
+                                        placeholder="Enter your email" required>
+                                    <button type="submit"><i class="fa-solid fa-arrow-right-long"></i> </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Footer Newsletter Form End -->
+                </div>
+            </div>
+
+            <!-- Footer Copyright Section Start -->
+            <div class="footer-copyright">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- Footer Copyright Start -->
+                        <div class="footer-copyright-text">
+                            <p>Copyright © 2024 All Rights Reserved.</p>
+                        </div>
+                        <!-- Footer Copyright End -->
+                    </div>
+                </div>
+            </div>
+            <!-- Footer Copyright Section End -->
+        </div>
+    </footer>
+    <!-- Footer End -->
+
+    <!-- Jquery Library File -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap js file -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Validator js file -->
+    <script src="js/validator.min.js"></script>
+    <!-- SlickNav js file -->
+    <script src="js/jquery.slicknav.js"></script>
+    <!-- Swiper js file -->
+    <script src="js/swiper-bundle.min.js"></script>
+    <!-- Counter js file -->
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <!-- Isotop js file -->
+    <script src="js/isotope.min.js"></script>
+    <!-- Magnific js file -->
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <!-- SmoothScroll -->
+    <script src="js/SmoothScroll.js"></script>
+    <!-- Parallax js -->
+    <script src="js/parallaxie.js"></script>
+    <!-- MagicCursor js file -->
+    <script src="js/gsap.min.js"></script>
+    <script src="js/magiccursor.js"></script>
+    <!-- Text Effect js file -->
+    <script src="js/SplitText.js"></script>
+    <script src="js/ScrollTrigger.min.js"></script>
+    <!-- YTPlayer js File -->
+    <script src="js/jquery.mb.YTPlayer.min.js"></script>
+    <!-- Wow js file -->
+    <script src="js/wow.min.js"></script>
+    <!-- Main Custom js file -->
+    <script src="js/function.js"></script>
+</body>
+
+</html>

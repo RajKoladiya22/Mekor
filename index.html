@@ -1,668 +1,1641 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
-  <title>Mekor Pipe Pvt. Ltd. - Efficiency Simplified</title>
-
-  <!-- Preconnect for fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <!-- Optimized font loading -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
-    rel="stylesheet">
-
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.css">
-
-
-  <!-- Ajax -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
-  <!-- Boostrap-5 -->
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">  -->
-
-  <link rel="stylesheet" href="n.css">
-  <link rel="stylesheet" href="hero.css">
-  <link rel="stylesheet" href="style.css">
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Awaiken">
+    <!-- Page Title -->
+    <title>Mekor</title>
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+    <!-- Google Fonts Css-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@400;600&family=Roboto+Condensed:wght@300;700&display=swap"
+        rel="stylesheet">
+    <!-- Bootstrap Css -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <!-- SlickNav Css -->
+    <link href="css/slicknav.min.css" rel="stylesheet">
+    <!-- Swiper Css -->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <!-- Font Awesome Icon Css-->
+    <link href="css/all.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Animated Css -->
+    <link href="css/animate.css" rel="stylesheet">
+    <!-- Magnific Popup Core Css File -->
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <!-- Mouse Cursor Css File -->
+    <link rel="stylesheet" href="css/mousecursor.css">
+    <!-- Main Custom Css -->
+    <link href="css/custom.css" rel="stylesheet" media="screen">
 </head>
 
 <body>
-  <!-- Preloader -->
-  <div class="preloader" id="preloader">
-    <div class="loader"></div>
-  </div>
 
-  <!-- Scroll Progress Bar -->
-  <div class="scroll-progress" id="scrollProgress"></div>
 
-  <!-- Header -->
-  <header class="header" id="header">
-    <div class="header-container">
-      <div class="nav-wrapper">
-
-        <!-- Logo Section -->
-        <a href="#" class="logo-group">
-          <div class="logo-img">
-            <img src="/assets/logo.png" alt="Mekor Pipe Logo">
-          </div>
-          <div class="logo-text">
-            <h1>Mekor Pipe Pvt Ltd.</h1>
-            <p>Efficiency Simplified</p>
-          </div>
-        </a>
-
-        <!-- Desktop Navigation -->
-        <nav class="nav-menu">
-          <a href="#" class="nav-link active">Home</a>
-          <a href="#" class="nav-link">About</a>
-
-          <!-- Products Dropdown -->
-          <div class="dropdown">
-            <div class="nav-link dropdown-toggle">
-              <span>Products</span>
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-            </div>
-
-            <div class="dropdown-menu">
-              <div class="dropdown-category">
-                <h4>Our Products</h4>
-                <a href="#" class="dropdown-item">HDPE Pipes</a>
-                <a href="#" class="dropdown-item">PVC Pipes</a>
-                <a href="#" class="dropdown-item">Steel Pipes</a>
-                <a href="#" class="dropdown-item">Copper Pipes</a>
-              </div>
-
-              <div class="dropdown-divider"></div>
-
-              <a href="#" class="dropdown-cta">
-                <span>View All Products</span>
-                <i class="ri-arrow-right-line"></i>
-              </a>
-            </div>
-          </div>
-
-          <a href="#" class="nav-link">Services</a>
-          <a href="#" class="nav-link">Contact</a>
-        </nav>
-
-        <!-- Desktop Actions -->
-        <div class="nav-actions">
-          <!-- Theme Toggle -->
-          <div class="theme-toggle" id="themeToggle" title="Toggle Theme">
-            <span class="sun">☀️</span>
-            <span class="moon">🌙</span>
-          </div>
-
-          <!-- Phone Number -->
-          <a href="tel:+917359460846" class="phone-link">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-            </svg>
-            <span>+91 73594 60846</span>
-          </a>
-
-          <!-- CTA Button -->
-          <a href="#" class="cta-btn">Contact Us</a>
+    <!-- Preloader Start -->
+    <div class="preloader">
+        <div class="loading-container">
+            <div class="loading"></div>
+            <div id="loading-icon"><img src="images/loader.svg" alt=""></div>
         </div>
-
-        <!-- Mobile Toggle -->
-        <button class="mobile-toggle" id="mobileToggle">
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-        </button>
-
-        <!-- Mobile Menu -->
-        <div class="mobile-menu" id="mobileMenu">
-          <a href="#" class="mobile-nav-link active">Home</a>
-          <a href="#" class="mobile-nav-link">About</a>
-
-          <!-- Mobile Products Dropdown -->
-          <div class="mobile-products" id="mobileProducts">
-            <button class="mobile-products-toggle" id="mobileProductsToggle">
-              <span>Products</span>
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            <div class="mobile-products-menu" id="mobileProductsMenu">
-              <a href="#" class="mobile-products-item">HDPE Pipes</a>
-              <a href="#" class="mobile-products-item">PVC Pipes</a>
-              <a href="#" class="mobile-products-item">Steel Pipes</a>
-              <a href="#" class="mobile-products-item">Copper Pipes</a>
-            </div>
-          </div>
-
-          <a href="#" class="mobile-nav-link">Services</a>
-          <a href="#" class="mobile-nav-link">Contact</a>
-
-          <div class="mobile-divider"></div>
-
-          <!-- Mobile Actions -->
-          <div class="mobile-actions">
-            <div class="mobile-theme-row">
-              <span class="mobile-theme-label">Dark Mode</span>
-              <div class="theme-toggle" id="mobileThemeToggle">
-                <span class="sun">☀️</span>
-                <span class="moon">🌙</span>
-              </div>
-            </div>
-
-            <a href="tel:+917359460846" class="mobile-phone">
-              <i class="ri-phone-line"></i>
-              <span>+91 73594 60846</span>
-            </a>
-
-            <a href="#" class="mobile-cta">Contact Us</a>
-          </div>
-        </div>
-      </div>
     </div>
-  </header>
-
-  <video autoplay muted loop playsinline poster="assets/video-poster.png" preload="none" id="bg-video">
-    <!-- <source src="assets/vid-2.webm" type="video/webm"> -->
-    <source src="assets/vid-2.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+    <!-- Preloader End -->
 
 
+    <!-- Header Start -->
+    <header class="main-header">
+        <div class="header-sticky">
+            <nav class="container">
+                <div class="navbar navbar-expand-lg">
+                    <!-- Logo Start -->
+                    <a class="navbar-brand d-flex align-items-center" href="./">
+                        <img src="images/logo.svg" alt="Mekor Pipes Logo" class="img-fluid" style="height:50px;">
+                        <div class="logo-text d-none d-lg-block px-2">
+                            <h2 class="m-0">Mekor <span>PIPES</span></h2>
+                            <h5 class="m-0">Efficiency Simplified</h5>
+                        </div>
+                    </a>
+                    <!-- Logo End -->
 
-  <main id="main">
-    <!-- HERO SECTION (insert inside <main>) -->
-    <section class="hero-section">
-      <div class="hero-container">
-        <div class="hero-content">
-          <!-- Left Content -->
-          <div class="hero-left">
-            <div class="hero-badge">
-              <span class="badge-dot"></span>
-              Industry Leader Since 1985
-            </div>
 
-            <h1 class="hero-title">
-              Premium Steel Pipes for Industrial Excellence
-            </h1>
 
-            <p class="hero-desc">
-              Trusted by industries worldwide, we manufacture high-grade steel pipes, tubes, and fittings that meet
-              international standards. From oil & gas to construction - we power progress.
-            </p>
+                    <!-- Main Menu Start -->
+                    <div class="collapse navbar-collapse main-menu">
+                        <div class="nav-menu-wrapper">
+                            <ul class="navbar-nav mr-auto" id="menu">
+                                <li class="nav-item"><a class="nav-link" href="./">Home</a></li>
+                                <li class="d-block d-lg-none nav-item submenu"><a class="nav-link" href="#">Our
+                                        Product</a>
+                                    <ul>
+                                        <li class="nav-item"><a class="nav-link" href="mek-green.html">Mek
+                                                Green</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="mek-blaze.html">Mek
+                                                Blaze</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="mek-pneumos.html">Mek
+                                                Pneumos</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="d-none d-lg-block nav-item submenu mega-menu-item">
+                                    <a class="nav-link" href="#">Our Product</a>
+                                    <div class="mega-menu">
+                                        <div class="product-list">
 
-            <div class="hero-stats">
-              <div class="stat-item">
-                <div class="stat-number">500+</div>
-                <div class="stat-label">Products</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-number">10K+</div>
-                <div class="stat-label">Happy Clients</div>
-              </div>
-              <!-- <div class="stat-item">
-                <div class="stat-number">50+</div>
-                <div class="stat-label">Countries</div>
-              </div> -->
-            </div>
+                                            <a href="mek-green.html" class="product-item mek-green active"
+                                                data-product="green">
+                                                <i class="fas fa-leaf"></i>
+                                                Mek Green
+                                            </a>
+                                            <a href="mek-blaze.html" class="product-item mek-red"
+                                                data-product="red">
+                                                <i class="fas fa-fire"></i>
+                                                Mek Blaze
+                                            </a>
+                                            <a href="mek-pneumos.html" class="product-item mek-blue"
+                                                data-product="blue">
+                                                <i class="fas fa-wind"></i>
+                                                Mek Pneumos
+                                            </a>
+                                        </div>
+                                        <div class="product-details mek-green" id="product-details">
+                                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center"
+                                                alt="Mek Green" class="product-image" id="product-image">
+                                            <div class="">
+                                                <h3 class="product-title" id="product-title">Mek Green</h3>
+                                                <p class="product-description" id="product-description">
+                                                    Advanced eco-friendly solution designed for maximum efficiency and
+                                                    environmental sustainability.
+                                                </p>
+                                                <ul class="product-features" id="product-features">
+                                                    <li>Environmentally sustainable technology</li>
+                                                    <li>High-performance efficiency rating</li>
+                                                    <li>Energy-saving operation</li>
+                                                    <li>Durable construction materials</li>
+                                                </ul>
+                                                <a href="product.html" style="padding: 8px 24px !important;"
+                                                    class="product-cta" id="product-cta">
+                                                    Learn More
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                                <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                                <li class="nav-item"><a class="nav-link" href="career.html">Career</a></li>
+                                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
 
-            <div class="hero-ctas">
-              <a href="#contact" class="btn btn-primary">
-                Get Quote
-                <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">
-                  </path>
-                </svg>
-              </a>
-              <a href="#products" class="btn btn-secondary">
-                <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z">
-                  </path>
-                </svg>
-                Watch Video
-              </a>
-            </div>
-          </div>
-
-          <!-- Right Content -->
-          <div class="hero-right">
-            <div class="product-showcase">
-              <span class="product-badge">ISO 9001:2015</span>
-
-              <div class="product-image">
-                <!-- Placeholder - Replace with actual image -->
-              </div>
-
-              <div class="product-info">
-                <h3>Product Catalog 2025</h3>
-
-                <div class="product-features">
-                  <div class="feature">
-                    <svg class="feature-icon" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd"></path>
-                    </svg>
-                    Seamless Pipes
-                  </div>
-                  <div class="feature">
-                    <svg class="feature-icon" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd"></path>
-                    </svg>
-                    ERW Pipes
-                  </div>
-                  <div class="feature">
-                    <svg class="feature-icon" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd"></path>
-                    </svg>
-                    Galvanized Pipes
-                  </div>
-                  <div class="feature">
-                    <svg class="feature-icon" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd"></path>
-                    </svg>
-                    Custom Fittings
-                  </div>
+                        <a href="tel:+919979458787" class="call-now-cta" id="callBtn1">
+                            <span class="call-text">Call Now</span>
+                            <i class="fa-solid fa-arrow-right call-arrow"></i>
+                            <p class="phone-number">+91 9979458787</p>
+                        </a>
+                        <!-- Header Btn Start -->
+                        <!-- <div class="header-btn d-inline-flex">
+                            <a href="contact.html" class="btn-default">get in touch</a>
+                        </div> -->
+                        <!-- Header Btn End -->
+                    </div>
+                    <!-- Main Menu End -->
+                    <div class="navbar-toggle"></div>
                 </div>
-
-                <a href="assets/catalog.pdf" download class="btn btn-catalog">
-                  <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
-                    </path>
-                  </svg>
-                  Download Catalog
-                </a>
-              </div>
-            </div>
-          </div>
+            </nav>
+            <div class="responsive-menu"></div>
         </div>
-
-        <!-- Clients Slider -->
-        <div class="clients-section">
-          <div class="clients-header">Trusted by Industry Leaders</div>
-          <div class="clients-slider">
-            <div class="clients-track">
-              <!-- Client logos - duplicated for seamless loop -->
-              <div class="client-item">
-                <div
-                  style="width: 120px; height: 40px; background: var(--text-muted); opacity: 0.3; border-radius: 4px;">
-                </div>
-              </div>
-              <div class="client-item">
-                <div
-                  style="width: 120px; height: 40px; background: var(--text-muted); opacity: 0.3; border-radius: 4px;">
-                </div>
-              </div>
-              <div class="client-item">
-                <div
-                  style="width: 120px; height: 40px; background: var(--text-muted); opacity: 0.3; border-radius: 4px;">
-                </div>
-              </div>
-              <div class="client-item">
-                <div
-                  style="width: 120px; height: 40px; background: var(--text-muted); opacity: 0.3; border-radius: 4px;">
-                </div>
-              </div>
-              <div class="client-item">
-                <div
-                  style="width: 120px; height: 40px; background: var(--text-muted); opacity: 0.3; border-radius: 4px;">
-                </div>
-              </div>
-              <div class="client-item">
-                <div
-                  style="width: 120px; height: 40px; background: var(--text-muted); opacity: 0.3; border-radius: 4px;">
-                </div>
-              </div>
-              <!-- Duplicate for seamless loop -->
-              <div class="client-item">
-                <div
-                  style="width: 120px; height: 40px; background: var(--text-muted); opacity: 0.3; border-radius: 4px;">
-                </div>
-              </div>
-              <div class="client-item">
-                <div
-                  style="width: 120px; height: 40px; background: var(--text-muted); opacity: 0.3; border-radius: 4px;">
-                </div>
-              </div>
-              <div class="client-item">
-                <div
-                  style="width: 120px; height: 40px; background: var(--text-muted); opacity: 0.3; border-radius: 4px;">
-                </div>
-              </div>
-              <div class="client-item">
-                <div
-                  style="width: 120px; height: 40px; background: var(--text-muted); opacity: 0.3; border-radius: 4px;">
-                </div>
-              </div>
-              <div class="client-item">
-                <div
-                  style="width: 120px; height: 40px; background: var(--text-muted); opacity: 0.3; border-radius: 4px;">
-                </div>
-              </div>
-              <div class="client-item">
-                <div
-                  style="width: 120px; height: 40px; background: var(--text-muted); opacity: 0.3; border-radius: 4px;">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-
-    <!-- ABOUT SECTION -->
-    <section class="section section-about" aria-label="About Us">
-      <h2 class="about-heading">About Us</h2>
-    </section>
-    <div class="bg-sec">
-      <section class="section section-top" aria-label="Hero">
-        <div class="content rellax" data-rellax-speed="5">
-          <h1>Don't just start. Continue. Ship. Repeat.</h1>
-        </div>
-      </section>
-
-      <section class="section section-stream" aria-label="Stream">
-        <section id="abt-sct"></section>
-        <div class="content stream-content rellax" data-rellax-speed="10">
-          <div class="stream-block">
-            <h2 class="secondary-text">Stream Everything</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque fugit
-              molestiae placeat nesciunt autem et quos sapiente voluptates, magnam
-              doloribus?
-            </p>
-          </div>
-
-          <div class="stream-block">
-            <h2 class="secondary-text">Short is the New Long</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque fugit
-              molestiae placeat nesciunt autem et quos sapiente voluptates, magnam
-              doloribus?
-            </p>
-          </div>
-        </div>
-
-      </section>
-
-      <!-- Product SECTION -->
-      <section class="section section-about" aria-label="About Us">
-        <h2 class="about-heading">Our Products</h2>
-      </section>
-      <!-- green color -->
-      <section class="section section-grid" aria-label="Features">
-        <div class="grid-card rellax" data-rellax-speed="1" data-rellax-xs-speed="3">
-          <i class="fas fa-video fa-3x secondary-text" aria-hidden="true"></i>
-          <h2>Mek Green<span class="secondary-text dot">.</span></h2>
-          <p>
-            Eco-friendly durable PVC pipes for general industrial and civil applications.
-          </p>
-        </div>
-
-        <!-- red color -->
-        <div class="grid-card rellax" data-rellax-speed="4" data-rellax-xs-speed="3">
-          <i class="fas fa-users fa-3x secondary-text" aria-hidden="true"></i>
-          <h2>Mek Blaze<span class="secondary-text dot">.</span></h2>
-          <p>
-            High-heat resistant pipes ideal for industrial and firefighting systems.
-          </p>
-        </div>
-
-        <!-- blue color -->
-        <div class="grid-card rellax" data-rellax-speed="7" data-rellax-xs-speed="3">
-          <i class="fas fa-book fa-3x secondary-text" aria-hidden="true"></i>
-          <h2>Mek Pneumos<span class="secondary-text dot">.</span></h2>
-          <p>
-            Optimized for compressed air and pneumatic systems. Low leakage and high pressure rating.
-          </p>
-        </div>
-      </section>
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js"></script>
+    </header>
 
     <script>
-      let rellax = new Rellax(".rellax");
+        // Smooth Sticky Header Implementation
+        (function () {
+            'use strict';
+
+            // Configuration
+            const config = {
+                scrollThreshold: 100,     // Pixels to scroll before header becomes sticky
+                hideThreshold: 80,        // Pixels to scroll before hiding header on scroll down
+                debounceDelay: 10         // Debounce delay for scroll events (ms)
+            };
+
+            // State variables
+            let lastScrollTop = 0;
+            let isScrolling = false;
+            let ticking = false;
+
+            // Get DOM elements
+            const header = document.querySelector('.main-header');
+            const headerSticky = document.querySelector('.header-sticky');
+
+            // Early return if elements don't exist
+            if (!header || !headerSticky) {
+                console.warn('Header elements not found');
+                return;
+            }
+
+            // Debounce function for performance optimization
+            function debounce(func, wait) {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func(...args);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
+            }
+
+            // Main scroll handler function
+            function handleScroll() {
+                const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const scrollDifference = Math.abs(currentScrollTop - lastScrollTop);
+
+                // Determine scroll direction
+                const isScrollingDown = currentScrollTop > lastScrollTop;
+                const isScrollingUp = currentScrollTop < lastScrollTop;
+
+                // Apply sticky class when scrolled past threshold
+                if (currentScrollTop >= config.scrollThreshold) {
+                    headerSticky.classList.add('active');
+
+                    // Hide header on scroll down, show on scroll up
+                    if (isScrollingDown && scrollDifference > config.hideThreshold) {
+                        headerSticky.classList.add('hide');
+                        headerSticky.classList.remove('show');
+                    } else if (isScrollingUp && scrollDifference > 5) {
+                        headerSticky.classList.remove('hide');
+                        headerSticky.classList.add('show');
+                    }
+                } else {
+                    // Remove all classes when at top
+                    headerSticky.classList.remove('active', 'hide', 'show');
+                }
+
+                // Update last scroll position
+                lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+                isScrolling = false;
+            }
+
+            // Optimized scroll event handler using requestAnimationFrame
+            function onScroll() {
+                if (!ticking) {
+                    requestAnimationFrame(() => {
+                        handleScroll();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }
+
+            // Throttled scroll handler for additional performance
+            const throttledScrollHandler = debounce(onScroll, config.debounceDelay);
+
+            // Initialize the sticky header functionality
+            function init() {
+                // Set initial state
+                lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                // Add scroll event listener
+                window.addEventListener('scroll', throttledScrollHandler, { passive: true });
+
+                // Handle resize events to recalculate positions
+                window.addEventListener('resize', debounce(() => {
+                    // Reset scroll position tracking on resize
+                    lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                }, 250), { passive: true });
+
+                // Initial call to set correct state
+                handleScroll();
+            }
+
+            // Enhanced version with intersection observer for better performance (optional)
+            function initWithIntersectionObserver() {
+                // Create a sentinel element at the top
+                const sentinel = document.createElement('div');
+                sentinel.style.position = 'absolute';
+                sentinel.style.top = `${config.scrollThreshold}px`;
+                sentinel.style.height = '1px';
+                sentinel.style.width = '1px';
+                sentinel.style.pointerEvents = 'none';
+                document.body.appendChild(sentinel);
+
+                // Intersection Observer for sticky activation
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (!entry.isIntersecting) {
+                            headerSticky.classList.add('active');
+                        } else {
+                            headerSticky.classList.remove('active', 'hide', 'show');
+                        }
+                    });
+                }, { threshold: 0 });
+
+                observer.observe(sentinel);
+
+                // Still need scroll listener for hide/show functionality
+                window.addEventListener('scroll', throttledScrollHandler, { passive: true });
+            }
+
+            // Public methods for external control
+            window.StickyHeader = {
+                show: () => {
+                    headerSticky.classList.remove('hide');
+                    headerSticky.classList.add('show');
+                },
+                hide: () => {
+                    headerSticky.classList.add('hide');
+                    headerSticky.classList.remove('show');
+                },
+                reset: () => {
+                    headerSticky.classList.remove('active', 'hide', 'show');
+                    lastScrollTop = 0;
+                },
+                destroy: () => {
+                    window.removeEventListener('scroll', throttledScrollHandler);
+                    headerSticky.classList.remove('active', 'hide', 'show');
+                }
+            };
+
+            // Initialize when DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', init);
+            } else {
+                init();
+            }
+
+        })();
+
+        // Alternative simpler version (uncomment if you prefer simplicity over features)
+        /*
+        document.addEventListener('DOMContentLoaded', function() {
+            let lastScrollTop = 0;
+            const header = document.querySelector('.header-sticky');
+            
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop > 100) {
+                    header.classList.add('active');
+                    
+                    if (scrollTop > lastScrollTop && scrollTop > 200) {
+                        // Scrolling down
+                        header.classList.add('hide');
+                    } else {
+                        // Scrolling up
+                        header.classList.remove('hide');
+                    }
+                } else {
+                    header.classList.remove('active', 'hide');
+                }
+                
+                lastScrollTop = scrollTop;
+            }, { passive: true });
+        });
+        */
+    </script>
+    <!-- Header End -->
+
+
+    <!-- Hero Section Start -->
+    <div class="hero hero-video">
+        <!-- Video Start -->
+        <div class="hero-bg-video">
+            <!-- Selfhosted Video Start -->
+            <!-- <video autoplay muted loop id="myVideo"><source src="images/hero-bg-video.mp4" type="video/mp4"></video> -->
+            <video autoplay muted loop id="myVideo">
+                <source src="/video/vid-2.mp4" type="video/mp4">
+            </video>
+
+            <!-- Selfhosted Video End -->
+
+            <!-- Youtube Video Start -->
+            <!-- <div id="herovideo" class="player" data-property="{videoURL:'74DWwSxsVSs',containment:'.hero-video', showControls:false, autoPlay:true, loop:true, vol:0, mute:false, startAt:0,  stopAt:296, opacity:1, addRaster:true, quality:'large', optimizeDisplay:true}"></div> -->
+            <!-- Youtube Video End -->
+        </div>
+        <!-- Video End -->
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-10">
+                    <!-- Hero Content Start -->
+                    <div class="hero-content">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h3 class="wow fadeInUp">inspired Plumbers</h3>
+                            <h1 class="text-anime-style-2" data-cursor="-opaque">Premium Steel Pipes for Industrial
+                                Excellence</h1>
+                            <p class="wow fadeInUp" data-wow-delay="0.2s">Trusted by industries worldwide, we
+                                manufacture high-grade steel pipes, tubes, and fittings that meet international
+                                standards. From oil & gas to construction - we power progress.</p>
+                        </div>
+                        <!-- Section Title End -->
+
+                        <!-- Hero Button Start -->
+                        <div class="hero-btn wow fadeInUp" data-wow-delay="0.4s">
+                            <a href="product.html" class="btn-default">explore more</a>
+                            <a href="/pdf/Mekor.pdf" download="Mekor.pdf" class="btn-default btn-highlighted"
+                                aria-label="Download catalog PDF"><i class="fa-solid fa-download"></i>Download
+                                Catalog</a>
+                        </div>
+                        <!-- Hero Button End -->
+                    </div>
+                    <!-- Hero Content End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hero-devider"></div>
+    <!-- Hero Section End -->
+
+    <!--  -->
+
+
+    <!-- About Us Section Start -->
+    <div class="about-us">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <!-- About Us Images Start -->
+                    <div class="about-us-images">
+                        <!-- About Image 1 Start -->
+                        <div class="about-img-1">
+                            <figure class="image-anime reveal">
+                                <img src="images/about-img-1.jpg" alt="">
+                            </figure>
+                        </div>
+                        <!-- About Image 1 End -->
+
+                        <!-- About Image 2 Start -->
+                        <div class="about-img-2">
+                            <figure class="image-anime reveal">
+                                <img src="images/about-img-2.jpg" alt="">
+                            </figure>
+
+                            <!-- Feedback Counter Start -->
+                            <div class="experience-counter">
+                                <h3><span class="counter">15</span>+</h3>
+                                <p>Years of experience</p>
+                            </div>
+                            <!-- Feedback Counter End -->
+                        </div>
+                        <!-- About Image 2 End -->
+
+                        <!-- Feedback Counter Start -->
+                        <div class="feedback-counter">
+                            <p><span class="counter">95</span>%</p>
+                            <h3>positive feedback</h3>
+                        </div>
+                        <!-- Feedback Counter End -->
+                    </div>
+                    <!-- About Us Images End -->
+                </div>
+
+                <div class="col-lg-6">
+                    <!-- About Us Content Start -->
+                    <div class="about-us-content">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h3 class="wow fadeInUp">about us</h3>
+                            <h2 class="text-anime-style-2" data-cursor="-opaque">Precision piping for industrial
+                                <span>flow systems</span>
+                            </h2>
+                            <p class="wow fadeInUp" data-wow-delay="0.2s">We design and manufacture high-performance
+                                pipes and fittings for water, oil & gas,
+                                chemical and infrastructure projects. Engineering-led production ensures optimal
+                                material selection, strict dimensional control and industry-standard testing.
+                                Custom sizes, coatings and fabrication services are available. We deliver traceable
+                                quality, on-time supply and technical support for every installation.</p>
+                        </div>
+                        <!-- Section Title End -->
+
+                        <!-- About Us Content Body Start -->
+                        <div class="about-us-content-body">
+                            <!-- About Content Info Start -->
+                            <div class="about-us-content-info">
+                                <!-- About Us Content List Start -->
+                                <div class="about-us-content-list wow fadeInUp" data-wow-delay="0.4s">
+                                    <ul>
+                                        <li>engineering excellence</li>
+                                        <li>industry-compliant quality</li>
+                                        <li>on-time delivery</li>
+                                        <li>custom fabrication & technical support</li>
+                                    </ul>
+                                </div>
+                                <!-- About Us Content List End -->
+
+                                <!-- About Us Content Button Start -->
+                                <div class="about-us-content-btn wow fadeInUp" data-wow-delay="0.6s">
+                                    <a href="about.html" class="btn-default">read more</a>
+                                </div>
+                                <!-- About Us Content Button End -->
+                            </div>
+                            <!-- About Content Info End -->
+
+                            <!-- About Content List Start -->
+                            <div class="about-us-contact-list">
+                                <!-- About Contact Item Start -->
+                                <div class="about-contact-item wow fadeInUp" data-wow-delay="0.4s">
+                                    <div class="icon-box">
+                                        <i class="fa-solid fa-phone"></i>
+                                    </div>
+                                    <div class="about-contact-content">
+                                        <p>need any help?</p>
+                                        <h3 onclick="Call()" style="cursor: pointer;">+91 99794 58787</h3>
+                                        <script>
+                                            const Call = () => {
+                                                const phone = '+91 99794 58787';
+                                                const tel = 'tel:+919979458787';
+
+                                                // open dialer
+                                                window.location.href = tel;
+
+                                                // fallback for desktop or blocked tel handlers: copy number to clipboard
+                                                setTimeout(() => {
+                                                    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+                                                    if (!isMobile) {
+                                                        if (navigator.clipboard?.writeText) {
+                                                            navigator.clipboard.writeText(phone).then(() => {
+                                                                alert(`${phone} copied to clipboard`);
+                                                            }).catch(() => {
+                                                                // last resort: open in new tab
+                                                                window.open(tel, '_blank');
+                                                            });
+                                                        } else {
+                                                            window.open(tel, '_blank');
+                                                        }
+                                                    }
+                                                }, 300);
+                                            };
+                                        </script>
+                                    </div>
+                                </div>
+                                <!-- About Contact Item End -->
+
+                                <!-- About Contact Item Start -->
+                                <div class="about-contact-item wow fadeInUp" data-wow-delay="0.6s">
+                                    <div class="icon-box">
+                                        <figure class="image-anime">
+                                            <img src="images/author-1.jpg" alt="">
+                                        </figure>
+                                    </div>
+                                    <div class="about-contact-content">
+                                        <h3>Bhaveshbhai</h3>
+                                        <p>co founder</p>
+                                    </div>
+                                </div>
+                                <!-- About Contact Item End -->
+                            </div>
+                            <!-- About Content Info End -->
+                        </div>
+                        <!-- About Us Content Body End -->
+                    </div>
+                    <!-- About Us Content End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About Us Section End -->
+
+    <!-- Why Choose Us Section Start -->
+    <div class="why-choose-us">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <!-- Why Choose Content Start -->
+                    <div class="why-choose-content">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h3 class="wow fadeInUp">why choose us</h3>
+                            <h2 class="text-anime-style-2" data-cursor="-opaque">How <span>Mekor Pipe</span> delivers
+                                reliable flow systems</h2>
+                            <p class="wow fadeInUp" data-wow-delay="0.2s">From raw material to installation we supply
+                                engineered pipes and fittings with strict testing,
+                                timely delivery and technical support.</p>
+                        </div>
+                        <!-- Section Title End -->
+
+                        <!-- Why Choose Item List Start -->
+                        <div class="why-choose-item-list">
+                            <!-- Why Choose Item Start -->
+                            <div class="why-choose-item wow fadeInUp" data-wow-delay="0.4s">
+                                <!-- Icon Box Start -->
+                                <div class="icon-box">
+                                    <img src="images/icon-why-choose-1.svg" alt="">
+                                </div>
+                                <!-- Icon Box End -->
+
+                                <!-- Why Choose Item Content Start -->
+                                <div class="why-choose-item-content">
+                                    <h3>engineering-driven design</h3>
+                                    <p>Material selection, hydraulic calculation and custom fabrication for peak system
+                                        performance.</p>
+                                </div>
+                                <!-- Why Choose Item Content End -->
+                            </div>
+                            <!-- Why Choose Item End -->
+
+                            <!-- Why Choose Item Start -->
+                            <div class="why-choose-item wow fadeInUp" data-wow-delay="0.6s">
+                                <!-- Icon Box Start -->
+                                <div class="icon-box">
+                                    <img src="images/icon-why-choose-2.svg" alt="">
+                                </div>
+                                <!-- Icon Box End -->
+
+                                <!-- Why Choose Item Content Start -->
+                                <div class="why-choose-item-content">
+                                    <h3>quality & compliance</h3>
+                                    <p>Full dimensional checks, NDT and certifications to applicable industry standards.
+                                    </p>
+                                </div>
+                                <!-- Why Choose Item Content End -->
+                            </div>
+                            <!-- Why Choose Item End -->
+
+                            <!-- Why Choose Item Start -->
+                            <div class="why-choose-item wow fadeInUp" data-wow-delay="0.8s">
+                                <!-- Icon Box Start -->
+                                <div class="icon-box">
+                                    <img src="images/icon-why-choose-3.svg" alt="">
+                                </div>
+                                <!-- Icon Box End -->
+
+                                <!-- Why Choose Item Content Start -->
+                                <div class="why-choose-item-content">
+                                    <h3>reliable delivery & support</h3>
+                                    <p>On-time supply, logistics coordination and installation support with traceable
+                                        documentation.</p>
+                                </div>
+                                <!-- Why Choose Item Content End -->
+                            </div>
+                            <!-- Why Choose Item End -->
+                        </div>
+                        <!-- Why Choose Item List End -->
+                    </div>
+                    <!-- Why Choose Content End -->
+                </div>
+
+                <div class="col-lg-7">
+                    <!-- Why Choose Images Images Start -->
+                    <div class="why-choose-images">
+                        <!-- Why Choose Box 1 Start -->
+                        <div class="why-choose-img-box-1">
+                            <!-- Why Choose img 1 Start -->
+                            <div class="why-choose-img-1">
+                                <figure class="image-anime reveal">
+                                    <img src="images/why-choose-img-1.jpg" alt="">
+                                </figure>
+                            </div>
+                            <!-- Why Choose img 1 End -->
+
+                            <!-- Why Choose img 2 Start -->
+                            <div class="why-choose-img-2">
+                                <figure class="image-anime reveal">
+                                    <img src="images/why-choose-img-2.jpg" alt="">
+                                </figure>
+                            </div>
+                            <!-- Why Choose img 2 End -->
+                        </div>
+                        <!-- Why Choose Box 1 End -->
+
+                        <!-- Why Choose Box 2 Start -->
+                        <div class="why-choose-img-box-2">
+                            <!-- Why Choose img 3 Start -->
+                            <div class="why-choose-img-3">
+                                <figure class="image-anime reveal">
+                                    <img src="images/why-choose-img-3.jpg" alt="">
+                                </figure>
+                            </div>
+                            <!-- Why Choose img 3 End -->
+
+                            <!-- Why Choose img 4 Start -->
+                            <div class="why-choose-img-4">
+                                <figure class="image-anime reveal">
+                                    <img src="images/why-choose-img-4.jpg" alt="">
+                                </figure>
+                            </div>
+                            <!-- Why Choose img 4 End -->
+                        </div>
+                        <!-- Why Choose Box 2 End -->
+                    </div>
+                    <!-- Why Choose Images Images End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Why Choose Us Section End -->
+
+    <!-- Our Services Section Start -->
+    <div class="our-services">
+        <div class="container">
+            <div class="row section-row align-items-center">
+                <div class="col-lg-6">
+                    <!-- Section Title Start -->
+                    <div class="section-title">
+                        <h3 class="wow fadeInUp">our products</h3>
+                        <h2 class="text-anime-style-2" data-cursor="-opaque">Industrial-grade piping solutions for
+                            <span>every application</span>
+                        </h2>
+                    </div>
+                    <!-- Section Title End -->
+                </div>
+
+                <div class="col-lg-6">
+                    <!-- Section Title Content Start -->
+                    <div class="section-title-content">
+                        <p class="wow fadeInUp" data-wow-delay="0.2s">Mekor Pipe supplies engineered pipes, fittings and
+                            fabricated spools for water, oil & gas,
+                            chemical and infrastructure projects. Available in multiple materials, pressure classes and
+                            custom finishes. From specification and shop drawings to testing and on-time delivery.</p>
+                    </div>
+                    <!-- Section Title Content End -->
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <!-- Service Item Start -->
+                    <div class="service-item wow fadeInUp">
+                        <!-- Service Image Start -->
+                        <div class="service-image">
+                            <a href="service-single.html" data-cursor-text="View">
+                                <figure class="image-anime">
+                                    <img src="images/service-1.jpg" alt="">
+                                </figure>
+                            </a>
+                        </div>
+                        <!-- Service Image End -->
+
+                        <!-- Service Button Start -->
+                        <div class="service-btn service-btn-green">
+                            <a href="service-single.html"><img src="images/arrow-white.svg" alt=""></a>
+                        </div>
+                        <!-- Service Button End -->
+
+                        <!-- Service Content Start -->
+                        <div class="service-content">
+                            <h3><a href="service-single.html">Mek Green</a></h3>
+                            <p>Mek Green pipe engineered for reliable cold water flow with durability and long service
+                                life.</p>
+                        </div>
+                        <!-- Service Content End -->
+                    </div>
+                    <!-- Service Item End -->
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <!-- Service Item Start -->
+                    <div class="service-item wow fadeInUp" data-wow-delay="0.2s">
+                        <!-- Service Image Start -->
+                        <div class="service-image">
+                            <a href="service-single.html" data-cursor-text="View">
+                                <figure class="image-anime">
+                                    <img src="images/service-2.jpg" alt="">
+                                </figure>
+                            </a>
+                        </div>
+                        <!-- Service Image End -->
+
+                        <!-- Service Button Start -->
+                        <div class="service-btn service-btn-red">
+                            <a href="service-single.html"><img src="images/arrow-white.svg" alt=""></a>
+                        </div>
+                        <!-- Service Button End -->
+
+                        <!-- Service Content Start -->
+                        <div class="service-content">
+                            <h3><a href="service-single.html">Mek Blaze</a></h3>
+                            <p>Mek Blaze piping system designed for hot water and fire protection applications,
+                                delivering safety and durability.</p>
+                        </div>
+                        <!-- Service Content End -->
+                    </div>
+                    <!-- Service Item End -->
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <!-- Service Item Start -->
+                    <div class="service-item wow fadeInUp" data-wow-delay="0.4s">
+                        <!-- Service Image Start -->
+                        <div class="service-image">
+                            <a href="service-single.html" data-cursor-text="View">
+                                <figure class="image-anime">
+                                    <img src="images/service-3.jpg" alt="">
+                                </figure>
+                            </a>
+                        </div>
+                        <!-- Service Image End -->
+
+                        <!-- Service Button Start -->
+                        <div class="service-btn service-btn-blue">
+                            <a href="service-single.html"><img src="images/arrow-white.svg" alt=""></a>
+                        </div>
+                        <!-- Service Button End -->
+
+                        <!-- Service Content Start -->
+                        <div class="service-content">
+                            <h3><a href="service-single.html">Mek Pneumos</a></h3>
+                            <p>Mek Pneumos piping system specialized for compressed air and pneumatic lines, ensuring
+                                leak-free, efficient performance.</p>
+                        </div>
+                        <!-- Service Content End -->
+                    </div>
+                    <!-- Service Item End -->
+                </div>
+
+                <div class="col-lg-12">
+                    <!-- All Services Button Start -->
+                    <div class="all-services-btn wow fadeInUp" data-wow-delay="0.6s">
+                        <a href="services.html" class="btn-default">see all Details</a>
+                    </div>
+                    <!-- All Services Button End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Our Services Section End -->
+
+    <!-- Intro Video Section Start -->
+    <div class="intro-video">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Intro Video Image Start -->
+                    <div class="intro-video-box">
+                        <!-- Intro Image Start -->
+                        <div class="intro-video-image">
+                            <a href="https://www.youtube.com/watch?v=Y-x0efG1seA" class="popup-video"
+                                data-cursor-text="Play">
+                                <figure class="image-anime">
+                                    <img src="images/intro-video-bg.jpg" alt="">
+                                </figure>
+                            </a>
+                        </div>
+                        <!-- Intro Image End -->
+
+                        <!-- Video Play Button Start -->
+                        <div class="video-play-button">
+                            <a href="https://www.youtube.com/watch?v=Y-x0efG1seA" class="popup-video"
+                                data-cursor-text="Play">play</a>
+                        </div>
+                        <!-- Video Play Button End -->
+                    </div>
+                    <!-- Intro Video Btn End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Intro Video Section End -->
+
+    <!-- Our Project Start -->
+    <div class="our-project">
+        <div class="container">
+            <div class="row section-row align-items-center">
+                <div class="col-lg-5">
+                    <!-- Section Title Start -->
+                    <div class="section-title">
+                        <h3 class="wow fadeInUp">latest project</h3>
+                        <h2 class="text-anime-style-2" data-cursor="-opaque">Recent installations that showcase
+                            <span>Mekor Pipe quality</span>
+                        </h2>
+                    </div>
+                    <!-- Section Title End -->
+                </div>
+
+                <div class="col-lg-7">
+                    <!-- Section Title Content Start -->
+                    <div class="section-title-content">
+                        <p class="wow fadeInUp" data-wow-delay="0.2s">Explore how Mekor Pipe systems are applied across
+                            water supply,
+                            industrial, and infrastructure projects. Each installation reflects
+                            precision engineering, reliable performance, and lasting value.</p>
+                    </div>
+                    <!-- Section Title Content End -->
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Our Project Nav start -->
+                    <div class="our-Project-nav wow fadeInUp" data-wow-delay="0.4s">
+                        <ul>
+                            <li><a href="#" class="active-btn" data-filter="*">all</a></li>
+                            <li><a href="#" data-filter=".water-supply">water supply</a></li>
+                            <li><a href="#" data-filter=".industrial">industrial</a></li>
+                            <li><a href="#" data-filter=".infrastructure">infrastructure</a></li>
+                            <li><a href="#" data-filter=".fire-safety">fire safety</a></li>
+                            <li><a href="#" data-filter=".pneumatic">pneumatic</a></li>
+                        </ul>
+                    </div>
+                    <!-- Our Project Nav End -->
+                </div>
+
+                <div class="col-lg-12">
+                    <!-- Project Item Boxes start -->
+                    <div class="row project-item-boxes align-items-center">
+                        <div class="col-md-6 project-item-box architecture bedroom">
+                            <!-- Project Item Start -->
+                            <div class="project-item wow fadeInUp">
+                                <div class="project-image">
+                                    <div class="project-featured-image">
+                                        <figure class="image-anime">
+                                            <img src="images/project-1.jpg" alt="">
+                                        </figure>
+                                    </div>
+
+                                    <div class="project-btn">
+                                        <a href="project-single.html"><img src="images/arrow-white.svg" alt=""></a>
+                                    </div>
+                                </div>
+
+                                <div class="project-content">
+                                    <h3>residential spaces</h3>
+                                    <h2><a href="project-single.html">urban retreat: modern design meets comfort</a>
+                                    </h2>
+                                </div>
+                            </div>
+                            <!-- Project Item End -->
+                        </div>
+
+                        <div class="col-md-6 project-item-box interior kitchen">
+                            <!-- Project Item Start -->
+                            <div class="project-item wow fadeInUp" data-wow-delay="0.2s">
+                                <div class="project-image">
+                                    <div class="project-featured-image">
+                                        <figure class="image-anime">
+                                            <img src="images/project-2.jpg" alt="">
+                                        </figure>
+                                    </div>
+
+                                    <div class="project-btn">
+                                        <a href="project-single.html"><img src="images/arrow-white.svg" alt=""></a>
+                                    </div>
+                                </div>
+
+                                <div class="project-content">
+                                    <h3>luxury homes</h3>
+                                    <h2><a href="project-single.html">luxurious loft: industrial chic for living</a>
+                                    </h2>
+                                </div>
+                            </div>
+                            <!-- Project Item End -->
+                        </div>
+
+                        <div class="col-md-6 project-item-box furniture architecture">
+                            <!-- Project Item Start -->
+                            <div class="project-item wow fadeInUp" data-wow-delay="0.4s">
+                                <div class="project-image">
+                                    <div class="project-featured-image">
+                                        <figure class="image-anime">
+                                            <img src="images/project-3.jpg" alt="">
+                                        </figure>
+                                    </div>
+
+                                    <div class="project-btn">
+                                        <a href="project-single.html"><img src="images/arrow-white.svg" alt=""></a>
+                                    </div>
+                                </div>
+
+                                <div class="project-content">
+                                    <h3>outdoor living spaces</h3>
+                                    <h2><a href="project-single.html">coastal vibes: serenity by the sea</a></h2>
+                                </div>
+                            </div>
+                            <!-- Project Item End -->
+                        </div>
+
+                        <div class="col-md-6 project-item-box kitchen bedroom">
+                            <!-- Project Item Start -->
+                            <div class="project-item wow fadeInUp" data-wow-delay="0.6s">
+                                <div class="project-image">
+                                    <div class="project-featured-image">
+                                        <figure class="image-anime">
+                                            <img src="images/project-4.jpg" alt="">
+                                        </figure>
+                                    </div>
+
+                                    <div class="project-btn">
+                                        <a href="project-single.html"><img src="images/arrow-white.svg" alt=""></a>
+                                    </div>
+                                </div>
+
+                                <div class="project-content">
+                                    <h3>modern designs</h3>
+                                    <h2><a href="project-single.html">minimalist haven: simple, clean, inviting
+                                            spaces</a></h2>
+                                </div>
+                            </div>
+                            <!-- Project Item End -->
+                        </div>
+                    </div>
+                    <!-- Project Item Boxes End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Our Project End -->
+
+    <!-- How We Work Start -->
+    <div class="how-we-work">
+        <div class="container">
+            <div class="row section-row align-items-center">
+                <div class="col-lg-6">
+                    <!-- Section Title Start -->
+                    <div class="section-title dark-section">
+                        <h3 class="wow fadeInUp">how we work</h3>
+                        <h2 class="text-anime-style-2" data-cursor="-opaque"> From planning to installation with
+                            <span>Mekor Pipe</span>
+                        </h2>
+                    </div>
+                    <!-- Section Title End -->
+                </div>
+
+                <div class="col-lg-6">
+                    <!-- Section Title Content Start -->
+                    <div class="section-title-content dark-section">
+                        <p class="wow fadeInUp" data-wow-delay="0.2s"> We follow a structured process from technical
+                            consultation and design support,
+                            through material selection and fabrication, to final delivery and on-site
+                            installation. Every step ensures compliance, reliability, and long service life.</p>
+                    </div>
+                    <!-- Section Title Content End -->
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- How We Work List Start -->
+                    <div class="how-we-work-list">
+                        <!-- How We Item Start -->
+                        <div class="how-we-work-item wow fadeInUp">
+                            <div class="icon-box">
+                                <img src="images/icon-how-we-work-1.svg" alt="">
+                            </div>
+                            <div class="how-we-work-content">
+                                <h3>01. technical consultation</h3>
+                                <p>We begin with an in-depth discussion to understand project scope, flow requirements,
+                                    pressure ratings, and compliance needs.</p>
+                            </div>
+                        </div>
+                        <!-- How We Item End -->
+
+                        <!-- How We Item Start -->
+                        <div class="how-we-work-item wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="icon-box">
+                                <img src="images/icon-how-we-work-2.svg" alt="">
+                            </div>
+                            <div class="how-we-work-content">
+                                <h3>02. design & material planning</h3>
+                                <p>Our team selects pipe grades, diameters, and coatings. We provide layout drawings and
+                                    fabrication plans to match project specifications.</p>
+                            </div>
+                        </div>
+                        <!-- How We Item End -->
+
+                        <!-- How We Item Start -->
+                        <div class="how-we-work-item wow fadeInUp" data-wow-delay="0.4s">
+                            <div class="icon-box">
+                                <img src="images/icon-how-we-work-3.svg" alt="">
+                            </div>
+                            <div class="how-we-work-content">
+                                <h3>03. production & execution</h3>
+                                <p>Precision manufacturing with strict quality checks, followed by packaging and
+                                    delivery. On-site coordination ensures smooth installation.</p>
+                            </div>
+                        </div>
+                        <!-- How We Item End -->
+
+                        <!-- How We Item Start -->
+                        <div class="how-we-work-item wow fadeInUp" data-wow-delay="0.6s">
+                            <div class="icon-box">
+                                <img src="images/icon-how-we-work-4.svg" alt="">
+                            </div>
+                            <div class="how-we-work-content">
+                                <h3>04. inspection & handover</h3>
+                                <p>Final testing and verification ensure all standards are met. We hand over with
+                                    documentation, warranties, and technical support.</p>
+                            </div>
+                        </div>
+                        <!-- How We Item End -->
+                    </div>
+                    <!-- How We Work List End -->
+
+                    <!-- How Work Company Slider Start -->
+                    <div class="how-work-company-slider">
+                        <div class="swiper">
+                            <div class="swiper-wrapper">
+                                <!-- Company Support Logo Start -->
+                                <div class="swiper-slide">
+                                    <div class="company-logo">
+                                        <img src="images/company-logo-1.svg" alt="">
+                                    </div>
+                                </div>
+                                <!-- Company Support Logo End -->
+
+                                <!-- Company Support Logo Start -->
+                                <div class="swiper-slide">
+                                    <div class="company-logo">
+                                        <img src="images/company-logo-2.svg" alt="">
+                                    </div>
+                                </div>
+                                <!-- Company Support Logo End -->
+
+                                <!-- Company Support Logo Start -->
+                                <div class="swiper-slide">
+                                    <div class="company-logo">
+                                        <img src="images/company-logo-3.svg" alt="">
+                                    </div>
+                                </div>
+                                <!-- Company Support Logo End -->
+
+                                <!-- Company Support Logo Start -->
+                                <div class="swiper-slide">
+                                    <div class="company-logo">
+                                        <img src="images/company-logo-4.svg" alt="">
+                                    </div>
+                                </div>
+                                <!-- Company Support Logo End -->
+
+                                <!-- Company Support Logo Start -->
+                                <div class="swiper-slide">
+                                    <div class="company-logo">
+                                        <img src="images/company-logo-5.svg" alt="">
+                                    </div>
+                                </div>
+                                <!-- Company Support Logo End -->
+
+                                <!-- Company Support Logo Start -->
+                                <div class="swiper-slide">
+                                    <div class="company-logo">
+                                        <img src="images/company-logo-1.svg" alt="">
+                                    </div>
+                                </div>
+                                <!-- Company Support Logo End -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- How Work Company Slider End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- How We Work End -->
+
+    <!-- Our Skill Start -->
+    <div class="our-skill">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <!-- Our Skill Content Start -->
+                    <div class="our-skill-content">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h3 class="wow fadeInUp">our expertise</h3>
+                            <h2 class="text-anime-style-2" data-cursor="-opaque">Skills that power <span>Mekor Pipe
+                                    solutions</span></h2>
+                            <p class="wow fadeInUp" data-wow-delay="0.2s"> Our team combines engineering knowledge,
+                                production accuracy,
+                                and quality control to deliver piping systems that perform in
+                                every environment.</p>
+                        </div>
+                        <!-- Section Title End -->
+
+                        <!-- About SkillBar Start -->
+                        <div class="our-skillbar">
+                            <!-- Skills Progress Bar Start -->
+                            <div class="skills-progress-bar">
+                                <!-- Skill Item Start -->
+                                <div class="skillbar" data-percent="95%">
+                                    <div class="skill-data">
+                                        <div class="skill-title">precision manufacturing</div>
+                                        <div class="skill-no">95%</div>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="count-bar"></div>
+                                    </div>
+                                </div>
+                                <!-- Skill Item End -->
+                            </div>
+                            <!-- Skills Progress Bar End -->
+
+                            <!-- Skills Progress Bar Start -->
+                            <div class="skills-progress-bar">
+                                <!-- Skill Item Start -->
+                                <div class="skillbar" data-percent="85%">
+                                    <div class="skill-data">
+                                        <div class="skill-title">quality testing & compliance</div>
+                                        <div class="skill-no">99%</div>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="count-bar"></div>
+                                    </div>
+                                </div>
+                                <!-- Skill Item End -->
+                            </div>
+                            <!-- Skills Progress Bar End -->
+
+                            <!-- Skills Progress Bar Start -->
+                            <div class="skills-progress-bar">
+                                <!-- Skill Item Start -->
+                                <div class="skillbar" data-percent="75%">
+                                    <div class="skill-data">
+                                        <div class="skill-title">custom solutions & innovation</div>
+                                        <div class="skill-no">85%</div>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="count-bar"></div>
+                                    </div>
+                                </div>
+                                <!-- Skill Item End -->
+                            </div>
+                            <!-- Skills Progress Bar End -->
+                        </div>
+                        <!-- About SkillBar End -->
+                    </div>
+                    <!-- Our Skill Content End -->
+                </div>
+
+                <div class="col-lg-6">
+                    <!-- Our Skill Image Start -->
+                    <div class="our-skill-image">
+                        <div class="our-skill-img-1">
+                            <figure class="image-anime reveal">
+                                <img src="images/our-skill-img-1.jpg" alt="">
+                            </figure>
+                        </div>
+
+                        <div class="our-skill-img-2">
+                            <figure class="image-anime reveal">
+                                <img src="images/our-skill-img-2.jpg" alt="">
+                            </figure>
+                        </div>
+
+                        <div class="our-skill-img-3">
+                            <figure class="image-anime reveal">
+                                <img src="images/our-skill-img-3.jpg" alt="">
+                            </figure>
+                        </div>
+                    </div>
+                    <!-- Our Skill Image End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Our Skill End -->
+
+    <!-- Our Testimonial Start -->
+    <div class="our-testimonials">
+        <div class="container-fluid">
+            <div class="row no-gutters">
+                <div class="col-lg-6">
+                    <!-- Our Testimonial Image Start -->
+                    <div class="our-testimonials-image">
+                        <figure class="image-anime">
+                            <img src="./images/testimonial-img.jpg" alt="Mekor Pipe Clients">
+                        </figure>
+                    </div>
+                    <!-- Our Testimonial Image End -->
+                </div>
+
+                <div class="col-lg-6">
+                    <!-- Our Testimonial Content Start -->
+                    <div class="our-testimonial-content">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h3 class="wow fadeInUp">client testimonials</h3>
+                            <h2 class="text-anime-style-2" data-cursor="-opaque">
+                                Trusted by industries and <span>infrastructure projects</span>
+                            </h2>
+                        </div>
+                        <!-- Section Title End -->
+
+                        <!-- Testimonial Slider Start -->
+                        <div class="testimonial-slider">
+                            <div class="swiper">
+                                <div class="swiper-wrapper" data-cursor-text="Drag">
+                                    <!-- Testimonial Slide Start -->
+                                    <div class="swiper-slide">
+                                        <div class="testimonial-item">
+                                            <div class="testimonial-rating">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                            </div>
+                                            <div class="testimonial-body">
+                                                <div class="testimonial-content">
+                                                    <p>
+                                                        Mekor Pipe supplied our water supply project with
+                                                        excellent quality pipes. Timely delivery and strict
+                                                        compliance with standards made installation seamless.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="testimonial-body">
+                                                <div class="author-image">
+                                                    <figure class="image-anime">
+                                                        <img src="images/author-1.jpg" alt="Client Review">
+                                                    </figure>
+                                                </div>
+                                                <div class="author-content">
+                                                    <h3>Rahul Sharma</h3>
+                                                    <p>Project Manager, Infrastructure Co.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Testimonial Slide End -->
+
+                                    <!-- Testimonial Slide Start -->
+                                    <div class="swiper-slide">
+                                        <div class="testimonial-item">
+                                            <div class="testimonial-rating">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                            </div>
+                                            <div class="testimonial-content">
+                                                <p>
+                                                    We used Mek Blaze pipes for our fire safety system. The
+                                                    product quality and technical support were outstanding,
+                                                    ensuring our project met all safety codes.
+                                                </p>
+                                            </div>
+                                            <div class="testimonial-body">
+                                                <div class="author-image">
+                                                    <figure class="image-anime">
+                                                        <img src="images/author-2.jpg" alt="Client Review">
+                                                    </figure>
+                                                </div>
+                                                <div class="author-content">
+                                                    <h3>Emily Carter</h3>
+                                                    <p>Safety Consultant</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Testimonial Slide End -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Testimonial Slider End -->
+
+                        <!-- Testimonial Rating Counter Start -->
+                        <div class="testimonial-rating-counter">
+                            <div class="rating-counter">
+                                <h2><span class="counter">4.9</span></h2>
+                            </div>
+                            <div class="testimonial-rating-content">
+                                <div class="testimonial-client-rating">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p>1,800+ verified project reviews</p>
+                            </div>
+                        </div>
+                        <!-- Testimonial Rating Counter End -->
+                    </div>
+                    <!-- Our Testimonial Content End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Our Testimonial End -->
+
+
+
+
+    <!-- Footer Start -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Footer Header Start -->
+                    <div class="footer-header">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <!-- Footer Logo Start -->
+                                <div class="footer-logo">
+                                    <img src="images/footer-logo.svg" alt="">
+                                </div>
+                                <!-- Footer Logo End -->
+                            </div>
+
+                            <div class="col-md-6">
+                                <!-- Footer Social Link Start -->
+                                <div class="footer-social-links">
+                                    <div class="footer-social-link-title">
+                                        <h3>follow our socials</h3>
+                                    </div>
+                                    <ul>
+                                        <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                        <li><a href="#"><i class="fa-brands fa-dribbble"></i></a></li>
+                                        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                                    </ul>
+                                </div>
+                                <!-- Footer Social Link End -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Footer Header End -->
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <!-- Footer Links Start -->
+                    <div class="footer-links">
+                        <h3>information</h3>
+                        <ul>
+                            <li><a href="about.html">about our company</a></li>
+                            <li><a href="services.html">view our service</a></li>
+                            <li><a href="#">careers at company</a></li>
+                            <li><a href="blog.html">read our blog</a></li>
+                            <li><a href="projects.html">our latest projects</a></li>
+                        </ul>
+                    </div>
+                    <!-- Footer Links End -->
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <!-- Footer Links Start -->
+                    <div class="footer-links">
+                        <h3>portfolio</h3>
+                        <ul>
+                            <li><a href="project-single.html">luxury home design</a></li>
+                            <li><a href="project-single.html">residential interior design</a></li>
+                            <li><a href="project-single.html">commercial space design</a></li>
+                            <li><a href="project-single.html">residential interior design</a></li>
+                            <li><a href="project-single.html">renovation and restoration design</a></li>
+                        </ul>
+                    </div>
+                    <!-- Footer Links End -->
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <!-- Footer Contact Box Start -->
+                    <div class="footer-contact-box footer-links">
+                        <h3>contact us</h3>
+                        <!-- Footer Contact Item Start -->
+                        <div class="footer-contact-item">
+                            <div class="icon-box">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div class="footer-contact-content">
+                                <p>+1 (213) 465 789</p>
+                            </div>
+                        </div>
+                        <!-- Footer Contact Item End -->
+
+                        <!-- Footer Contact Item Start -->
+                        <div class="footer-contact-item">
+                            <div class="icon-box">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div class="footer-contact-content">
+                                <p>info@domain.com</p>
+                            </div>
+                        </div>
+                        <!-- Footer Contact Item End -->
+
+                        <!-- Footer Contact Item Start -->
+                        <div class="footer-contact-item">
+                            <div class="icon-box">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div class="footer-contact-content">
+                                <p>Generała Ziętka Jerzego 54, Mysłowice 41-412</p>
+                            </div>
+                        </div>
+                        <!-- Footer Contact Item End -->
+                    </div>
+                    <!-- Footer Contact Box End -->
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <!-- Footer Newsletter Form Start -->
+                    <div class="footer-latest-news footer-links">
+                        <h3>get the latest trending news</h3>
+
+                        <div class="footer-newsletter-form">
+                            <p>Your Dream Space Starts Here Get Exclusive Design Straight Your Inbox!</p>
+
+                            <form id="newslettersForm" action="#" method="POST">
+                                <div class="form-group">
+                                    <input type="email" name="email" class="form-control" id="mail"
+                                        placeholder="Enter your email" required>
+                                    <button type="submit"><i class="fa-solid fa-arrow-right-long"></i> </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Footer Newsletter Form End -->
+                </div>
+            </div>
+
+            <!-- Footer Copyright Section Start -->
+            <div class="footer-copyright">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- Footer Copyright Start -->
+                        <div class="footer-copyright-text">
+                            <p>Copyright © 2024 All Rights Reserved.</p>
+                        </div>
+                        <!-- Footer Copyright End -->
+                    </div>
+                </div>
+            </div>
+            <!-- Footer Copyright Section End -->
+        </div>
+    </footer>
+    <!-- Footer End -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const productData = {
+                green: {
+                    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center',
+                    title: 'Mek Green',
+                    description: 'Advanced eco-friendly solution designed for maximum efficiency and environmental sustainability.',
+                    features: [
+                        'Environmentally sustainable technology',
+                        'High-performance efficiency rating',
+                        'Energy-saving operation',
+                        'Durable construction materials'
+                    ],
+                    bgClass: 'mek-green'
+                },
+                red: {
+                    image: 'https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=400&h=400&fit=crop&crop=center',
+                    title: 'Mek Blaze (Red)',
+                    description: 'High-performance solution engineered for demanding applications requiring superior power and reliability.',
+                    features: [
+                        'Maximum power output capability',
+                        'Advanced heat management system',
+                        'Robust industrial-grade design',
+                        'Rapid response technology'
+                    ],
+                    bgClass: 'mek-red'
+                },
+                blue: {
+                    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=400&fit=crop&crop=center',
+                    title: 'Mek Pneumos (Blue)',
+                    description: 'Precision-engineered pneumatic system offering exceptional control and versatility for diverse applications.',
+                    features: [
+                        'Precision pneumatic control',
+                        'Versatile application compatibility',
+                        'Low maintenance requirements',
+                        'Intelligent pressure management'
+                    ],
+                    bgClass: 'mek-blue'
+                }
+            };
+
+            const productItems = document.querySelectorAll('.product-item');
+            const productDetails = document.getElementById('product-details');
+            const productImage = document.getElementById('product-image');
+            const productTitle = document.getElementById('product-title');
+            const productDescription = document.getElementById('product-description');
+            const productFeatures = document.getElementById('product-features');
+
+            function updateProductDetails(productKey) {
+                const product = productData[productKey];
+
+                // Add fade-in animation
+                productDetails.classList.add('fade-in');
+
+                // Update content
+                productImage.src = product.image;
+                productImage.alt = product.title;
+                productTitle.textContent = product.title;
+                productDescription.textContent = product.description;
+
+                // Update features
+                productFeatures.innerHTML = '';
+                product.features.forEach(feature => {
+                    const li = document.createElement('li');
+                    li.textContent = feature;
+                    productFeatures.appendChild(li);
+                });
+
+                // Update background class
+                productDetails.className = `product-details ${product.bgClass}`;
+
+                // Remove animation class after animation completes
+                setTimeout(() => {
+                    productDetails.classList.remove('fade-in');
+                }, 400);
+            }
+
+            // Add hover event listeners
+            productItems.forEach(item => {
+                item.addEventListener('mouseenter', () => {
+                    // Remove active class from all items
+                    productItems.forEach(i => i.classList.remove('active'));
+                    // Add active class to hovered item
+                    item.classList.add('active');
+
+                    // Update product details
+                    const productKey = item.getAttribute('data-product');
+                    updateProductDetails(productKey);
+                });
+            });
+
+            // Initialize with default product (green)
+            updateProductDetails('green');
+        });
     </script>
 
-
-
-
-
-
-
-
-  </main>
-
-
-
-
-
-
-
-  <script>
-    // Performance optimized JavaScript
-    class HeaderManager {
-      constructor() {
-        this.header = document.getElementById('header');
-        this.mobileToggle = document.getElementById('mobileToggle');
-        this.mobileMenu = document.getElementById('mobileMenu');
-        this.mobileProducts = document.getElementById('mobileProducts');
-        this.mobileProductsToggle = document.getElementById('mobileProductsToggle');
-        this.mobileProductsMenu = document.getElementById('mobileProductsMenu');
-        this.themeToggle = document.getElementById('themeToggle');
-        this.mobileThemeToggle = document.getElementById('mobileThemeToggle');
-        this.scrollProgress = document.getElementById('scrollProgress');
-        this.preloader = document.getElementById('preloader');
-
-        this.isScrolling = false;
-        this.scrollTimeout = null;
-
-        this.init();
-      }
-
-      init() {
-        this.setupEventListeners();
-        this.initTheme();
-        this.hidePreloader();
-        this.setupScrollAnimations();
-      }
-
-      setupEventListeners() {
-        // Optimized scroll handler with throttling
-        let ticking = false;
-        window.addEventListener('scroll', () => {
-          if (!ticking) {
-            requestAnimationFrame(() => {
-              this.handleScroll();
-              ticking = false;
-            });
-            ticking = true;
-          }
-        }, { passive: true });
-
-        // Mobile menu toggle
-        this.mobileToggle.addEventListener('click', (e) => {
-          e.stopPropagation();
-          this.toggleMobileMenu();
-        });
-
-        // Mobile products dropdown
-        this.mobileProductsToggle.addEventListener('click', (e) => {
-          e.stopPropagation();
-          this.toggleMobileProducts();
-        });
-
-        // Theme toggles
-        this.themeToggle.addEventListener('click', () => this.toggleTheme());
-        this.mobileThemeToggle.addEventListener('click', () => this.toggleTheme());
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-          if (!this.header.contains(e.target) && this.mobileMenu.classList.contains('active')) {
-            this.closeMobileMenu();
-          }
-        });
-
-        // Handle window resize
-        let resizeTimeout;
-        window.addEventListener('resize', () => {
-          clearTimeout(resizeTimeout);
-          resizeTimeout = setTimeout(() => {
-            if (window.innerWidth >= 1024) {
-              this.closeMobileMenu();
-            }
-          }, 150);
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-          anchor.addEventListener('click', (e) => {
-            const href = anchor.getAttribute('href');
-            if (href === '#') return;
-
-            e.preventDefault();
-            const target = document.querySelector(href);
-            if (target) {
-              target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-              });
-            }
-          });
-        });
-      }
-
-      handleScroll() {
-        const scrollY = window.scrollY;
-
-        // Header scroll effect
-        if (scrollY > 50) {
-          this.header.classList.add('scrolled');
-        } else {
-          this.header.classList.remove('scrolled');
-        }
-
-        // Scroll progress
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        this.scrollProgress.style.width = scrolled + '%';
-      }
-
-      toggleMobileMenu() {
-        const isActive = this.mobileMenu.classList.contains('active');
-
-        if (isActive) {
-          this.closeMobileMenu();
-        } else {
-          this.openMobileMenu();
-        }
-      }
-
-      openMobileMenu() {
-        this.mobileToggle.classList.add('active');
-        this.mobileMenu.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-
-      closeMobileMenu() {
-        this.mobileToggle.classList.remove('active');
-        this.mobileMenu.classList.remove('active');
-        this.mobileProducts.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-
-      toggleMobileProducts() {
-        this.mobileProducts.classList.toggle('active');
-      }
-
-      initTheme() {
-        const savedTheme = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-        if (savedTheme) {
-          document.documentElement.setAttribute('data-theme', savedTheme);
-        } else if (prefersDark) {
-          document.documentElement.setAttribute('data-theme', 'dark');
-        }
-      }
-
-      toggleTheme() {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-      }
-
-      hidePreloader() {
-        // Hide preloader after a short delay to ensure smooth loading
-        setTimeout(() => {
-          this.preloader.classList.add('hidden');
-
-          // Remove preloader from DOM after animation
-          setTimeout(() => {
-            this.preloader.remove();
-          }, 500);
-        }, 800);
-      }
-
-      setupScrollAnimations() {
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-          threshold: 0.1,
-          rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-            }
-          });
-        }, observerOptions);
-
-        // Observe elements with fade-in class
-        document.querySelectorAll('.fade-in').forEach(el => {
-          observer.observe(el);
-        });
-      }
-    }
-
-    // Initialize when DOM is loaded
-    document.addEventListener('DOMContentLoaded', () => {
-      new HeaderManager();
-    });
-
-    // Handle page visibility change for performance
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) {
-        // Pause any heavy operations when page is hidden
-        document.body.style.animationPlayState = 'paused';
-      } else {
-        document.body.style.animationPlayState = 'running';
-      }
-    });
-  </script>
-
+    <!-- Jquery Library File -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap js file -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Validator js file -->
+    <script src="js/validator.min.js"></script>
+    <!-- SlickNav js file -->
+    <script src="js/jquery.slicknav.js"></script>
+    <!-- Swiper js file -->
+    <script src="js/swiper-bundle.min.js"></script>
+    <!-- Counter js file -->
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <!-- Isotop js file -->
+    <script src="js/isotope.min.js"></script>
+    <!-- Magnific js file -->
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <!-- SmoothScroll -->
+    <script src="js/SmoothScroll.js"></script>
+    <!-- Parallax js -->
+    <script src="js/parallaxie.js"></script>
+    <!-- MagicCursor js file -->
+    <script src="js/gsap.min.js"></script>
+    <script src="js/magiccursor.js"></script>
+    <!-- Text Effect js file -->
+    <script src="js/SplitText.js"></script>
+    <script src="js/ScrollTrigger.min.js"></script>
+    <!-- YTPlayer js File -->
+    <script src="js/jquery.mb.YTPlayer.min.js"></script>
+    <!-- Wow js file -->
+    <script src="js/wow.min.js"></script>
+    <!-- Main Custom js file -->
+    <script src="js/function.js"></script>
 </body>
 
 </html>
