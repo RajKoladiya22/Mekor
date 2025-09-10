@@ -76,7 +76,7 @@
                     <div class="collapse navbar-collapse main-menu">
                         <div class="nav-menu-wrapper">
                             <ul class="navbar-nav mr-auto" id="menu">
-                                <li class="nav-item"><a class="nav-link" href="./">Home</a></li>
+                                <li class="nav-item"><a class="nav-link active" href="./">Home</a></li>
                                 <li class="d-block d-lg-none nav-item submenu"><a class="nav-link" href="#">Our
                                         Product</a>
                                     <ul>
@@ -93,43 +93,20 @@
                                     <a class="nav-link" href="#">Our Product</a>
                                     <div class="mega-menu">
                                         <div class="product-list">
-
+                                            <h4 class="text-center">Our Product</h4>
                                             <a href="mek-green.html" class="product-item mek-green active"
                                                 data-product="green">
-                                                <i class="fas fa-leaf"></i>
-                                                Mek Green
+                                                <i class="fas fa-leaf"></i> Mek Green
                                             </a>
-                                            <a href="mek-blaze.html" class="product-item mek-red"
-                                                data-product="red">
-                                                <i class="fas fa-fire"></i>
-                                                Mek Blaze
+                                            <a href="mek-blaze.html" class="product-item mek-red" data-product="red">
+                                                <i class="fas fa-fire"></i> Mek Blaze
                                             </a>
                                             <a href="mek-pneumos.html" class="product-item mek-blue"
                                                 data-product="blue">
-                                                <i class="fas fa-wind"></i>
-                                                Mek Pneumos
+                                                <i class="fas fa-wind"></i> Mek Pneumos
                                             </a>
                                         </div>
-                                        <div class="product-details mek-green" id="product-details">
-                                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center"
-                                                alt="Mek Green" class="product-image" id="product-image">
-                                            <div class="">
-                                                <h3 class="product-title" id="product-title">Mek Green</h3>
-                                                <p class="product-description" id="product-description">
-                                                    Advanced eco-friendly solution designed for maximum efficiency and
-                                                    environmental sustainability.
-                                                </p>
-                                                <ul class="product-features" id="product-features">
-                                                    <li>Environmentally sustainable technology</li>
-                                                    <li>High-performance efficiency rating</li>
-                                                    <li>Energy-saving operation</li>
-                                                    <li>Durable construction materials</li>
-                                                </ul>
-                                                <a href="product.html" style="padding: 8px 24px !important;"
-                                                    class="product-cta" id="product-cta">
-                                                    Learn More
-                                                </a>
-                                            </div>
+                                        <div class="product-details" id="product-details-container">
                                         </div>
                                     </div>
                                 </li>
@@ -160,192 +137,130 @@
     </header>
 
     <script>
-        // Smooth Sticky Header Implementation
-        (function () {
-            'use strict';
+        document.addEventListener('DOMContentLoaded', function () {
 
-            // Configuration
-            const config = {
-                scrollThreshold: 100,     // Pixels to scroll before header becomes sticky
-                hideThreshold: 80,        // Pixels to scroll before hiding header on scroll down
-                debounceDelay: 10         // Debounce delay for scroll events (ms)
-            };
-
-            // State variables
-            let lastScrollTop = 0;
-            let isScrolling = false;
-            let ticking = false;
-
-            // Get DOM elements
-            const header = document.querySelector('.main-header');
+            /**
+             * --------------------------------
+             * 1. Smooth Sticky Header on Scroll
+             * --------------------------------
+             */
             const headerSticky = document.querySelector('.header-sticky');
+            if (headerSticky) {
+                let lastScrollY = window.scrollY;
+                let ticking = false;
 
-            // Early return if elements don't exist
-            if (!header || !headerSticky) {
-                console.warn('Header elements not found');
-                return;
-            }
+                const updateHeader = () => {
+                    const currentScrollY = window.scrollY;
 
-            // Debounce function for performance optimization
-            function debounce(func, wait) {
-                let timeout;
-                return function executedFunction(...args) {
-                    const later = () => {
-                        clearTimeout(timeout);
-                        func(...args);
-                    };
-                    clearTimeout(timeout);
-                    timeout = setTimeout(later, wait);
-                };
-            }
-
-            // Main scroll handler function
-            function handleScroll() {
-                const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                const scrollDifference = Math.abs(currentScrollTop - lastScrollTop);
-
-                // Determine scroll direction
-                const isScrollingDown = currentScrollTop > lastScrollTop;
-                const isScrollingUp = currentScrollTop < lastScrollTop;
-
-                // Apply sticky class when scrolled past threshold
-                if (currentScrollTop >= config.scrollThreshold) {
-                    headerSticky.classList.add('active');
-
-                    // Hide header on scroll down, show on scroll up
-                    if (isScrollingDown && scrollDifference > config.hideThreshold) {
-                        headerSticky.classList.add('hide');
-                        headerSticky.classList.remove('show');
-                    } else if (isScrollingUp && scrollDifference > 5) {
-                        headerSticky.classList.remove('hide');
-                        headerSticky.classList.add('show');
+                    // Add sticky class when scrolled past a threshold (e.g., 100px)
+                    if (currentScrollY > 100) {
+                        headerSticky.classList.add('is-sticky');
+                    } else {
+                        headerSticky.classList.remove('is-sticky', 'is-hidden');
                     }
-                } else {
-                    // Remove all classes when at top
-                    headerSticky.classList.remove('active', 'hide', 'show');
-                }
 
-                // Update last scroll position
-                lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
-                isScrolling = false;
+                    // Hide header on scroll down, show on scroll up (only when sticky)
+                    if (currentScrollY > lastScrollY && currentScrollY > 200) {
+                        headerSticky.classList.add('is-hidden');
+                    } else {
+                        headerSticky.classList.remove('is-hidden');
+                    }
+
+                    lastScrollY = currentScrollY;
+                    ticking = false;
+                };
+
+                window.addEventListener('scroll', () => {
+                    if (!ticking) {
+                        window.requestAnimationFrame(updateHeader);
+                        ticking = true;
+                    }
+                }, { passive: true });
             }
 
-            // Optimized scroll event handler using requestAnimationFrame
-            function onScroll() {
-                if (!ticking) {
-                    requestAnimationFrame(() => {
-                        handleScroll();
-                        ticking = false;
-                    });
-                    ticking = true;
-                }
-            }
 
-            // Throttled scroll handler for additional performance
-            const throttledScrollHandler = debounce(onScroll, config.debounceDelay);
+            /**
+             * --------------------------------
+             * 2. Interactive Mega Menu
+             * --------------------------------
+             */
+            const productItems = document.querySelectorAll('.product-item');
+            const detailsContainer = document.getElementById('product-details-container');
 
-            // Initialize the sticky header functionality
-            function init() {
-                // Set initial state
-                lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-                // Add scroll event listener
-                window.addEventListener('scroll', throttledScrollHandler, { passive: true });
-
-                // Handle resize events to recalculate positions
-                window.addEventListener('resize', debounce(() => {
-                    // Reset scroll position tracking on resize
-                    lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                }, 250), { passive: true });
-
-                // Initial call to set correct state
-                handleScroll();
-            }
-
-            // Enhanced version with intersection observer for better performance (optional)
-            function initWithIntersectionObserver() {
-                // Create a sentinel element at the top
-                const sentinel = document.createElement('div');
-                sentinel.style.position = 'absolute';
-                sentinel.style.top = `${config.scrollThreshold}px`;
-                sentinel.style.height = '1px';
-                sentinel.style.width = '1px';
-                sentinel.style.pointerEvents = 'none';
-                document.body.appendChild(sentinel);
-
-                // Intersection Observer for sticky activation
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (!entry.isIntersecting) {
-                            headerSticky.classList.add('active');
-                        } else {
-                            headerSticky.classList.remove('active', 'hide', 'show');
-                        }
-                    });
-                }, { threshold: 0 });
-
-                observer.observe(sentinel);
-
-                // Still need scroll listener for hide/show functionality
-                window.addEventListener('scroll', throttledScrollHandler, { passive: true });
-            }
-
-            // Public methods for external control
-            window.StickyHeader = {
-                show: () => {
-                    headerSticky.classList.remove('hide');
-                    headerSticky.classList.add('show');
+            // Store product data in an object for easy access.
+            // This makes it easy to add new products without changing the JS logic.
+            const productData = {
+                green: {
+                    title: 'Mek Green',
+                    description: 'Advanced eco-friendly pipes designed for maximum efficiency and environmental sustainability.',
+                    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center',
+                    features: ['Environmentally sustainable', 'High-performance efficiency', 'Energy-saving operation', 'Durable construction'],
+                    link: 'mek-green.html',
+                    colorClass: 'mek-green'
                 },
-                hide: () => {
-                    headerSticky.classList.add('hide');
-                    headerSticky.classList.remove('show');
+                red: {
+                    title: 'Mek Blaze',
+                    description: 'Robust fire-resistant piping system engineered for safety and reliability in critical applications.',
+                    image: 'https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=400&h=400&fit=crop&crop=center',
+                    features: ['Superior fire resistance', 'High-pressure tolerance', 'Corrosion-proof materials', 'Certified for safety'],
+                    link: 'mek-blaze.html',
+                    colorClass: 'mek-red'
                 },
-                reset: () => {
-                    headerSticky.classList.remove('active', 'hide', 'show');
-                    lastScrollTop = 0;
-                },
-                destroy: () => {
-                    window.removeEventListener('scroll', throttledScrollHandler);
-                    headerSticky.classList.remove('active', 'hide', 'show');
+                blue: {
+                    title: 'Mek Pneumos',
+                    description: 'High-performance pneumatic piping system built for clean air delivery and industrial automation.',
+                    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=400&fit=crop&crop=center',
+                    features: ['Leak-proof design', 'Low friction for high flow', 'Resistant to compressor oils', 'Quick installation'],
+                    link: 'mek-pneumos.html',
+                    colorClass: 'mek-blue'
                 }
             };
 
-            // Initialize when DOM is ready
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', init);
-            } else {
-                init();
+            // Function to update the details pane
+            const updateProductDetails = (productKey) => {
+                const data = productData[productKey];
+                if (!data || !detailsContainer) return;
+
+                const featuresHTML = data.features.map(feature => `<li>${feature}</li>`).join('');
+
+                detailsContainer.innerHTML = `
+            <img src="${data.image}" alt="${data.title}" class="product-image">
+            <div class="product-details-content">
+                <h3 class="product-title">${data.title}</h3>
+                <p class="product-description">${data.description}</p>
+                <ul class="product-features">${featuresHTML}</ul>
+                <a href="${data.link}" class="product-cta ${data.colorClass}">Learn More</a>
+            </div>
+        `;
+
+                // Trigger fade-in animation
+                const content = detailsContainer.querySelector('.product-details-content');
+                content.classList.add('fade-in');
+            };
+
+            if (productItems.length > 0 && detailsContainer) {
+                // Set initial state
+                updateProductDetails('green');
+
+                productItems.forEach(item => {
+                    item.addEventListener('mouseenter', () => {
+                        // Remove active class from all items
+                        productItems.forEach(i => i.classList.remove('active'));
+                        // Add active class to the hovered item
+                        item.classList.add('active');
+
+                        const productKey = item.dataset.product;
+                        updateProductDetails(productKey);
+                    });
+                });
             }
 
-        })();
-
-        // Alternative simpler version (uncomment if you prefer simplicity over features)
-        /*
-        document.addEventListener('DOMContentLoaded', function() {
-            let lastScrollTop = 0;
-            const header = document.querySelector('.header-sticky');
-            
-            window.addEventListener('scroll', function() {
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                
-                if (scrollTop > 100) {
-                    header.classList.add('active');
-                    
-                    if (scrollTop > lastScrollTop && scrollTop > 200) {
-                        // Scrolling down
-                        header.classList.add('hide');
-                    } else {
-                        // Scrolling up
-                        header.classList.remove('hide');
-                    }
-                } else {
-                    header.classList.remove('active', 'hide');
-                }
-                
-                lastScrollTop = scrollTop;
-            }, { passive: true });
+            // Initialize SlickNav (make sure you have the slicknav.js file included)
+            $('#menu').slicknav({
+                label: '',
+                appendTo: '.responsive-menu'
+            });
         });
-        */
     </script>
     <!-- Header End -->
 
@@ -386,7 +301,7 @@
                         <!-- Hero Button Start -->
                         <div class="hero-btn wow fadeInUp" data-wow-delay="0.4s">
                             <a href="product.html" class="btn-default">explore more</a>
-                            <a href="/pdf/Mekor.pdf" download="Mekor.pdf" class="btn-default btn-highlighted"
+                            <a href="/pdf/Mekor.pdf" download="Mekor.pdf" class="btn-default btn-highlighted btn-download"
                                 aria-label="Download catalog PDF"><i class="fa-solid fa-download"></i>Download
                                 Catalog</a>
                         </div>
@@ -399,9 +314,6 @@
     </div>
     <div class="hero-devider"></div>
     <!-- Hero Section End -->
-
-    <!--  -->
-
 
     <!-- About Us Section Start -->
     <div class="about-us">
@@ -1361,9 +1273,6 @@
     </div>
     <!-- Our Testimonial End -->
 
-
-
-
     <!-- Footer Start -->
     <footer class="main-footer">
         <div class="container">
@@ -1373,11 +1282,18 @@
                     <div class="footer-header">
                         <div class="row align-items-center">
                             <div class="col-md-6">
-                                <!-- Footer Logo Start -->
-                                <div class="footer-logo">
-                                    <img src="images/footer-logo.svg" alt="">
-                                </div>
-                                <!-- Footer Logo End -->
+
+                                <!-- Logo Start -->
+                                <a class="navbar-brand d-flex align-items-center" href="./">
+                                    <img src="images/logo.svg" alt="Mekor Pipes Logo" class="img-fluid"
+                                        style="height:50px;">
+                                    <div class="logo-text px-2">
+                                        <h2 class="m-0">Mekor <span>PIPES</span></h2>
+                                        <h5 class="m-0">Efficiency Simplified</h5>
+                                    </div>
+                                </a>
+                                <!-- Logo End -->
+
                             </div>
 
                             <div class="col-md-6">
@@ -1402,13 +1318,12 @@
                 <div class="col-lg-3 col-md-6">
                     <!-- Footer Links Start -->
                     <div class="footer-links">
-                        <h3>information</h3>
+                        <h3>Navigation</h3>
                         <ul>
                             <li><a href="about.html">about our company</a></li>
-                            <li><a href="services.html">view our service</a></li>
-                            <li><a href="#">careers at company</a></li>
-                            <li><a href="blog.html">read our blog</a></li>
-                            <li><a href="projects.html">our latest projects</a></li>
+                            <li><a href="gallery.html">Gallery</a></li>
+                            <li><a href="career.html">careers at company</a></li>
+                            <li><a href="contact.html">contact is</a></li>
                         </ul>
                     </div>
                     <!-- Footer Links End -->
@@ -1417,13 +1332,11 @@
                 <div class="col-lg-3 col-md-6">
                     <!-- Footer Links Start -->
                     <div class="footer-links">
-                        <h3>portfolio</h3>
+                        <h3>our products</h3>
                         <ul>
-                            <li><a href="project-single.html">luxury home design</a></li>
-                            <li><a href="project-single.html">residential interior design</a></li>
-                            <li><a href="project-single.html">commercial space design</a></li>
-                            <li><a href="project-single.html">residential interior design</a></li>
-                            <li><a href="project-single.html">renovation and restoration design</a></li>
+                            <li><a href="mek-green.html">mek green</a></li>
+                            <li><a href="mek-blaze.html">mek blaze</a></li>
+                            <li><a href="mek-pneumos.html">make pneumos</a></li>
                         </ul>
                     </div>
                     <!-- Footer Links End -->
@@ -1439,7 +1352,7 @@
                                 <i class="fa-solid fa-phone"></i>
                             </div>
                             <div class="footer-contact-content">
-                                <p>+1 (213) 465 789</p>
+                                <p>+91 9979458787</p>
                             </div>
                         </div>
                         <!-- Footer Contact Item End -->
@@ -1450,7 +1363,7 @@
                                 <i class="fa-solid fa-envelope"></i>
                             </div>
                             <div class="footer-contact-content">
-                                <p>info@domain.com</p>
+                                <p>info@mekorpipes.com</p>
                             </div>
                         </div>
                         <!-- Footer Contact Item End -->
@@ -1461,7 +1374,7 @@
                                 <i class="fa-solid fa-location-dot"></i>
                             </div>
                             <div class="footer-contact-content">
-                                <p>Generała Ziętka Jerzego 54, Mysłowice 41-412</p>
+                                <p>Udhna, Surat, Gujarat, India</p>
                             </div>
                         </div>
                         <!-- Footer Contact Item End -->
@@ -1471,19 +1384,47 @@
 
                 <div class="col-lg-3 col-md-6">
                     <!-- Footer Newsletter Form Start -->
+                    <style>
+                        /* The WhatsApp Button Style */
+                        .whatsapp-btn {
+                            display: inline-flex;
+                            align-items: center;
+                            justify-content: center;
+                            text-decoration: none;
+                            background-color: #25D366;
+                            /* Official WhatsApp Green */
+                            color: #ffffff;
+                            padding: 12px 28px;
+                            border-radius: 50px;
+                            font-size: 16px;
+                            font-weight: bold;
+                            transition: all 0.3s ease;
+                            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+                        }
+
+                        .whatsapp-btn:hover {
+                            transform: translateY(-3px);
+                            background-color: #1EBE57;
+                            box-shadow: 0 7px 20px rgba(37, 211, 102, 0.4);
+                        }
+
+                        .whatsapp-btn i.fa-whatsapp {
+                            font-size: 24px;
+                            margin-right: 12px;
+                            /* Space between icon and text */
+                        }
+                    </style>
                     <div class="footer-latest-news footer-links">
                         <h3>get the latest trending news</h3>
 
                         <div class="footer-newsletter-form">
-                            <p>Your Dream Space Starts Here Get Exclusive Design Straight Your Inbox!</p>
+                            <p>Your Dream Space Starts Here Get Exclusive Design Straight Your Whatsapp!</p>
 
-                            <form id="newslettersForm" action="#" method="POST">
-                                <div class="form-group">
-                                    <input type="email" name="email" class="form-control" id="mail"
-                                        placeholder="Enter your email" required>
-                                    <button type="submit"><i class="fa-solid fa-arrow-right-long"></i> </button>
-                                </div>
-                            </form>
+                            <a href="https://wa.me/+919979458787?text=Hello!%20I'm%20interested%20in%20your%20exclusive%20designs.%20Please%20send%20me%20more%20details."
+                                class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-whatsapp"></i>
+                                <span>Connect on WhatsApp</span>
+                            </a>
                         </div>
                     </div>
                     <!-- Footer Newsletter Form End -->
@@ -1496,7 +1437,13 @@
                     <div class="col-md-12">
                         <!-- Footer Copyright Start -->
                         <div class="footer-copyright-text">
-                            <p>Copyright © 2024 All Rights Reserved.</p>
+                            <p>Copyright © <span id="currentYear"></span> All Rights Reserved.
+                            </p>
+
+                            <script>
+                                // Automatically set the current year in the footer
+                                document.getElementById('currentYear').textContent = new Date().getFullYear();
+                            </script>
                         </div>
                         <!-- Footer Copyright End -->
                     </div>
@@ -1507,101 +1454,7 @@
     </footer>
     <!-- Footer End -->
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const productData = {
-                green: {
-                    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center',
-                    title: 'Mek Green',
-                    description: 'Advanced eco-friendly solution designed for maximum efficiency and environmental sustainability.',
-                    features: [
-                        'Environmentally sustainable technology',
-                        'High-performance efficiency rating',
-                        'Energy-saving operation',
-                        'Durable construction materials'
-                    ],
-                    bgClass: 'mek-green'
-                },
-                red: {
-                    image: 'https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=400&h=400&fit=crop&crop=center',
-                    title: 'Mek Blaze (Red)',
-                    description: 'High-performance solution engineered for demanding applications requiring superior power and reliability.',
-                    features: [
-                        'Maximum power output capability',
-                        'Advanced heat management system',
-                        'Robust industrial-grade design',
-                        'Rapid response technology'
-                    ],
-                    bgClass: 'mek-red'
-                },
-                blue: {
-                    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=400&fit=crop&crop=center',
-                    title: 'Mek Pneumos (Blue)',
-                    description: 'Precision-engineered pneumatic system offering exceptional control and versatility for diverse applications.',
-                    features: [
-                        'Precision pneumatic control',
-                        'Versatile application compatibility',
-                        'Low maintenance requirements',
-                        'Intelligent pressure management'
-                    ],
-                    bgClass: 'mek-blue'
-                }
-            };
 
-            const productItems = document.querySelectorAll('.product-item');
-            const productDetails = document.getElementById('product-details');
-            const productImage = document.getElementById('product-image');
-            const productTitle = document.getElementById('product-title');
-            const productDescription = document.getElementById('product-description');
-            const productFeatures = document.getElementById('product-features');
-
-            function updateProductDetails(productKey) {
-                const product = productData[productKey];
-
-                // Add fade-in animation
-                productDetails.classList.add('fade-in');
-
-                // Update content
-                productImage.src = product.image;
-                productImage.alt = product.title;
-                productTitle.textContent = product.title;
-                productDescription.textContent = product.description;
-
-                // Update features
-                productFeatures.innerHTML = '';
-                product.features.forEach(feature => {
-                    const li = document.createElement('li');
-                    li.textContent = feature;
-                    productFeatures.appendChild(li);
-                });
-
-                // Update background class
-                productDetails.className = `product-details ${product.bgClass}`;
-
-                // Remove animation class after animation completes
-                setTimeout(() => {
-                    productDetails.classList.remove('fade-in');
-                }, 400);
-            }
-
-            // Add hover event listeners
-            productItems.forEach(item => {
-                item.addEventListener('mouseenter', () => {
-                    // Remove active class from all items
-                    productItems.forEach(i => i.classList.remove('active'));
-                    // Add active class to hovered item
-                    item.classList.add('active');
-
-                    // Update product details
-                    const productKey = item.getAttribute('data-product');
-                    updateProductDetails(productKey);
-                });
-            });
-
-            // Initialize with default product (green)
-            updateProductDetails('green');
-        });
-    </script>
 
     <!-- Jquery Library File -->
     <script src="js/jquery-3.7.1.min.js"></script>
