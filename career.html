@@ -1194,6 +1194,67 @@
     </footer>
     <!-- Footer End -->
 
+    <!-- Sticky WhatsApp Button -->
+    <style>
+        /* Sticky WhatsApp Button */
+        .whatsapp-sticky-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25D366;
+            color: #ffffff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            visibility: hidden;
+        }
+
+        .whatsapp-sticky-btn.visible {
+            opacity: 1;
+            transform: translateY(0);
+            visibility: visible;
+        }
+
+        .whatsapp-sticky-btn:hover {
+            background-color: #1EBE57;
+            transform: scale(1.1);
+            transition: all 0.3s ease;
+        }
+    </style>
+    <a href="https://wa.me/+919979458787?text=Hello!%20I'm%20interested%20in%20your%20mekor%20pipes."
+        class="whatsapp-sticky-btn" id="whatsappStickyBtn" target="_blank" rel="noopener noreferrer"
+        aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+
+        // Logic for the sticky WhatsApp button
+        const stickyBtn = document.getElementById('whatsappStickyBtn');
+
+        if (stickyBtn) {
+            window.addEventListener('scroll', () => {
+                // Show button after scrolling down 200px
+                if (window.scrollY > 200) {
+                    stickyBtn.classList.add('visible');
+                } else {
+                    stickyBtn.classList.remove('visible');
+                }
+            });
+        }
+    </script>
+
+
     <!-- Jquery Library File -->
     <script src="js/jquery-3.7.1.min.js"></script>
     <!-- Bootstrap js file -->
