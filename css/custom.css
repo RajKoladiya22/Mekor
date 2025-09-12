@@ -2745,10 +2745,38 @@ header.main-header .header-sticky.active .navbar {
     position: relative;
     background: url('../images/page-header-bg.jpg');
     background-repeat: no-repeat;
-    background-position: center center;
+    /* background-position: center center; */
     background-size: cover;
     padding: 270px 0 180px;
     margin-top: -118px;
+}
+.page-header.about-bg {
+    position: relative;
+    background: url('../images/about-bg.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+.page-header.gallery-bg {
+    position: relative;
+    background: url('../images/gallery-bg.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+.page-header.career-bg {
+    position: relative;
+    background: url('../images/career-bg.png');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+}
+.page-header.contact-bg {
+    position: relative;
+    background: url('../images/contact-bg.png');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
 }
 .page-header.mek-green-bg {
     position: relative;
