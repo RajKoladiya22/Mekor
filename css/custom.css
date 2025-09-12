@@ -2750,6 +2750,45 @@ header.main-header .header-sticky.active .navbar {
     padding: 270px 0 180px;
     margin-top: -118px;
 }
+.page-header.mek-green-bg {
+    position: relative;
+    background: url('../images/mek-green.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+.page-header.mek-blaze-bg {
+    position: relative;
+    background: url('../images/mek-blaze.png');
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+}
+.page-header.mek-pneumos-bg {
+    position: relative;
+    background: url('../images/mek-pneumos.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.page-header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0; 
+    height: 40%; 
+    pointer-events: none;
+    z-index: 1;
+    background: linear-gradient(to bottom,
+        rgba(0, 0, 0, 0.9) 0%,
+        rgba(0, 0, 0, 0.8) 20%,
+        rgba(0, 0, 0, 0.6) 40%,
+        rgba(0, 0, 0, 0.3) 60%,
+        rgba(0, 0, 0, 0) 100%
+    );
+}
 
 .page-header::before {
     content: '';
