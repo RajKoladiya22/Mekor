@@ -312,9 +312,9 @@
                         <!-- Section Title End -->
                         <!-- Contact Form Start -->
                         <div class="contact-form">
+                            <!-- https://script.google.com/macros/s/AKfycbxNovJgcemc13LXstpJSOu8pbAYbsZ0SkbN4-m1sUrjLJyul_r4mh376mz2aPsraoFJ/exec -->
                             <!-- Contact Form Start -->
-                            <form id="contactForm" action="#" method="POST" data-toggle="validator" class="wow fadeInUp"
-                                data-wow-delay="0.4s">
+                            <form id="contactForm" data-toggle="validator" class="wow fadeInUp" data-wow-delay="0.4s">
                                 <div class="row">
                                     <div class="form-group col-md-6 mb-4">
                                         <input type="text" name="name" class="form-control" id="name"
@@ -359,6 +359,39 @@
                                     </div>
                                 </div>
                             </form>
+
+                            <script>
+                                const form = document.getElementById('contactForm');
+                                const msgSubmit = document.getElementById('msgSubmit');
+                                // 🔴 PASTE YOUR WEB APP URL HERE
+                                const scriptURL = 'https://script.google.com/macros/s/AKfycbxNovJgcemc13LXstpJSOu8pbAYbsZ0SkbN4-m1sUrjLJyul_r4mh376mz2aPsraoFJ/exec';
+
+                                form.addEventListener('submit', e => {
+                                    e.preventDefault(); // Prevents the default form submission (page reload)
+
+                                    // Show a "sending" message
+                                    msgSubmit.textContent = 'Sending...';
+                                    msgSubmit.classList.remove('hidden');
+
+                                    fetch(scriptURL, {
+                                        method: 'POST',
+                                        body: new FormData(form)
+                                    })
+                                        .then(response => response.json())
+                                        .then(data => {
+                                            if (data.result === 'success') {
+                                                msgSubmit.textContent = data.message;
+                                                form.reset(); // Clears the form fields
+                                            } else {
+                                                throw new Error(data.message);
+                                            }
+                                        })
+                                        .catch(error => {
+                                            console.error('Error!', error.message);
+                                            msgSubmit.textContent = 'Oops! There was a problem submitting your form.';
+                                        });
+                                });
+                            </script>
                             <!-- Contact Form End -->
 
                         </div>
