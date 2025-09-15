@@ -140,6 +140,12 @@ body {
     padding-left: 15px;
 }
 
+.logo-in-text {
+    height: 0.90em !important;
+    width: auto;
+    vertical-align: -0.09em;
+}
+
 .image-anime {
     position: relative;
     overflow: hidden;
@@ -218,11 +224,13 @@ body {
     overflow: hidden;
     z-index: 0;
 }
+
 .btn-green {
-     background: var(--mek-green) !important;
+    background: var(--mek-green) !important;
 }
+
 .btn-blue {
-     background: var(--mek-blue) !important;
+    background: var(--mek-blue) !important;
 }
 
 .btn-default:hover {
@@ -230,11 +238,11 @@ body {
     color: var(--white-color);
 }
 
-.btn-download{
+.btn-download {
     padding: 17px 20px 17px 20px !important;
 }
 
-.btn-download::before{
+.btn-download::before {
     background-image: none !important;
 }
 
@@ -643,11 +651,11 @@ body {
     color: var(--black-color) !important;
 }
 
- .product-cta.mek-green {
+.product-cta.mek-green {
     background: #4CAF50;
 }
 
-.product-cta.mek-red  {
+.product-cta.mek-red {
     background: var(--brand-red);
 }
 
@@ -1259,19 +1267,23 @@ header.main-header .header-sticky.active .navbar {
     filter: brightness(70%) contrast(1.05) saturate(0.9);
     position: absolute;
 }
+
 .hero.hero-video .hero-bg-video::before {
     content: "";
     position: absolute;
     left: 0;
     right: 0;
-    top: 0; /* changed from bottom */
-    height: 40%; /* adjust as needed */
+    top: 0;
+    /* changed from bottom */
+    height: 40%;
+    /* adjust as needed */
     pointer-events: none;
     z-index: 1;
-    background: linear-gradient(to bottom, /* changed from 'to top' */
-        rgba(0, 0, 0, 0.7) 0%,
-        rgba(0, 0, 0, 0.386) 35%,
-        rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(to bottom,
+            /* changed from 'to top' */
+            rgba(0, 0, 0, 0.7) 0%,
+            rgba(0, 0, 0, 0.386) 35%,
+            rgba(255, 255, 255, 0) 100%);
 }
 
 
@@ -2750,6 +2762,7 @@ header.main-header .header-sticky.active .navbar {
     padding: 270px 0 180px;
     margin-top: -118px;
 }
+
 .page-header.about-bg {
     position: relative;
     background: url('../images/about-bg.png');
@@ -2757,6 +2770,7 @@ header.main-header .header-sticky.active .navbar {
     background-position: center center;
     background-size: cover;
 }
+
 .page-header.gallery-bg {
     position: relative;
     background: url('../images/gallery-bg.png');
@@ -2764,6 +2778,7 @@ header.main-header .header-sticky.active .navbar {
     background-position: center center;
     background-size: cover;
 }
+
 .page-header.career-bg {
     position: relative;
     background: url('../images/career-bg.png');
@@ -2771,6 +2786,7 @@ header.main-header .header-sticky.active .navbar {
     background-position: bottom;
     background-size: cover;
 }
+
 .page-header.contact-bg {
     position: relative;
     background: url('../images/contact-bg.png');
@@ -2778,6 +2794,7 @@ header.main-header .header-sticky.active .navbar {
     background-position: bottom;
     background-size: cover;
 }
+
 .page-header.mek-green-bg {
     position: relative;
     background: url('../images/mek-green.png');
@@ -2785,6 +2802,7 @@ header.main-header .header-sticky.active .navbar {
     background-position: center center;
     background-size: cover;
 }
+
 .page-header.mek-blaze-bg {
     position: relative;
     background: url('../images/mek-blaze.png');
@@ -2792,6 +2810,7 @@ header.main-header .header-sticky.active .navbar {
     background-position: top center;
     background-size: cover;
 }
+
 .page-header.mek-pneumos-bg {
     position: relative;
     background: url('../images/mek-pneumos.png');
@@ -2805,17 +2824,16 @@ header.main-header .header-sticky.active .navbar {
     position: absolute;
     left: 0;
     right: 0;
-    top: 0; 
-    height: 40%; 
+    top: 0;
+    height: 40%;
     pointer-events: none;
     z-index: 1;
     background: linear-gradient(to bottom,
-        rgba(0, 0, 0, 0.9) 0%,
-        rgba(0, 0, 0, 0.8) 20%,
-        rgba(0, 0, 0, 0.6) 40%,
-        rgba(0, 0, 0, 0.3) 60%,
-        rgba(0, 0, 0, 0) 100%
-    );
+            rgba(0, 0, 0, 0.9) 0%,
+            rgba(0, 0, 0, 0.8) 20%,
+            rgba(0, 0, 0, 0.6) 40%,
+            rgba(0, 0, 0, 0.3) 60%,
+            rgba(0, 0, 0, 0) 100%);
 }
 
 .page-header::before {
@@ -4347,7 +4365,7 @@ header.main-header .header-sticky.active .navbar {
     }
 
     .btn-default {
-        padding: 14px 42px 14px 16px; 
+        padding: 14px 42px 14px 16px;
     }
 
     .section-row {
@@ -5007,9 +5025,10 @@ header.main-header .header-sticky.active .navbar {
 }
 
 @media only screen and (max-width: 767px) {
-    .footer-social-links{
+    .footer-social-links {
         padding-top: 10px;
     }
+
     .section-row {
         margin-bottom: 30px;
     }
