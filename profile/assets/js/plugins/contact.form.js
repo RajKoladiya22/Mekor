@@ -1,15 +1,3 @@
-/**
- *
- * -----------------------------------------------------------------------------
- *
- * Template : Reeni Personal Portfolio HTML Template
- * Author : themes-park
- * Author URI : https://themes-park.com/ 
- *
- * -----------------------------------------------------------------------------
- *
- **/
-
 (function($) {
     'use strict';
 
