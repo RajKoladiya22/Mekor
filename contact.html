@@ -37,6 +37,10 @@
     <link rel="stylesheet" href="css/mousecursor.css">
     <!-- Main Custom Css -->
     <link href="css/custom.css" rel="stylesheet" media="screen">
+
+    <!-- include SweetAlert2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -68,7 +72,7 @@
                     <div class="collapse navbar-collapse main-menu">
                         <div class="nav-menu-wrapper">
                             <ul class="navbar-nav mr-auto" id="menu">
-                                <li class="nav-item"><a class="nav-link active" href="./">Home</a></li>
+                                <li class="nav-item"><a class="nav-link " href="./">Home</a></li>
                                 <li class="d-block d-lg-none nav-item submenu"><a class="nav-link" href="#">Our
                                         Product</a>
                                     <ul>
@@ -119,8 +123,7 @@
                                                     <img src="img/logo.png" alt="M" class="logo-in-text">ek Red
                                                 </span>
                                             </a>
-                                            <a href="mek-blue.html" class="product-item mek-blue"
-                                                data-product="blue">
+                                            <a href="mek-blue.html" class="product-item mek-blue" data-product="blue">
                                                 <!-- <i class="fas fa-wind"></i> -->
                                                 <i class="fa-solid fa-layer-group"></i>
                                                 <!-- Mek Pneumos -->
@@ -136,7 +139,7 @@
                                 <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
                                 <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
                                 <li class="nav-item"><a class="nav-link" href="career.html">Career</a></li>
-                                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                                <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
                             </ul>
                         </div>
 
@@ -330,7 +333,10 @@
                         <div class="section-title">
                             <h3 class="wow fadeInUp">contact us</h3>
                             <h2 class="text-anime-style-2" data-cursor="-opaque">
-                                Get in touch with <span>Mekor Pipe</span>
+                                Get in touch with
+                                <span>
+                                    <img src="img/logo.png" alt="M" class="logo-in-text">ekor Pipes
+                                </span>
                             </h2>
                             <p class="wow fadeInUp" data-wow-delay="0.2s">
                                 Have questions about our products or services? Fill out the form and our
@@ -381,44 +387,131 @@
                                         <div class="help-block with-errors"></div>
                                     </div>
 
+                                    <style>
+                                        /* small inline spinner */
+                                        .btn-spinner {
+                                            display: inline-block;
+                                            width: 18px;
+                                            height: 18px;
+                                            margin-left: 8px;
+                                            border: 2px solid rgba(255, 255, 255, 0.25);
+                                            border-top-color: #fff;
+                                            border-radius: 50%;
+                                            animation: spin 0.8s linear infinite;
+                                            vertical-align: middle;
+                                        }
+
+                                        .hidden {
+                                            display: none !important;
+                                        }
+
+                                        .btn-default[disabled] {
+                                            opacity: 0.6;
+                                            cursor: not-allowed;
+                                        }
+                                    </style>
                                     <div class="col-md-12">
-                                        <button type="submit" class="btn-default">submit</button>
-                                        <div id="msgSubmit" class="h3 hidden"></div>
+                                        <button type="submit" class="btn-default" id="submitBtn" aria-live="polite"
+                                            aria-busy="false">
+                                            <span class="btn-text">Submit</span>
+                                            <span class="btn-spinner hidden" id="btnSpinner" aria-hidden="true"></span>
+                                        </button>
+                                        <div id="msgSubmit" class="h3 hidden" aria-hidden="true"></div>
                                     </div>
                                 </div>
                             </form>
-
                             <script>
-                                const form = document.getElementById('contactForm');
-                                const msgSubmit = document.getElementById('msgSubmit');
-                                // 🔴 PASTE YOUR WEB APP URL HERE
-                                const scriptURL = 'https://script.google.com/macros/s/AKfycbxNovJgcemc13LXstpJSOu8pbAYbsZ0SkbN4-m1sUrjLJyul_r4mh376mz2aPsraoFJ/exec';
+                                (function () {
+                                    const form = document.getElementById('contactForm');
+                                    const submitBtn = document.getElementById('submitBtn');
+                                    const btnSpinner = document.getElementById('btnSpinner');
+                                    const msgSubmit = document.getElementById('msgSubmit');
 
-                                form.addEventListener('submit', e => {
-                                    e.preventDefault(); // Prevents the default form submission (page reload)
+                                    // Replace with your Google Apps Script / endpoint
+                                    const scriptURL = 'https://script.google.com/macros/s/AKfycbxNovJgcemc13LXstpJSOu8pbAYbsZ0SkbN4-m1sUrjLJyul_r4mh376mz2aPsraoFJ/exec';
 
-                                    // Show a "sending" message
-                                    msgSubmit.textContent = 'Sending...';
-                                    msgSubmit.classList.remove('hidden');
+                                    function setLoading(isLoading) {
+                                        if (isLoading) {
+                                            submitBtn.setAttribute('disabled', 'disabled');
+                                            submitBtn.setAttribute('aria-busy', 'true');
+                                            btnSpinner.classList.remove('hidden');
+                                            msgSubmit.classList.add('hidden');
+                                        } else {
+                                            submitBtn.removeAttribute('disabled');
+                                            submitBtn.setAttribute('aria-busy', 'false');
+                                            btnSpinner.classList.add('hidden');
+                                        }
+                                    }
 
-                                    fetch(scriptURL, {
-                                        method: 'POST',
-                                        body: new FormData(form)
-                                    })
-                                        .then(response => response.json())
-                                        .then(data => {
-                                            if (data.result === 'success') {
-                                                msgSubmit.textContent = data.message;
-                                                form.reset(); // Clears the form fields
-                                            } else {
-                                                throw new Error(data.message);
+                                    // simple client-side validation (ensures required fields filled)
+                                    function validForm() {
+                                        return form.checkValidity();
+                                    }
+
+                                    async function postWithTimeout(url, formData, timeout = 15000) {
+                                        const controller = new AbortController();
+                                        const id = setTimeout(() => controller.abort(), timeout);
+                                        try {
+                                            const res = await fetch(url, { method: 'POST', body: formData, signal: controller.signal });
+                                            clearTimeout(id);
+                                            return res;
+                                        } catch (err) {
+                                            clearTimeout(id);
+                                            throw err;
+                                        }
+                                    }
+
+                                    form.addEventListener('submit', async (e) => {
+                                        e.preventDefault();
+
+                                        if (!validForm()) {
+                                            // let browser show native invalid hints
+                                            form.reportValidity();
+                                            return;
+                                        }
+
+                                        setLoading(true);
+
+                                        try {
+                                            const formData = new FormData(form);
+
+                                            const response = await postWithTimeout(scriptURL, formData, 20000);
+
+                                            // Try parse JSON else fallback to text
+                                            let payload;
+                                            try {
+                                                payload = await response.json();
+                                            } catch (err) {
+                                                const text = await response.text();
+                                                payload = { result: response.ok ? 'success' : 'error', message: text || (response.ok ? 'Submitted' : 'Server error') };
                                             }
-                                        })
-                                        .catch(error => {
-                                            console.error('Error!', error.message);
-                                            msgSubmit.textContent = 'Oops! There was a problem submitting your form.';
-                                        });
-                                });
+
+                                            if (response.ok && (payload.result === 'success' || payload.status === 'OK' || payload.result === 'ok')) {
+                                                form.reset();
+                                                Swal.fire({
+                                                    icon: 'success',
+                                                    title: 'Message sent',
+                                                    text: payload.message || 'Thank you. We will contact you shortly.',
+                                                    timer: 4000,
+                                                    showConfirmButton: false
+                                                });
+                                            } else {
+                                                const errMsg = payload.message || 'Submission failed. Try again later.';
+                                                Swal.fire({ icon: 'error', title: 'Submission failed', text: errMsg });
+                                            }
+                                        } catch (err) {
+                                            const isAbort = err.name === 'AbortError';
+                                            Swal.fire({
+                                                icon: 'error',
+                                                title: isAbort ? 'Request timed out' : 'Network error',
+                                                text: isAbort ? 'The request took too long. Please try again.' : 'Unable to send message. Check your connection and try again.'
+                                            });
+                                            console.error('Contact form error:', err);
+                                        } finally {
+                                            setLoading(false);
+                                        }
+                                    });
+                                })();
                             </script>
                             <!-- Contact Form End -->
 
@@ -440,7 +533,9 @@
                     <!-- Section Title Start -->
                     <div class="section-title">
                         <h3 class="wow fadeInUp">our contact</h3>
-                        <h2 class="text-anime-style-2" data-cursor="-opaque">Get in touch with <span>Mekor Pipe</span>
+                        <h2 class="text-anime-style-2" data-cursor="-opaque">Get in touch with <span>
+                                    <img src="img/logo.png" alt="M" class="logo-in-text">ekor Pipes
+                                </span>
                         </h2>
                         <p class="wow fadeInUp" data-wow-delay="0.2s">
                             Reach out to discuss your project requirements or product inquiries. Call us, send us an
@@ -453,9 +548,12 @@
                 <div class="col-lg-12">
                     <!-- Google Map IFrame Start -->
                     <div class="google-map-iframe">
+
+
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14879.212939169318!2d72.8278964!3d21.1999741!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04e63a5be3641%3A0xe15f126d696d36e!2sDena%20Bank!5e0!3m2!1sen!2sin!4v1757321611656!5m2!1sen!2sin"
-                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d4438.404718046247!2d72.961889!3d20.312403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjDCsDE4JzQ0LjciTiA3MsKwNTcnNDIuOCJF!5e1!3m2!1sen!2sin!4v1759319632958!5m2!1sen!2sin"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                     <!-- Google Map IFrame End -->
                 </div>
@@ -512,7 +610,8 @@
                             <!-- Contact Info Content Start -->
                             <div class="contact-info-content">
                                 <h3>headquarter</h3>
-                                <p>Ambica Saw Mill Coumpound, Opp Udhna Hospital, Dena Bank ni gali, Udhna, Surat</p>
+                                <p>Waghdara Road, Dadra,
+                                    Gujarat, India - 396193</p>
                             </div>
                             <!-- Contact Info Content End -->
                         </div>
@@ -626,7 +725,7 @@
                                 <i class="fa-solid fa-location-dot"></i>
                             </div>
                             <div class="footer-contact-content">
-                                <p>Udhna, Surat, Gujarat, India</p>
+                                <p>Dadra, Gujarat, India - 396193</p>
                             </div>
                         </div>
                         <!-- Footer Contact Item End -->

@@ -1,0 +1,19 @@
+# in .htaccess at root
+ErrorDocument 404 /404.html
+
+# existing rewrite rules
+RewriteEngine On
+RewriteBase /
+
+# redirect /index.html → /
+RewriteCond %{THE_REQUEST} \s/+index\.html[?\s] [NC]
+RewriteRule ^index\.html$ / [R=301,L]
+
+# redirect *.html requests to extensionless
+RewriteCond %{THE_REQUEST} \s/([^.]+)\.html[?\s] [NC]
+RewriteRule ^([^.]+)\.html$ /%1 [R=301,L]
+
+# internally map /page → page.html if exists
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^([^.]+)$ $1.html [L]
