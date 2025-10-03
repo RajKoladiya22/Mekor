@@ -129,6 +129,10 @@ body {
     padding: 5px 0;
 }
 
+.over-flow-x-auto {
+    overflow-x: auto !important;
+}
+
 .container {
     max-width: 1300px;
 }
@@ -5794,11 +5798,18 @@ header.main-header .header-sticky.active .navbar {
 .table-responsive {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    overflow-x: auto !important;
-    /* allow horizontal scroll */
-    -webkit-overflow-scrolling: touch !important;
+    overflow-x: auto;
+    overflow-y: hidden;
+    background-color: white;
+    -webkit-overflow-scrolling: touch;
 }
 
+.table {
+    margin-bottom: 0;
+    font-size: 14px;
+    min-width: 100%;
+    width: max-content;
+}
 
 
 .table thead th {
@@ -5833,3 +5844,5 @@ header.main-header .header-sticky.active .navbar {
 .spec-table {
     margin-bottom: 0;
 }
+
+
