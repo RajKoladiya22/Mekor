@@ -125,6 +125,10 @@ body {
     padding: 100px 0;
 }
 
+.py-5 {
+    padding: 5px 0;
+}
+
 .container {
     max-width: 1300px;
 }
@@ -5781,4 +5785,51 @@ header.main-header .header-sticky.active .navbar {
     .comparison-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/************************************/
+/*** 09. Table          ***/
+/************************************/
+
+.table-responsive {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow-x: auto !important;
+    /* allow horizontal scroll */
+    -webkit-overflow-scrolling: touch !important;
+}
+
+
+
+.table thead th {
+    background-color: #2c3e50;
+    color: white;
+    /* border: none; */
+    border: 1px solid #ffffff;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.table tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+.table th,
+.table td {
+    white-space: nowrap;
+    padding: 12px;
+    border: 1px solid #dee2e6;
+    text-align: center;
+}
+
+.sub-header {
+    background-color: #34495e !important;
+}
+
+.spec-table {
+    margin-bottom: 0;
 }

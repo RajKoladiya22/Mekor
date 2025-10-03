@@ -469,23 +469,20 @@
                                     <ul>
                                         <li class="nav-item"><a class="nav-link" href="mek-green.html">
                                                 <!-- Mek Green -->
-                                                <i class="fa-solid fa-layer-group"></i>
                                                 <span>
-                                                    <img src="img/logo.png" alt="M" class="logo-in-text">ek Green
+                                                    <img src="assets/img/logo.png" alt="M" class="logo-in-text">ek Green
                                                 </span>
                                             </a></li>
                                         <li class="nav-item"><a class="nav-link" href="mek-red.html">
-                                                <!-- Mek Blaze -->
-                                                <i class="fa-solid fa-layer-group"></i>
+                                                <!-- Mek red-->
                                                 <span>
-                                                    <img src="img/logo.png" alt="M" class="logo-in-text">ek Red
+                                                    <img src="assets/img/logo.png" alt="M" class="logo-in-text">ek Red
                                                 </span>
                                             </a></li>
                                         <li class="nav-item"><a class="nav-link" href="mek-blue.html">
-                                                <!-- Mek Pneumos -->
-                                                <i class="fa-solid fa-layer-group"></i>
+                                                <!-- Mek Blue-->
                                                 <span>
-                                                    <img src="img/logo.png" alt="M" class="logo-in-text">ek Blue
+                                                    <img src="assets/img/logo.png" alt="M" class="logo-in-text">ek Blue
                                                 </span>
                                             </a>
                                         </li>
@@ -499,27 +496,27 @@
                                             <a href="mek-green.html" class="product-item mek-green active"
                                                 data-product="green">
                                                 <!-- <i class="fas fa-leaf"></i> -->
-                                                <i class="fa-solid fa-layer-group"></i>
+                                                <i class="fa-solid fa-circle"></i>
                                                 <!-- <i class="fa-brands fa-think-peaks"></i> -->
                                                 <!-- Mek Green -->
                                                 <span>
-                                                    <img src="img/logo.png" alt="M" class="logo-in-text">ek Green
+                                                    <img src="assets/img/logo.png" alt="M" class="logo-in-text">ek Green
                                                 </span>
                                             </a>
                                             <a href="mek-red.html" class="product-item mek-red" data-product="red">
                                                 <!-- <i class="fas fa-fire"></i> -->
-                                                <i class="fa-solid fa-layer-group"></i>
-                                                <!-- Mek Blaze -->
+                                                <i class="fa-solid fa-circle"></i>
+                                                <!-- Mek red-->
                                                 <span>
-                                                    <img src="img/logo.png" alt="M" class="logo-in-text">ek Red
+                                                    <img src="assets/img/logo.png" alt="M" class="logo-in-text">ek Red
                                                 </span>
                                             </a>
                                             <a href="mek-blue.html" class="product-item mek-blue" data-product="blue">
                                                 <!-- <i class="fas fa-wind"></i> -->
-                                                <i class="fa-solid fa-layer-group"></i>
-                                                <!-- Mek Pneumos -->
+                                                <i class="fa-solid fa-circle"></i>
+                                                <!-- Mek Blue-->
                                                 <span>
-                                                    <img src="img/logo.png" alt="M" class="logo-in-text">ek Blue
+                                                    <img src="assets/img/logo.png" alt="M" class="logo-in-text">ek Blue
                                                 </span>
                                             </a>
                                         </div>
@@ -610,7 +607,8 @@
                 green: {
                     title: 'Mek Green',
                     description: 'Advanced eco-friendly pipes designed for maximum efficiency and environmental sustainability.',
-                    image: 'images/service-1.jpg',
+                    image: 'assets/images/service-1.jpg',
+logo: 'assets/images/logos/green-logo.png',
                     features: ['Environmentally sustainable', 'High-performance efficiency', 'Energy-saving operation', 'Durable construction'],
                     link: 'mek-green.html',
                     colorClass: 'mek-green'
@@ -618,7 +616,8 @@
                 red: {
                     title: 'Mek Red',
                     description: 'Robust fire-resistant piping system engineered for safety and reliability in critical applications.',
-                    image: 'images/service-2.jpg',
+                    image: 'assets/images/service-2.jpg',
+logo: 'assets/images/logos/red-logo.png',
                     features: ['Superior fire resistance', 'High-pressure tolerance', 'Corrosion-proof materials', 'Certified for safety'],
                     link: 'mek-red.html',
                     colorClass: 'mek-red'
@@ -626,7 +625,7 @@
                 blue: {
                     title: 'Mek Blue',
                     description: 'High-performance pneumatic piping system built for clean air delivery and industrial automation.',
-                    image: 'images/service-3.jpg',
+                    image: 'assets/images/service-2.jpg',image: 'assets/images/service-3.jpg',logo: 'assets/images/logos/blue-logo.png',
                     features: ['Leak-proof design', 'Low friction for high flow', 'Resistant to compressor oils', 'Quick installation'],
                     link: 'mek-blue.html',
                     colorClass: 'mek-blue'
@@ -643,7 +642,7 @@
                 detailsContainer.innerHTML = `
             <img src="${data.image}" alt="${data.title}" class="product-image">
             <div class="product-details-content">
-                <h3 class="product-title">${data.title}</h3>
+                <img src="${data.logo}" alt="${data.logo}" style="padding-bottom: 5px">
                 <p class="product-description">${data.description}</p>
                 <ul class="product-features">${featuresHTML}</ul>
                 <a href="${data.link}" class="product-cta ${data.colorClass}">Learn More</a>
@@ -716,7 +715,7 @@
                             <h3 class="wow fadeInUp">Careers</h3>
                             <h2 class="text-anime-style-2" data-cursor="-opaque">
                                 Build your future with <span>
-                                    <img src="img/logo.png" alt="M" class="logo-in-text">ekor Pipes
+                                    <img src="assets/img/logo.png" alt="M" class="logo-in-text">ekor Pipes
                                 </span>
                             </h2>
                             </h2>
@@ -1361,38 +1360,38 @@
 
 
     <!-- Jquery Library File -->
-    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
     <!-- Bootstrap js file -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
     <!-- Validator js file -->
-    <script src="js/validator.min.js"></script>
+    <script src="assets/js/validator.min.js"></script>
     <!-- SlickNav js file -->
-    <script src="js/jquery.slicknav.js"></script>
+    <script src="assets/js/jquery.slicknav.js"></script>
     <!-- Swiper js file -->
-    <script src="js/swiper-bundle.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
     <!-- Counter js file -->
-    <script src="js/jquery.waypoints.min.js"></script>
-    <script src="js/jquery.counterup.min.js"></script>
+    <script src="assets/js/jquery.waypoints.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
     <!-- Isotop js file -->
-    <script src="js/isotope.min.js"></script>
+    <script src="assets/js/isotope.min.js"></script>
     <!-- Magnific js file -->
-    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
     <!-- SmoothScroll -->
-    <script src="js/SmoothScroll.js"></script>
+    <script src="assets/js/SmoothScroll.js"></script>
     <!-- Parallax js -->
-    <script src="js/parallaxie.js"></script>
+    <script src="assets/js/parallaxie.js"></script>
     <!-- MagicCursor js file -->
-    <script src="js/gsap.min.js"></script>
-    <script src="js/magiccursor.js"></script>
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/magiccursor.js"></script>
     <!-- Text Effect js file -->
-    <script src="js/SplitText.js"></script>
-    <script src="js/ScrollTrigger.min.js"></script>
+    <script src="assets/js/SplitText.js"></script>
+    <script src="assets/js/ScrollTrigger.min.js"></script>
     <!-- YTPlayer js File -->
-    <script src="js/jquery.mb.YTPlayer.min.js"></script>
+    <script src="assets/js/jquery.mb.YTPlayer.min.js"></script>
     <!-- Wow js file -->
-    <script src="js/wow.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
     <!-- Main Custom js file -->
-    <script src="js/function.js"></script>
+    <script src="assets/js/function.js"></script>
 </body>
 
 </html>

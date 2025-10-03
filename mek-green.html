@@ -72,23 +72,20 @@
                                     <ul>
                                         <li class="nav-item"><a class="nav-link" href="mek-green.html">
                                                 <!-- Mek Green -->
-                                                <i class="fa-solid fa-layer-group"></i>
                                                 <span>
-                                                    <img src="img/logo.png" alt="M" class="logo-in-text">ek Green
+                                                    <img src="assets/img/logo.png" alt="M" class="logo-in-text">ek Green
                                                 </span>
                                             </a></li>
                                         <li class="nav-item"><a class="nav-link" href="mek-red.html">
-                                                <!-- Mek Blaze -->
-                                                <i class="fa-solid fa-layer-group"></i>
+                                                <!-- Mek red-->
                                                 <span>
-                                                    <img src="img/logo.png" alt="M" class="logo-in-text">ek Red
+                                                    <img src="assets/img/logo.png" alt="M" class="logo-in-text">ek Red
                                                 </span>
                                             </a></li>
                                         <li class="nav-item"><a class="nav-link" href="mek-blue.html">
-                                                <!-- Mek Pneumos -->
-                                                <i class="fa-solid fa-layer-group"></i>
+                                                <!-- Mek Blue-->
                                                 <span>
-                                                    <img src="img/logo.png" alt="M" class="logo-in-text">ek Blue
+                                                    <img src="assets/img/logo.png" alt="M" class="logo-in-text">ek Blue
                                                 </span>
                                             </a>
                                         </li>
@@ -102,28 +99,27 @@
                                             <a href="mek-green.html" class="product-item mek-green active"
                                                 data-product="green">
                                                 <!-- <i class="fas fa-leaf"></i> -->
-                                                <i class="fa-solid fa-layer-group"></i>
+                                                <i class="fa-solid fa-circle"></i>
                                                 <!-- <i class="fa-brands fa-think-peaks"></i> -->
                                                 <!-- Mek Green -->
                                                 <span>
-                                                    <img src="img/logo.png" alt="M" class="logo-in-text">ek Green
+                                                    <img src="assets/img/logo.png" alt="M" class="logo-in-text">ek Green
                                                 </span>
                                             </a>
                                             <a href="mek-red.html" class="product-item mek-red" data-product="red">
                                                 <!-- <i class="fas fa-fire"></i> -->
-                                                <i class="fa-solid fa-layer-group"></i>
-                                                <!-- Mek Blaze -->
+                                                <i class="fa-solid fa-circle"></i>
+                                                <!-- Mek red-->
                                                 <span>
-                                                    <img src="img/logo.png" alt="M" class="logo-in-text">ek Red
+                                                    <img src="assets/img/logo.png" alt="M" class="logo-in-text">ek Red
                                                 </span>
                                             </a>
-                                            <a href="mek-blue.html" class="product-item mek-blue"
-                                                data-product="blue">
+                                            <a href="mek-blue.html" class="product-item mek-blue" data-product="blue">
                                                 <!-- <i class="fas fa-wind"></i> -->
-                                                <i class="fa-solid fa-layer-group"></i>
-                                                <!-- Mek Pneumos -->
+                                                <i class="fa-solid fa-circle"></i>
+                                                <!-- Mek Blue-->
                                                 <span>
-                                                    <img src="img/logo.png" alt="M" class="logo-in-text">ek Blue
+                                                    <img src="assets/img/logo.png" alt="M" class="logo-in-text">ek Blue
                                                 </span>
                                             </a>
                                         </div>
@@ -214,7 +210,8 @@
                 green: {
                     title: 'Mek Green',
                     description: 'Advanced eco-friendly pipes designed for maximum efficiency and environmental sustainability.',
-                    image: 'images/service-1.jpg',
+                    image: 'assets/images/service-1.jpg',
+                    logo: 'assets/images/logos/green-logo.png',
                     features: ['Environmentally sustainable', 'High-performance efficiency', 'Energy-saving operation', 'Durable construction'],
                     link: 'mek-green.html',
                     colorClass: 'mek-green'
@@ -222,7 +219,8 @@
                 red: {
                     title: 'Mek Red',
                     description: 'Robust fire-resistant piping system engineered for safety and reliability in critical applications.',
-                    image: 'images/service-2.jpg',
+                    image: 'assets/images/service-2.jpg',
+                    logo: 'assets/images/logos/red-logo.png',
                     features: ['Superior fire resistance', 'High-pressure tolerance', 'Corrosion-proof materials', 'Certified for safety'],
                     link: 'mek-red.html',
                     colorClass: 'mek-red'
@@ -230,7 +228,7 @@
                 blue: {
                     title: 'Mek Blue',
                     description: 'High-performance pneumatic piping system built for clean air delivery and industrial automation.',
-                    image: 'images/service-3.jpg',
+                    image: 'assets/images/service-2.jpg', image: 'assets/images/service-3.jpg', logo: 'assets/images/logos/blue-logo.png',
                     features: ['Leak-proof design', 'Low friction for high flow', 'Resistant to compressor oils', 'Quick installation'],
                     link: 'mek-blue.html',
                     colorClass: 'mek-blue'
@@ -247,7 +245,7 @@
                 detailsContainer.innerHTML = `
             <img src="${data.image}" alt="${data.title}" class="product-image">
             <div class="product-details-content">
-                <h3 class="product-title">${data.title}</h3>
+                <img src="${data.logo}" alt="${data.logo}" style="padding-bottom: 5px">
                 <p class="product-description">${data.description}</p>
                 <ul class="product-features">${featuresHTML}</ul>
                 <a href="${data.link}" class="product-cta ${data.colorClass}">Learn More</a>
@@ -296,7 +294,8 @@
                         <h1 class="text-anime-style-2" data-cursor="-opaque">
                             <!-- Mek Green -->
                             <span>
-                                <img src="img/logo.png" alt="M" class="logo-in-text">ek Green
+                                <img src="assets/img/logo.png" alt="M" class="logo-in-text">ek Green
+
                             </span>
                         </h1>
                         <nav class="wow fadeInUp">
@@ -312,6 +311,10 @@
         </div>
     </div>
     <!-- Page Header End -->
+
+    <div class="m-auto d-flex justify-content-center" style="padding-top: 10px;">
+        <img src="assets/images/logos/green-logo.png" alt="">
+    </div>
 
     <!-- Product Detail Section -->
     <section class="product-detail-section section-padding py-100">
@@ -351,199 +354,807 @@
                 </div>
 
                 <div id="specifications" class="tab-content active">
-                    <h3>Pipe Range Specifications</h3>
+                    <h3>Standard PP-R Pipe Range Specifications</h3>
                     <p>Detailed dimensions and technical data for our Standard PP-R Pipes.</p>
 
+                    <div class="d-flex flex-wrap align-items-center justify-content-between">
+                        <img src="assets/images/Table/Triple-Layer-green.png" alt="">
+                        <img src="assets/images/Table/Triple-Layer-2.png" alt="">
+                    </div>
+
                     <div class="d-flex flex-wrap justify-content-between">
-                        <div class="">
-                            <h4>PN-06 / SDR-17.5</h4>
-                            <table class="spec-table">
-                                <thead>
-                                    <tr>
-                                        <th>CODE</th>
-                                        <th>SIZE(mm)</th>
-                                        <th>Min. W/T</th>
-                                        <th>Max. W/T</th>
-                                        <th>Pipe ID</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>MKR-P3</td>
-                                        <td>63</td>
-                                        <td>3.6</td>
-                                        <td>4.2</td>
-                                        <td>55.8</td>
-                                    </tr>
-                                    <tr>
-                                        <td>MKR-P4</td>
-                                        <td>75</td>
-                                        <td>4.3</td>
-                                        <td>5.0</td>
-                                        <td>66.4</td>
-                                    </tr>
-                                    <tr>
-                                        <td>MKR-P5</td>
-                                        <td>90</td>
-                                        <td>5.1</td>
-                                        <td>5.9</td>
-                                        <td>79.8</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div class="py-5">
+                            <h4 class="p-2">Triple Layer / Single Layer / PN-06 / SDR-17.5</h4>
+                            <div class="table-responsive p-2">
+                                <table class="table table-bordered table-hover spec-table">
+                                    <thead>
+                                        <tr>
+                                            <th rowspan="2">CODE</th>
+                                            <th rowspan="2">SIZE<br>(mm)</th>
+                                            <th rowspan="2">Tolerance<br>Only +</th>
+                                            <th rowspan="2">Ovality</th>
+                                            <th colspan="3" class="text-center">SDR-17.6/ PM-06</th>
+                                        </tr>
+                                        <tr class="sub-header">
+                                            <th>Min.W/T</th>
+                                            <th>Max.W/T</th>
+                                            <th>Pipe ID</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>MKR-P3</td>
+                                            <td>63</td>
+                                            <td>0.6</td>
+                                            <td>1.6</td>
+                                            <td>3.6</td>
+                                            <td>4.2</td>
+                                            <td>55.8</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P4</td>
+                                            <td>75</td>
+                                            <td>0.7</td>
+                                            <td>1.6</td>
+                                            <td>4.3</td>
+                                            <td>5.0</td>
+                                            <td>66.4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P5</td>
+                                            <td>90</td>
+                                            <td>0.9</td>
+                                            <td>1.8</td>
+                                            <td>5.1</td>
+                                            <td>5.9</td>
+                                            <td>79.8</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P6</td>
+                                            <td>110</td>
+                                            <td>0.9</td>
+                                            <td>2.2</td>
+                                            <td>6.3</td>
+                                            <td>7.2</td>
+                                            <td>97.4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P7</td>
+                                            <td>125</td>
+                                            <td>1.2</td>
+                                            <td>2.5</td>
+                                            <td>7.1</td>
+                                            <td>8.1</td>
+                                            <td>110.8</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P8</td>
+                                            <td>160</td>
+                                            <td>1.5</td>
+                                            <td>3.2</td>
+                                            <td>9.1</td>
+                                            <td>10.3</td>
+                                            <td>141.8</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P9</td>
+                                            <td>200</td>
+                                            <td>1.8</td>
+                                            <td>4.0</td>
+                                            <td>11.4</td>
+                                            <td>12.8</td>
+                                            <td>177.2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P10</td>
+                                            <td>250</td>
+                                            <td>2.3</td>
+                                            <td>5.0</td>
+                                            <td>14.2</td>
+                                            <td>15.9</td>
+                                            <td>221.6</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P11</td>
+                                            <td>315</td>
+                                            <td>2.5</td>
+                                            <td>11.1</td>
+                                            <td>17.9</td>
+                                            <td>19.9</td>
+                                            <td>279.2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P12</td>
+                                            <td>355</td>
+                                            <td>3.2</td>
+                                            <td>12.5</td>
+                                            <td>20.1</td>
+                                            <td>22.4</td>
+                                            <td>314.8</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P13</td>
+                                            <td>400</td>
+                                            <td>3.6</td>
+                                            <td>14.0</td>
+                                            <td>22.7</td>
+                                            <td>25.2</td>
+                                            <td>354.6</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P14</td>
+                                            <td>450</td>
+                                            <td>3.9</td>
+                                            <td>15.1</td>
+                                            <td>25.5</td>
+                                            <td>29.4</td>
+                                            <td>399.0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P15</td>
+                                            <td>500</td>
+                                            <td>4.1</td>
+                                            <td>15.9</td>
+                                            <td>28.4</td>
+                                            <td>32.5</td>
+                                            <td>443.2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P16</td>
+                                            <td>560</td>
+                                            <td>4.5</td>
+                                            <td>17.1</td>
+                                            <td>31.7</td>
+                                            <td>36.2</td>
+                                            <td>496.6</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P17</td>
+                                            <td>630</td>
+                                            <td>4.8</td>
+                                            <td>18.2</td>
+                                            <td>35.7</td>
+                                            <td>40.5</td>
+                                            <td>558.6</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="py-5">
+                            <h4 class="p-2">Triple Layer / Single Layer / PN-10 / SDR-11</h4>
+                            <div class="table-responsive p-2">
+                                <table class="table table-bordered table-hover spec-table">
+                                    <thead>
+                                        <tr>
+                                            <th rowspan="2">CODE</th>
+                                            <th rowspan="2">SIZE<br>(mm)</th>
+                                            <th rowspan="2">Tolerance<br>Only +</th>
+                                            <th rowspan="2">Ovality</th>
+                                            <th colspan="3" class="text-center">SDR-17.6/ PM-06</th>
+                                        </tr>
+                                        <tr class="sub-header">
+                                            <th>Min.W/T</th>
+                                            <th>Max.W/T</th>
+                                            <th>Pipe ID</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>MKR-P3</td>
+                                            <td>63</td>
+                                            <td>0.6</td>
+                                            <td>1.6</td>
+                                            <td>3.6</td>
+                                            <td>4.2</td>
+                                            <td>55.8</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P4</td>
+                                            <td>75</td>
+                                            <td>0.7</td>
+                                            <td>1.6</td>
+                                            <td>4.3</td>
+                                            <td>5.0</td>
+                                            <td>66.4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P5</td>
+                                            <td>90</td>
+                                            <td>0.9</td>
+                                            <td>1.8</td>
+                                            <td>5.1</td>
+                                            <td>5.9</td>
+                                            <td>79.8</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P6</td>
+                                            <td>110</td>
+                                            <td>0.9</td>
+                                            <td>2.2</td>
+                                            <td>6.3</td>
+                                            <td>7.2</td>
+                                            <td>97.4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P7</td>
+                                            <td>125</td>
+                                            <td>1.2</td>
+                                            <td>2.5</td>
+                                            <td>7.1</td>
+                                            <td>8.1</td>
+                                            <td>110.8</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P8</td>
+                                            <td>160</td>
+                                            <td>1.5</td>
+                                            <td>3.2</td>
+                                            <td>9.1</td>
+                                            <td>10.3</td>
+                                            <td>141.8</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P9</td>
+                                            <td>200</td>
+                                            <td>1.8</td>
+                                            <td>4.0</td>
+                                            <td>11.4</td>
+                                            <td>12.8</td>
+                                            <td>177.2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P10</td>
+                                            <td>250</td>
+                                            <td>2.3</td>
+                                            <td>5.0</td>
+                                            <td>14.2</td>
+                                            <td>15.9</td>
+                                            <td>221.6</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P11</td>
+                                            <td>315</td>
+                                            <td>2.5</td>
+                                            <td>11.1</td>
+                                            <td>17.9</td>
+                                            <td>19.9</td>
+                                            <td>279.2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P12</td>
+                                            <td>355</td>
+                                            <td>3.2</td>
+                                            <td>12.5</td>
+                                            <td>20.1</td>
+                                            <td>22.4</td>
+                                            <td>314.8</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P13</td>
+                                            <td>400</td>
+                                            <td>3.6</td>
+                                            <td>14.0</td>
+                                            <td>22.7</td>
+                                            <td>25.2</td>
+                                            <td>354.6</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P14</td>
+                                            <td>450</td>
+                                            <td>3.9</td>
+                                            <td>15.1</td>
+                                            <td>25.5</td>
+                                            <td>29.4</td>
+                                            <td>399.0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P15</td>
+                                            <td>500</td>
+                                            <td>4.1</td>
+                                            <td>15.9</td>
+                                            <td>28.4</td>
+                                            <td>32.5</td>
+                                            <td>443.2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P16</td>
+                                            <td>560</td>
+                                            <td>4.5</td>
+                                            <td>17.1</td>
+                                            <td>31.7</td>
+                                            <td>36.2</td>
+                                            <td>496.6</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P17</td>
+                                            <td>630</td>
+                                            <td>4.8</td>
+                                            <td>18.2</td>
+                                            <td>35.7</td>
+                                            <td>40.5</td>
+                                            <td>558.6</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="py-5">
+                            <h4 class="p-2">Triple Layer / Single Layer / PN-12.5 / SDR-09</h4>
+                            <div class="table-responsive p-2">
+                                <table class="table table-bordered table-hover spec-table">
+                                    <thead>
+                                        <tr>
+                                            <th rowspan="2">CODE</th>
+                                            <th rowspan="2">SIZE<br>(mm)</th>
+                                            <th rowspan="2">Tolerance<br>Only +</th>
+                                            <th rowspan="2">Ovality</th>
+                                            <th colspan="3" class="text-center">SDR-17.6/ PM-06</th>
+                                        </tr>
+                                        <tr class="sub-header">
+                                            <th>Min.W/T</th>
+                                            <th>Max.W/T</th>
+                                            <th>Pipe ID</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>MKR-P3</td>
+                                            <td>63</td>
+                                            <td>0.6</td>
+                                            <td>1.6</td>
+                                            <td>3.6</td>
+                                            <td>4.2</td>
+                                            <td>55.8</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P4</td>
+                                            <td>75</td>
+                                            <td>0.7</td>
+                                            <td>1.6</td>
+                                            <td>4.3</td>
+                                            <td>5.0</td>
+                                            <td>66.4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P5</td>
+                                            <td>90</td>
+                                            <td>0.9</td>
+                                            <td>1.8</td>
+                                            <td>5.1</td>
+                                            <td>5.9</td>
+                                            <td>79.8</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P6</td>
+                                            <td>110</td>
+                                            <td>0.9</td>
+                                            <td>2.2</td>
+                                            <td>6.3</td>
+                                            <td>7.2</td>
+                                            <td>97.4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P7</td>
+                                            <td>125</td>
+                                            <td>1.2</td>
+                                            <td>2.5</td>
+                                            <td>7.1</td>
+                                            <td>8.1</td>
+                                            <td>110.8</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P8</td>
+                                            <td>160</td>
+                                            <td>1.5</td>
+                                            <td>3.2</td>
+                                            <td>9.1</td>
+                                            <td>10.3</td>
+                                            <td>141.8</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P9</td>
+                                            <td>200</td>
+                                            <td>1.8</td>
+                                            <td>4.0</td>
+                                            <td>11.4</td>
+                                            <td>12.8</td>
+                                            <td>177.2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P10</td>
+                                            <td>250</td>
+                                            <td>2.3</td>
+                                            <td>5.0</td>
+                                            <td>14.2</td>
+                                            <td>15.9</td>
+                                            <td>221.6</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P11</td>
+                                            <td>315</td>
+                                            <td>2.5</td>
+                                            <td>11.1</td>
+                                            <td>17.9</td>
+                                            <td>19.9</td>
+                                            <td>279.2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P12</td>
+                                            <td>355</td>
+                                            <td>3.2</td>
+                                            <td>12.5</td>
+                                            <td>20.1</td>
+                                            <td>22.4</td>
+                                            <td>314.8</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P13</td>
+                                            <td>400</td>
+                                            <td>3.6</td>
+                                            <td>14.0</td>
+                                            <td>22.7</td>
+                                            <td>25.2</td>
+                                            <td>354.6</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P14</td>
+                                            <td>450</td>
+                                            <td>3.9</td>
+                                            <td>15.1</td>
+                                            <td>25.5</td>
+                                            <td>29.4</td>
+                                            <td>399.0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P15</td>
+                                            <td>500</td>
+                                            <td>4.1</td>
+                                            <td>15.9</td>
+                                            <td>28.4</td>
+                                            <td>32.5</td>
+                                            <td>443.2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P16</td>
+                                            <td>560</td>
+                                            <td>4.5</td>
+                                            <td>17.1</td>
+                                            <td>31.7</td>
+                                            <td>36.2</td>
+                                            <td>496.6</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P17</td>
+                                            <td>630</td>
+                                            <td>4.8</td>
+                                            <td>18.2</td>
+                                            <td>35.7</td>
+                                            <td>40.5</td>
+                                            <td>558.6</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="py-5">
+                            <h4 class="p-2">Triple Layer / Single Layer / PN-16 / SDR-7.4</h4>
+                            <div class="table-responsive p-2">
+                                <table class="table table-bordered table-hover spec-table">
+                                    <thead>
+                                        <tr>
+                                            <th rowspan="2">CODE</th>
+                                            <th rowspan="2">SIZE<br>(mm)</th>
+                                            <th rowspan="2">Tolerance<br>Only +</th>
+                                            <th rowspan="2">Ovality</th>
+                                            <th colspan="3" class="text-center">SDR-17.6/ PM-06</th>
+                                        </tr>
+                                        <tr class="sub-header">
+                                            <th>Min.W/T</th>
+                                            <th>Max.W/T</th>
+                                            <th>Pipe ID</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>MKR-P3</td>
+                                            <td>63</td>
+                                            <td>0.6</td>
+                                            <td>1.6</td>
+                                            <td>3.6</td>
+                                            <td>4.2</td>
+                                            <td>55.8</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P4</td>
+                                            <td>75</td>
+                                            <td>0.7</td>
+                                            <td>1.6</td>
+                                            <td>4.3</td>
+                                            <td>5.0</td>
+                                            <td>66.4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P5</td>
+                                            <td>90</td>
+                                            <td>0.9</td>
+                                            <td>1.8</td>
+                                            <td>5.1</td>
+                                            <td>5.9</td>
+                                            <td>79.8</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P6</td>
+                                            <td>110</td>
+                                            <td>0.9</td>
+                                            <td>2.2</td>
+                                            <td>6.3</td>
+                                            <td>7.2</td>
+                                            <td>97.4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P7</td>
+                                            <td>125</td>
+                                            <td>1.2</td>
+                                            <td>2.5</td>
+                                            <td>7.1</td>
+                                            <td>8.1</td>
+                                            <td>110.8</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P8</td>
+                                            <td>160</td>
+                                            <td>1.5</td>
+                                            <td>3.2</td>
+                                            <td>9.1</td>
+                                            <td>10.3</td>
+                                            <td>141.8</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P9</td>
+                                            <td>200</td>
+                                            <td>1.8</td>
+                                            <td>4.0</td>
+                                            <td>11.4</td>
+                                            <td>12.8</td>
+                                            <td>177.2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P10</td>
+                                            <td>250</td>
+                                            <td>2.3</td>
+                                            <td>5.0</td>
+                                            <td>14.2</td>
+                                            <td>15.9</td>
+                                            <td>221.6</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P11</td>
+                                            <td>315</td>
+                                            <td>2.5</td>
+                                            <td>11.1</td>
+                                            <td>17.9</td>
+                                            <td>19.9</td>
+                                            <td>279.2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P12</td>
+                                            <td>355</td>
+                                            <td>3.2</td>
+                                            <td>12.5</td>
+                                            <td>20.1</td>
+                                            <td>22.4</td>
+                                            <td>314.8</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P13</td>
+                                            <td>400</td>
+                                            <td>3.6</td>
+                                            <td>14.0</td>
+                                            <td>22.7</td>
+                                            <td>25.2</td>
+                                            <td>354.6</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P14</td>
+                                            <td>450</td>
+                                            <td>3.9</td>
+                                            <td>15.1</td>
+                                            <td>25.5</td>
+                                            <td>29.4</td>
+                                            <td>399.0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P15</td>
+                                            <td>500</td>
+                                            <td>4.1</td>
+                                            <td>15.9</td>
+                                            <td>28.4</td>
+                                            <td>32.5</td>
+                                            <td>443.2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P16</td>
+                                            <td>560</td>
+                                            <td>4.5</td>
+                                            <td>17.1</td>
+                                            <td>31.7</td>
+                                            <td>36.2</td>
+                                            <td>496.6</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P17</td>
+                                            <td>630</td>
+                                            <td>4.8</td>
+                                            <td>18.2</td>
+                                            <td>35.7</td>
+                                            <td>40.5</td>
+                                            <td>558.6</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="py-5">
+                            <h4 class="p-2">Triple Layer / Single Layer /PN-20 / SDR-6</h4>
+                            <div class="table-responsive p-2">
+                                <table class="table table-bordered table-hover spec-table">
+                                    <thead>
+                                        <tr>
+                                            <th rowspan="2">CODE</th>
+                                            <th rowspan="2">SIZE<br>(mm)</th>
+                                            <th rowspan="2">Tolerance<br>Only +</th>
+                                            <th rowspan="2">Ovality</th>
+                                            <th colspan="3" class="text-center">SDR-17.6/ PM-06</th>
+                                        </tr>
+                                        <tr class="sub-header">
+                                            <th>Min.W/T</th>
+                                            <th>Max.W/T</th>
+                                            <th>Pipe ID</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>MKR-P3</td>
+                                            <td>63</td>
+                                            <td>0.6</td>
+                                            <td>1.6</td>
+                                            <td>3.6</td>
+                                            <td>4.2</td>
+                                            <td>55.8</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P4</td>
+                                            <td>75</td>
+                                            <td>0.7</td>
+                                            <td>1.6</td>
+                                            <td>4.3</td>
+                                            <td>5.0</td>
+                                            <td>66.4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P5</td>
+                                            <td>90</td>
+                                            <td>0.9</td>
+                                            <td>1.8</td>
+                                            <td>5.1</td>
+                                            <td>5.9</td>
+                                            <td>79.8</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P6</td>
+                                            <td>110</td>
+                                            <td>0.9</td>
+                                            <td>2.2</td>
+                                            <td>6.3</td>
+                                            <td>7.2</td>
+                                            <td>97.4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P7</td>
+                                            <td>125</td>
+                                            <td>1.2</td>
+                                            <td>2.5</td>
+                                            <td>7.1</td>
+                                            <td>8.1</td>
+                                            <td>110.8</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P8</td>
+                                            <td>160</td>
+                                            <td>1.5</td>
+                                            <td>3.2</td>
+                                            <td>9.1</td>
+                                            <td>10.3</td>
+                                            <td>141.8</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P9</td>
+                                            <td>200</td>
+                                            <td>1.8</td>
+                                            <td>4.0</td>
+                                            <td>11.4</td>
+                                            <td>12.8</td>
+                                            <td>177.2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P10</td>
+                                            <td>250</td>
+                                            <td>2.3</td>
+                                            <td>5.0</td>
+                                            <td>14.2</td>
+                                            <td>15.9</td>
+                                            <td>221.6</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P11</td>
+                                            <td>315</td>
+                                            <td>2.5</td>
+                                            <td>11.1</td>
+                                            <td>17.9</td>
+                                            <td>19.9</td>
+                                            <td>279.2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P12</td>
+                                            <td>355</td>
+                                            <td>3.2</td>
+                                            <td>12.5</td>
+                                            <td>20.1</td>
+                                            <td>22.4</td>
+                                            <td>314.8</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P13</td>
+                                            <td>400</td>
+                                            <td>3.6</td>
+                                            <td>14.0</td>
+                                            <td>22.7</td>
+                                            <td>25.2</td>
+                                            <td>354.6</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P14</td>
+                                            <td>450</td>
+                                            <td>3.9</td>
+                                            <td>15.1</td>
+                                            <td>25.5</td>
+                                            <td>29.4</td>
+                                            <td>399.0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P15</td>
+                                            <td>500</td>
+                                            <td>4.1</td>
+                                            <td>15.9</td>
+                                            <td>28.4</td>
+                                            <td>32.5</td>
+                                            <td>443.2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P16</td>
+                                            <td>560</td>
+                                            <td>4.5</td>
+                                            <td>17.1</td>
+                                            <td>31.7</td>
+                                            <td>36.2</td>
+                                            <td>496.6</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MKR-P17</td>
+                                            <td>630</td>
+                                            <td>4.8</td>
+                                            <td>18.2</td>
+                                            <td>35.7</td>
+                                            <td>40.5</td>
+                                            <td>558.6</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
 
-                        <div class="">
-                            <h4>PN-10 / SDR-11</h4>
-                            <table class="spec-table">
-                                <thead>
-                                    <tr>
-                                        <th>CODE</th>
-                                        <th>SIZE(mm)</th>
-                                        <th>Min. W/T</th>
-                                        <th>Max. W/T</th>
-                                        <th>Pipe ID</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>MKR-P20</td>
-                                        <td>20</td>
-                                        <td>1.9</td>
-                                        <td>2.3</td>
-                                        <td>16.2</td>
-                                    </tr>
-                                    <tr>
-                                        <td>MKR-P21</td>
-                                        <td>25</td>
-                                        <td>2.3</td>
-                                        <td>2.8</td>
-                                        <td>20.4</td>
-                                    </tr>
-                                    <tr>
-                                        <td>MKR-P22</td>
-                                        <td>32</td>
-                                        <td>2.9</td>
-                                        <td>3.4</td>
-                                        <td>26.2</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
 
-                        <div class="">
-                            <h4>PN-12.5 / SDR-09</h4>
-                            <table class="spec-table">
-                                <thead>
-                                    <tr>
-                                        <th>CODE</th>
-                                        <th>SIZE(mm)</th>
-                                        <th>Min. W/T</th>
-                                        <th>Max. W/T</th>
-                                        <th>Pipe ID</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>MKR-P40</td>
-                                        <td>20</td>
-                                        <td>2.3</td>
-                                        <td>2.8</td>
-                                        <td>15.4</td>
-                                    </tr>
-                                    <tr>
-                                        <td>MKR-P41</td>
-                                        <td>25</td>
-                                        <td>2.8</td>
-                                        <td>3.3</td>
-                                        <td>19.4</td>
-                                    </tr>
-                                    <tr>
-                                        <td>MKR-P42</td>
-                                        <td>32</td>
-                                        <td>3.6</td>
-                                        <td>4.2</td>
-                                        <td>24.8</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="">
-                            <h4>PN-16 / SDR-7.4</h4>
-                            <table class="spec-table">
-                                <thead>
-                                    <tr>
-                                        <th>CODE</th>
-                                        <th>SIZE(mm)</th>
-                                        <th>Min. W/T</th>
-                                        <th>Max. W/T</th>
-                                        <th>Pipe ID</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>MKR-P57</td>
-                                        <td>20</td>
-                                        <td>2.8</td>
-                                        <td>3.3</td>
-                                        <td>14.4</td>
-                                    </tr>
-                                    <tr>
-                                        <td>MKR-P58</td>
-                                        <td>25</td>
-                                        <td>3.5</td>
-                                        <td>4.1</td>
-                                        <td>18.0</td>
-                                    </tr>
-                                    <tr>
-                                        <td>MKR-P59</td>
-                                        <td>32</td>
-                                        <td>4.4</td>
-                                        <td>5.1</td>
-                                        <td>23.2</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="">
-                            <h4>PN-20 / SDR-6</h4>
-                            <table class="spec-table">
-                                <thead>
-                                    <tr>
-                                        <th>CODE</th>
-                                        <th>SIZE(mm)</th>
-                                        <th>Min. W/T</th>
-                                        <th>Max. W/T</th>
-                                        <th>Pipe ID</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>MKR-P67</td>
-                                        <td>20</td>
-                                        <td>3.4</td>
-                                        <td>4.0</td>
-                                        <td>13.2</td>
-                                    </tr>
-                                    <tr>
-                                        <td>MKR-P68</td>
-                                        <td>25</td>
-                                        <td>4.2</td>
-                                        <td>4.9</td>
-                                        <td>16.6</td>
-                                    </tr>
-                                    <tr>
-                                        <td>MKR-P69</td>
-                                        <td>32</td>
-                                        <td>5.4</td>
-                                        <td>6.2</td>
-                                        <td>21.2</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
                     </div>
                 </div>
 
@@ -1095,38 +1706,38 @@
     </script>
 
     <!-- Jquery Library File -->
-    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
     <!-- Bootstrap js file -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
     <!-- Validator js file -->
-    <script src="js/validator.min.js"></script>
+    <script src="assets/js/validator.min.js"></script>
     <!-- SlickNav js file -->
-    <script src="js/jquery.slicknav.js"></script>
+    <script src="assets/js/jquery.slicknav.js"></script>
     <!-- Swiper js file -->
-    <script src="js/swiper-bundle.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
     <!-- Counter js file -->
-    <script src="js/jquery.waypoints.min.js"></script>
-    <script src="js/jquery.counterup.min.js"></script>
+    <script src="assets/js/jquery.waypoints.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
     <!-- Isotop js file -->
-    <script src="js/isotope.min.js"></script>
+    <script src="assets/js/isotope.min.js"></script>
     <!-- Magnific js file -->
-    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
     <!-- SmoothScroll -->
-    <script src="js/SmoothScroll.js"></script>
+    <script src="assets/js/SmoothScroll.js"></script>
     <!-- Parallax js -->
-    <script src="js/parallaxie.js"></script>
+    <script src="assets/js/parallaxie.js"></script>
     <!-- MagicCursor js file -->
-    <script src="js/gsap.min.js"></script>
-    <script src="js/magiccursor.js"></script>
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/magiccursor.js"></script>
     <!-- Text Effect js file -->
-    <script src="js/SplitText.js"></script>
-    <script src="js/ScrollTrigger.min.js"></script>
+    <script src="assets/js/SplitText.js"></script>
+    <script src="assets/js/ScrollTrigger.min.js"></script>
     <!-- YTPlayer js File -->
-    <script src="js/jquery.mb.YTPlayer.min.js"></script>
+    <script src="assets/js/jquery.mb.YTPlayer.min.js"></script>
     <!-- Wow js file -->
-    <script src="js/wow.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
     <!-- Main Custom js file -->
-    <script src="js/function.js"></script>
+    <script src="assets/js/function.js"></script>
 </body>
 
 </html>
