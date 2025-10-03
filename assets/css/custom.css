@@ -5891,7 +5891,7 @@ header.main-header .header-sticky.active .navbar {
 
 /* Code column styling */
 .table tbody td:nth-child(2) {
-    font-family: 'Courier New', monospace;
+    /* font-family: 'Courier New', monospace; */
     font-weight: 500;
     color: #2c3e50;
 }
