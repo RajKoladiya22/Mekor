@@ -41,6 +41,9 @@
     <!-- include SweetAlert2 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script
+        src="https://www.google.com/recaptcha/enterprise.js?render=6Ldh_OArAAAAAMSENJmCtiWEQRywiHR7ReiBqFfm"></script>
 </head>
 
 <body>
@@ -217,7 +220,7 @@
                     title: 'Mek Green',
                     description: 'Advanced eco-friendly pipes designed for maximum efficiency and environmental sustainability.',
                     image: 'assets/images/service-1.jpg',
-logo: 'assets/images/logos/green-logo.png',
+                    logo: 'assets/images/logos/green-logo.png',
                     features: ['Environmentally sustainable', 'High-performance efficiency', 'Energy-saving operation', 'Durable construction'],
                     link: 'mek-green.html',
                     colorClass: 'mek-green'
@@ -226,7 +229,7 @@ logo: 'assets/images/logos/green-logo.png',
                     title: 'Mek Red',
                     description: 'Robust fire-resistant piping system engineered for safety and reliability in critical applications.',
                     image: 'assets/images/service-2.jpg',
-logo: 'assets/images/logos/red-logo.png',
+                    logo: 'assets/images/logos/red-logo.png',
                     features: ['Superior fire resistance', 'High-pressure tolerance', 'Corrosion-proof materials', 'Certified for safety'],
                     link: 'mek-red.html',
                     colorClass: 'mek-red'
@@ -234,7 +237,7 @@ logo: 'assets/images/logos/red-logo.png',
                 blue: {
                     title: 'Mek Blue',
                     description: 'High-performance pneumatic piping system built for clean air delivery and industrial automation.',
-                    image: 'assets/images/service-2.jpg',image: 'assets/images/service-3.jpg',logo: 'assets/images/logos/blue-logo.png',
+                    image: 'assets/images/service-2.jpg', image: 'assets/images/service-3.jpg', logo: 'assets/images/logos/blue-logo.png',
                     features: ['Leak-proof design', 'Low friction for high flow', 'Resistant to compressor oils', 'Quick installation'],
                     link: 'mek-blue.html',
                     colorClass: 'mek-blue'
@@ -410,13 +413,26 @@ logo: 'assets/images/logos/red-logo.png',
                                         }
                                     </style>
                                     <div class="col-md-12">
-                                        <button type="submit" class="btn-default" id="submitBtn" aria-live="polite"
-                                            aria-busy="false">
+                                        <button 
+                                        type="submit" 
+                                        class="g-recaptcha btn-default" 
+                                        id="submitBtn" 
+                                        aria-live="polite"
+                                        aria-busy="false"
+                                        data-sitekey="6Ldh_OArAAAAAMSENJmCtiWEQRywiHR7ReiBqFfm"
+                                        data-callback='onSubmit'
+                                        data-action='submit'
+                                        >
                                             <span class="btn-text">Submit</span>
                                             <span class="btn-spinner hidden" id="btnSpinner" aria-hidden="true"></span>
                                         </button>
                                         <div id="msgSubmit" class="h3 hidden" aria-hidden="true"></div>
                                     </div>
+                                     
+                                    <div class="p-2">
+                                        <div class="g-recaptcha" data-sitekey="6Ldh_OArAAAAAMSENJmCtiWEQRywiHR7ReiBqFfm"></div>
+                                    </div>
+                                    
                                 </div>
                             </form>
                             <script>
@@ -533,8 +549,8 @@ logo: 'assets/images/logos/red-logo.png',
                     <div class="section-title">
                         <h3 class="wow fadeInUp">our contact</h3>
                         <h2 class="text-anime-style-2" data-cursor="-opaque">Get in touch with <span>
-                                    <img src="assets/img/logo.png" alt="M" class="logo-in-text">ekor Pipes
-                                </span>
+                                <img src="assets/img/logo.png" alt="M" class="logo-in-text">ekor Pipes
+                            </span>
                         </h2>
                         <p class="wow fadeInUp" data-wow-delay="0.2s">
                             Reach out to discuss your project requirements or product inquiries. Call us, send us an
@@ -846,6 +862,14 @@ logo: 'assets/images/logos/red-logo.png',
         aria-label="Chat on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
+    <script>
+        function onClick(e) {
+            e.preventDefault();
+            grecaptcha.enterprise.ready(async () => {
+                const token = await grecaptcha.enterprise.execute('6Ldh_OArAAAAAMSENJmCtiWEQRywiHR7ReiBqFfm', { action: 'LOGIN' });
+            });
+        }
+    </script>
 
     <script>
 
